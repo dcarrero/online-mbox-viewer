@@ -1,0 +1,4 @@
+# Configuración de Cloudflare Pages — sitio 100% estático (sin Functions).
+name = "onlinemboxviewer"
+compatibility_date = "2025-06-01"
+pages_build_output_dir = "dist"

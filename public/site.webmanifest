@@ -1,0 +1,14 @@
+{
+  "name": "Online Mbox Viewer",
+  "short_name": "Mbox Viewer",
+  "description": "Read .mbox email archives online — free, private, 100% in your browser. Nothing is uploaded.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "browser",
+  "background_color": "#0b0e14",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "/icon-128.png", "sizes": "128x128", "type": "image/png" },
+    { "src": "/icon-256.png", "sizes": "256x256", "type": "image/png" }
+  ]
+}

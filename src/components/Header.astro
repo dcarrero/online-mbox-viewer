@@ -1,0 +1,114 @@
+---
+import { useTranslations, routePath, type Locale } from "@/i18n/utils";
+import ThemeToggle from "./ThemeToggle.astro";
+import LanguagePicker from "./LanguagePicker.astro";
+import DesktopButton from "./DesktopButton.astro";
+import Logo from "./Logo.astro";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const rp = (key: Parameters<typeof routePath>[0]) => routePath(key, locale);
+
+const nav = [
+  { label: t("nav.viewer"), href: rp("home") },
+  { label: t("nav.how_to"), href: rp("how-to") },
+  { label: t("nav.compare"), href: rp("compare") },
+  { label: t("nav.faq"), href: rp("faq") },
+];
+const path = Astro.url.pathname;
+---
+
+<header
+  class="sticky top-0 z-40 border-b border-ink-100/70 bg-white/80 backdrop-blur-xl dark:border-ink-800/70 dark:bg-ink-950/80"
+>
+  <div class="container-page flex h-16 items-center justify-between gap-4">
+    <!-- Logo -->
+    <a
+      href={rp("home")}
+      class="flex shrink-0 items-center gap-2.5 font-semibold tracking-tight text-ink-900 dark:text-white"
+    >
+      <Logo class="h-7 w-7" />
+      <span>Online&nbsp;Mbox&nbsp;Viewer</span>
+    </a>
+
+    <!-- Nav desktop -->
+    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+      {
+        nav.map((item) => {
+          const active = path === item.href;
+          return (
+            <a
+              href={item.href}
+              aria-current={active ? "page" : undefined}
+              class:list={[
+                "rounded-full px-3 py-2 text-sm font-medium transition-colors",
+                active
+                  ? "text-brand-600 dark:text-brand-300"
+                  : "text-ink-600 hover:text-ink-900 dark:text-ink-300 dark:hover:text-white",
+              ]}
+            >
+              {item.label}
+            </a>
+          );
+        })
+      }
+    </nav>
+
+    <!-- Acciones -->
+    <div class="flex items-center gap-2">
+      <div class="hidden sm:block"><LanguagePicker locale={locale} /></div>
+      <ThemeToggle locale={locale} />
+      <div class="sm:hidden"><LanguagePicker locale={locale} /></div>
+      <div class="hidden lg:block">
+        <DesktopButton label={t("nav.desktop")} class="!px-4 !py-2 text-sm" />
+      </div>
+      <!-- Botón menú móvil -->
+      <button
+        type="button"
+        id="mobile-menu-btn"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 text-ink-600 md:hidden dark:border-ink-700 dark:text-ink-300"
+        aria-label={t("common.menu")}
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+      >
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" class="h-5 w-5">
+          <path d="M4 7h16M4 12h16M4 17h16" stroke-linecap="round"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menú móvil -->
+  <div
+    id="mobile-menu"
+    class="hidden border-t border-ink-100 bg-white px-5 py-4 md:hidden dark:border-ink-800 dark:bg-ink-950"
+  >
+    <nav class="flex flex-col gap-1" aria-label="Mobile">
+      {
+        nav.map((item) => (
+          <a
+            href={item.href}
+            class="rounded-lg px-3 py-2.5 text-base font-medium text-ink-700 hover:bg-ink-50 dark:text-ink-200 dark:hover:bg-ink-800"
+          >
+            {item.label}
+          </a>
+        ))
+      }
+    </nav>
+    <div class="mt-4">
+      <DesktopButton label={t("nav.desktop")} class="w-full justify-center" />
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+  btn?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden");
+    btn.setAttribute("aria-expanded", open ? "false" : "true");
+  });
+</script>

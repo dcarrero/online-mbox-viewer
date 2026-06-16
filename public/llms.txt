@@ -1,0 +1,22 @@
+# Online Mbox Viewer
+
+> A free, private, browser-based viewer for .mbox email archives. Your file is
+> read entirely in your browser — nothing is uploaded to any server.
+
+## What it is
+- A static website (Astro) that reads MBOX/EML files 100% client-side.
+- File size limit in the browser: 25 MB. For larger archives, the native
+  desktop app "Mbox Viewer" for Mac (Windows coming soon) is recommended.
+- Privacy by design: HTML is sanitized, remote images blocked by default,
+  nothing leaves the device.
+
+## Key pages
+- / — the online viewer (drop a .mbox file and read it)
+- /how-to-open-mbox/ — guide to opening .mbox files and exporting them
+- /compare/ — online viewer vs the desktop app
+- /faq/ — frequently asked questions
+- /privacy/ , /terms/ — legal
+
+## Project
+- Open source, MIT License. Author: David Carrero Fernández-Baillo — https://carrero.es
+- Desktop app: https://mboxviewer.net

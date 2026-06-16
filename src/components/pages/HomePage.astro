@@ -1,0 +1,427 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Icon from "@/components/Icon.astro";
+import DesktopButton from "@/components/DesktopButton.astro";
+import { SITE } from "@/lib/site";
+import { useTranslations, routePath, type Locale } from "@/i18n/utils";
+import { LOCALE_META } from "@/i18n/config";
+import { viewerCopy } from "@/data/viewer";
+import { homeCopy } from "@/data/home";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const max = SITE.webViewerMaxMB;
+
+const c = viewerCopy(locale, max);
+const h = homeCopy(locale);
+
+// Strings que consume el script en runtime (inyectadas como JSON).
+const runtime = {
+  locale: LOCALE_META[locale].htmlLang,
+  maxMb: max,
+  loading: c.loading,
+  tooLarge: c.tooLarge,
+  empty: c.empty,
+  error: c.error,
+  noSubject: c.noSubject,
+  noSender: c.noSender,
+  messages: c.messages,
+  dateUnknown: c.dateUnknown,
+  showImages: c.showImages,
+  imagesBlocked: c.imagesBlocked,
+  attachments: c.attachments,
+  from: c.from,
+  to: c.to,
+  date: c.date,
+  allLabels: c.allLabels,
+};
+
+const schema = [
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    name: SITE.name,
+    applicationCategory: "UtilitiesApplication",
+    operatingSystem: "Any",
+    browserRequirements: "Requires JavaScript and a modern browser",
+    url: SITE.url + "/",
+    offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+    isAccessibleForFree: true,
+    author: { "@type": "Person", name: SITE.author, url: SITE.authorUrl },
+  },
+];
+---
+
+<BaseLayout locale={locale} title={c.metaTitle} description={c.metaDescription} schema={schema}>
+  <script type="application/json" id="mbox-i18n" set:html={JSON.stringify(runtime)} is:inline />
+
+  <section class="container-page pt-16 pb-12 sm:pt-20">
+    <div class="mx-auto max-w-3xl text-center">
+      <h1 class="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl dark:text-white">
+        {c.title}
+      </h1>
+      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink-600 dark:text-ink-300">
+        {c.subtitle}
+      </p>
+      <p
+        class="pill mx-auto mt-6 border-brand-200 bg-brand-50 text-brand-700 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-300"
+      >
+        <Icon name="lock" class="h-4 w-4" />
+        {c.privacy}
+      </p>
+    </div>
+
+    <!-- Aviso solo en móvil: el visor está pensado para pantallas grandes -->
+    <p
+      class="mx-auto mt-8 max-w-2xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 sm:hidden dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+    >
+      {c.mobileNote}
+    </p>
+
+    <!-- Intro / dropzone -->
+    <div id="mbox-intro" class="mx-auto mt-10 max-w-2xl">
+      <div
+        id="mbox-dropzone"
+        role="button"
+        tabindex="0"
+        aria-label={c.dropTitle}
+        class="mbox-dropzone flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-ink-200 bg-ink-50/40 px-6 py-16 text-center transition-colors hover:border-brand-400 hover:bg-brand-50/40 dark:border-ink-700 dark:bg-ink-900/40 dark:hover:border-brand-600"
+      >
+        <Icon name="upload" class="h-10 w-10 text-brand-500" />
+        <p class="mt-4 text-lg font-semibold text-ink-900 dark:text-white">{c.dropTitle}</p>
+        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{c.dropHint}</p>
+        <p class="mt-4 text-xs font-medium uppercase tracking-wider text-ink-400">{c.dropNote}</p>
+        <input id="mbox-file" type="file" accept=".mbox,.txt,application/mbox,message/rfc822" hidden />
+      </div>
+      <p
+        id="mbox-error"
+        class="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
+        hidden
+      >
+      </p>
+    </div>
+
+    <!-- App -->
+    <div id="mbox-app" class="mt-8" hidden>
+      <div
+        class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-ink-100 bg-white px-4 py-3 dark:border-ink-800 dark:bg-ink-950"
+      >
+        <div class="min-w-0">
+          <p id="mbox-filename" class="truncate text-sm font-semibold text-ink-900 dark:text-white"></p>
+          <p id="mbox-count" class="text-xs text-ink-500 dark:text-ink-400"></p>
+        </div>
+        <div class="flex items-center gap-2">
+          <div id="mbox-filter-wrap" hidden>
+            <label class="sr-only" for="mbox-filter">{c.allLabels}</label>
+            <select
+              id="mbox-filter"
+              class="rounded-lg border border-ink-200 bg-white px-3 py-2 text-sm text-ink-700 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200"
+            >
+            </select>
+          </div>
+          <button type="button" data-mbox-open class="btn-ghost !px-4 !py-2 text-sm">
+            {c.openAnother}
+          </button>
+        </div>
+      </div>
+
+      <div class="grid gap-4 lg:grid-cols-[minmax(0,22rem)_1fr]">
+        <aside
+          class="max-h-[70vh] overflow-y-auto rounded-xl border border-ink-100 bg-white dark:border-ink-800 dark:bg-ink-950"
+        >
+          <ul id="mbox-list" class="divide-y divide-ink-100 dark:divide-ink-800"></ul>
+        </aside>
+        <section
+          id="mbox-reader"
+          class="min-h-[70vh] overflow-hidden rounded-xl border border-ink-100 bg-white dark:border-ink-800 dark:bg-ink-950"
+        >
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cómo funciona / privacidad (3 pasos) -->
+  <section class="container-page pb-8">
+    <div class="mx-auto max-w-4xl">
+      <h2 class="text-center text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl dark:text-white">
+        {h.stepsTitle}
+      </h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+        {
+          h.steps.map((s, i) => (
+            <div class="card" data-reveal style={`--reveal-delay:${i * 80}ms`}>
+              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-600 dark:bg-brand-900/40 dark:text-brand-300">
+                {i + 1}
+              </span>
+              <h3 class="mt-4 text-lg font-semibold text-ink-900 dark:text-white">{s.title}</h3>
+              <p class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">{s.body}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Bloque de publicidad: app de escritorio -->
+  <section class="container-page py-12">
+    <div
+      class="mx-auto flex max-w-4xl flex-col items-center gap-5 rounded-3xl border border-ink-800 bg-ink-950 px-6 py-12 text-center sm:px-12"
+    >
+      <span
+        class="pill border-ink-700 bg-ink-900 text-ink-300"
+      >
+        <Icon name="apple" class="h-4 w-4" />{SITE.desktopName} · {SITE.minMacOS}
+      </span>
+      <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{c.desktopTitle}</h2>
+      <p class="max-w-xl text-ink-300">{c.desktopBody}</p>
+      <ul class="mx-auto flex max-w-lg flex-col gap-2 text-left text-sm text-ink-300">
+        {
+          h.desktopPoints.map((p) => (
+            <li class="flex items-start gap-2">
+              <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+              <span>{p}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <div class="mt-2 flex flex-wrap items-center justify-center gap-3">
+        <DesktopButton label={t("cta.appstore_short")} variant="brand" class="!px-6 !py-3 text-base" />
+        <a
+          href={SITE.desktopUrl}
+          target="_blank"
+          rel="noopener"
+          class="btn-ghost !border-ink-700 !bg-transparent !text-ink-200 hover:!bg-ink-900 !px-6 !py-3 text-base"
+        >
+          {SITE.desktopName} · {SITE.domain.replace("onlinemboxviewer.com", "mboxviewer.net")}
+          <Icon name="external" class="h-4 w-4 opacity-70" />
+        </a>
+      </div>
+      <p class="text-xs text-ink-500">
+        <Icon name="windows" class="mr-1 inline h-3.5 w-3.5 align-text-bottom" />{t("cta.windows_soon")}
+      </p>
+    </div>
+  </section>
+
+  <!-- Enlaces a páginas SEO -->
+  <section class="container-page pb-24">
+    <div class="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
+      <a href={routePath("how-to", locale)} class="card card-hover">
+        <Icon name="bolt" class="h-6 w-6 text-brand-500" />
+        <h3 class="mt-3 font-semibold text-ink-900 dark:text-white">{h.linkHowTo}</h3>
+        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{h.linkHowToDesc}</p>
+      </a>
+      <a href={routePath("compare", locale)} class="card card-hover">
+        <Icon name="layers" class="h-6 w-6 text-brand-500" />
+        <h3 class="mt-3 font-semibold text-ink-900 dark:text-white">{h.linkCompare}</h3>
+        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{h.linkCompareDesc}</p>
+      </a>
+      <a href={routePath("faq", locale)} class="card card-hover">
+        <Icon name="shield" class="h-6 w-6 text-brand-500" />
+        <h3 class="mt-3 font-semibold text-ink-900 dark:text-white">{h.linkFaq}</h3>
+        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{h.linkFaqDesc}</p>
+      </a>
+    </div>
+  </section>
+
+  <script>
+    import "@/scripts/mbox-viewer.ts";
+  </script>
+
+  <style is:global>
+    #mbox-dropzone.is-drag {
+      border-color: var(--color-brand-500);
+      background: color-mix(in oklab, var(--color-brand-500) 10%, transparent);
+    }
+    .mbox-item {
+      display: block;
+      width: 100%;
+      padding: 0.75rem 1rem;
+      text-align: left;
+      cursor: pointer;
+      background: transparent;
+      border: 0;
+    }
+    .mbox-item:hover {
+      background: color-mix(in oklab, var(--color-brand-500) 7%, transparent);
+    }
+    .mbox-item[aria-current="true"] {
+      background: color-mix(in oklab, var(--color-brand-500) 12%, transparent);
+    }
+    .mbox-item-sender {
+      display: block;
+      font-weight: 600;
+      font-size: 0.875rem;
+      color: var(--color-ink-900);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .mbox-item-subject {
+      display: block;
+      font-size: 0.8125rem;
+      color: var(--color-ink-600);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .mbox-item-date {
+      display: block;
+      margin-top: 0.125rem;
+      font-size: 0.6875rem;
+      color: var(--color-ink-400);
+    }
+    .dark .mbox-item-sender {
+      color: #fff;
+    }
+    .dark .mbox-item-subject {
+      color: var(--color-ink-300);
+    }
+    .mbox-message {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .mbox-msg-head {
+      padding: 1rem 1.25rem;
+      border-bottom: 1px solid var(--color-ink-100);
+    }
+    .dark .mbox-msg-head {
+      border-color: var(--color-ink-800);
+    }
+    .mbox-msg-subject {
+      font-size: 1.125rem;
+      font-weight: 700;
+      color: var(--color-ink-900);
+    }
+    .dark .mbox-msg-subject {
+      color: #fff;
+    }
+    .mbox-msg-meta {
+      margin-top: 0.5rem;
+      font-size: 0.8125rem;
+    }
+    .mbox-msg-meta > div {
+      display: flex;
+      gap: 0.5rem;
+    }
+    .mbox-msg-meta dt {
+      min-width: 3rem;
+      font-weight: 600;
+      color: var(--color-ink-500);
+    }
+    .mbox-msg-meta dd {
+      margin: 0;
+      color: var(--color-ink-700);
+      overflow-wrap: anywhere;
+    }
+    .dark .mbox-msg-meta dd {
+      color: var(--color-ink-300);
+    }
+    .mbox-frame {
+      flex: 1;
+      width: 100%;
+      min-height: 50vh;
+      border: 0;
+      background: #fff;
+    }
+    .mbox-text {
+      flex: 1;
+      margin: 0;
+      padding: 1.25rem;
+      overflow: auto;
+      white-space: pre-wrap;
+      overflow-wrap: anywhere;
+      font: 0.875rem/1.55 ui-monospace, SFMono-Regular, Menlo, monospace;
+      color: var(--color-ink-800);
+    }
+    .dark .mbox-text {
+      color: var(--color-ink-200);
+    }
+    .mbox-imgbar {
+      width: 100%;
+      padding: 0.5rem 1.25rem;
+      text-align: left;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: var(--color-brand-700);
+      background: var(--color-brand-50);
+      border: 0;
+      border-bottom: 1px solid var(--color-ink-100);
+      cursor: pointer;
+    }
+    .dark .mbox-imgbar {
+      color: var(--color-brand-300);
+      background: color-mix(in oklab, var(--color-brand-900) 40%, transparent);
+      border-color: var(--color-ink-800);
+    }
+    .mbox-attach {
+      padding: 1rem 1.25rem;
+      border-top: 1px solid var(--color-ink-100);
+    }
+    .dark .mbox-attach {
+      border-color: var(--color-ink-800);
+    }
+    .mbox-attach h3 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--color-ink-500);
+    }
+    .mbox-attach ul {
+      margin-top: 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    .mbox-attach-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.375rem;
+      padding: 0.375rem 0.75rem;
+      font-size: 0.8125rem;
+      border-radius: 0.5rem;
+      border: 1px solid var(--color-ink-200);
+      color: var(--color-brand-700);
+    }
+    .dark .mbox-attach-link {
+      border-color: var(--color-ink-700);
+      color: var(--color-brand-300);
+    }
+    .mbox-status {
+      padding: 1.25rem;
+      color: var(--color-ink-500);
+      font-size: 0.875rem;
+    }
+    .mbox-item-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+      margin-top: 0.375rem;
+    }
+    .mbox-msg-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.375rem;
+      margin-top: 0.75rem;
+    }
+    .mbox-tag {
+      display: inline-block;
+      padding: 0.0625rem 0.5rem;
+      font-size: 0.6875rem;
+      font-weight: 600;
+      line-height: 1.4;
+      border-radius: 9999px;
+      color: hsl(var(--h) 65% 32%);
+      background: hsl(var(--h) 70% 93%);
+      white-space: nowrap;
+    }
+    .dark .mbox-tag {
+      color: hsl(var(--h) 80% 80%);
+      background: hsl(var(--h) 45% 22%);
+    }
+  </style>
+</BaseLayout>

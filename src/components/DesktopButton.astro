@@ -1,0 +1,28 @@
+---
+import { SITE } from "@/lib/site";
+import Icon from "./Icon.astro";
+
+interface Props {
+  label?: string;
+  variant?: "brand" | "dark" | "ghost";
+  class?: string;
+}
+
+const { label, variant = "dark", class: className = "" } = Astro.props;
+const cls = variant === "brand" ? "btn-brand" : variant === "ghost" ? "btn-ghost" : "btn-primary";
+---
+
+<a
+  href={SITE.appStoreUrl}
+  target="_blank"
+  rel="noopener"
+  class={`${cls} ${className} group`}
+  data-analytics="appstore"
+>
+  <Icon name="apple" class="h-4 w-4" />
+  <span>{label ?? "Mac App Store"}</span>
+  <Icon
+    name="arrow_right"
+    class="h-4 w-4 -translate-x-0.5 opacity-70 transition-transform group-hover:translate-x-0"
+  />
+</a>

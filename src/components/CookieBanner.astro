@@ -1,0 +1,67 @@
+---
+import { useTranslations, routePath, type Locale } from "@/i18n/utils";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const privacyHref = routePath("privacy", locale);
+---
+
+<!-- Banner de cookies. Oculto por defecto; se muestra por JS solo si no hay elección. -->
+<div
+  id="cookie-banner"
+  role="region"
+  aria-label="Cookies"
+  hidden
+  class="fixed inset-x-0 bottom-0 z-50 border-t border-ink-200 bg-white/95 backdrop-blur-md dark:border-ink-800 dark:bg-ink-950/95"
+>
+  <div class="container-page flex flex-col gap-3 py-4 sm:flex-row sm:items-center sm:justify-between">
+    <p class="text-sm text-ink-600 dark:text-ink-300">
+      {t("cookie.text")}
+      <a
+        href={privacyHref}
+        class="font-medium text-brand-600 underline underline-offset-2 hover:text-brand-700 dark:text-brand-300"
+        >{t("cookie.more")}</a
+      >
+    </p>
+    <div class="flex shrink-0 items-center gap-2">
+      <button type="button" data-cookie="reject" class="btn-ghost !px-4 !py-2 text-sm">
+        {t("cookie.reject")}
+      </button>
+      <button type="button" data-cookie="accept" class="btn-brand !px-4 !py-2 text-sm">
+        {t("cookie.accept")}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const KEY = "cookie-consent";
+    const banner = document.getElementById("cookie-banner");
+    if (!banner) return;
+
+    let choice = null;
+    try {
+      choice = localStorage.getItem(KEY);
+    } catch (e) {}
+
+    if (!choice) banner.hidden = false;
+
+    function decide(value: "granted" | "denied") {
+      try {
+        localStorage.setItem(KEY, value);
+      } catch (e) {}
+      const g = (window as any).gtag;
+      if (typeof g === "function") {
+        g("consent", "update", { analytics_storage: value });
+      }
+      banner!.hidden = true;
+    }
+
+    banner.querySelector('[data-cookie="accept"]')?.addEventListener("click", () => decide("granted"));
+    banner.querySelector('[data-cookie="reject"]')?.addEventListener("click", () => decide("denied"));
+  })();
+</script>

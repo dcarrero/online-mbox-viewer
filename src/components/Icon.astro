@@ -1,0 +1,55 @@
+---
+/**
+ * Set de iconos SVG inline (stroke). Uso: <Icon name="search" class="h-5 w-5" />
+ */
+interface Props {
+  name: keyof typeof PATHS;
+  class?: string;
+  "aria-hidden"?: boolean | "true" | "false";
+}
+
+const { name, class: className = "h-5 w-5", ...rest } = Astro.props;
+
+const PATHS = {
+  search: '<circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>',
+  bolt: '<path d="M13 2 4.5 13.5H11l-1 8.5L19.5 10H13l0-8Z"/>',
+  shield: '<path d="M12 3 5 6v5c0 4.5 3 8 7 10 4-2 7-5.5 7-10V6l-7-3Z"/>',
+  layers: '<path d="m12 3 9 5-9 5-9-5 9-5Z"/><path d="m3 13 9 5 9-5"/>',
+  tag: '<path d="M3 7v5l9 9 8-8-9-9H3Z"/><circle cx="7.5" cy="10.5" r="1.5"/>',
+  upload:
+    '<path d="M12 15V3"/><path d="m8 7 4-4 4 4"/><path d="M5 14v5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-5"/>',
+  apple:
+    '<path d="M16 13c0-3 2.5-3.5 2.5-3.5C17.5 7 15.5 7 15 7c-1.5 0-2 .8-3 .8S10.5 7 9.2 7C7 7 5 8.8 5 12c0 3 2.2 7 4 7 1 0 1.4-.7 2.8-.7s1.7.7 2.8.7c1.6 0 3.4-3 3.4-4.5 0 0-2-.7-2-2.5Z"/><path d="M13 5c.8-1 1-2 1-2s-1.2.1-2 1c-.7.8-.9 1.8-.9 1.8S12.2 6 13 5Z"/>',
+  windows:
+    '<path d="M3 6.5 10 5.5v6H3v-5Z"/><path d="M11 5.3 21 4v7.5H11v-6.2Z"/><path d="M3 12.5h7v6L3 17.5v-5Z"/><path d="M11 12.5h10V20l-10-1.3v-6.2Z"/>',
+  lock: '<rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/>',
+  check: '<path d="m5 12 4.5 4.5L19 7"/>',
+  arrow_right: '<path d="M5 12h14"/><path d="m13 6 6 6-6 6"/>',
+  chevron_down: '<path d="m6 9 6 6 6-6"/>',
+  sun: '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/>',
+  moon: '<path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z"/>',
+  globe:
+    '<circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.5 2.5 2.5 15 0 18M12 3c-2.5 2.5-2.5 15 0 18"/>',
+  mail: '<rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/>',
+  drag: '<circle cx="9" cy="6" r="1.4"/><circle cx="15" cy="6" r="1.4"/><circle cx="9" cy="12" r="1.4"/><circle cx="15" cy="12" r="1.4"/><circle cx="9" cy="18" r="1.4"/><circle cx="15" cy="18" r="1.4"/>',
+  attachment:
+    '<path d="M20 11.5 12 19.5a5 5 0 0 1-7-7l8-8a3.3 3.3 0 0 1 4.7 4.7l-8 8a1.6 1.6 0 0 1-2.4-2.4l7.3-7.3"/>',
+  external:
+    '<path d="M14 4h6v6"/><path d="M20 4 10 14"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/>',
+  clock: '<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.5 2"/>',
+} as const;
+
+const inner = PATHS[name];
+---
+
+<svg
+  viewBox="0 0 24 24"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.6"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  class={className}
+  aria-hidden={rest["aria-hidden"] ?? "true"}
+  set:html={inner}
+/>

@@ -1,0 +1,111 @@
+---
+import { SITE } from "@/lib/site";
+import { useTranslations, routePath, type Locale } from "@/i18n/utils";
+import Icon from "./Icon.astro";
+import Logo from "./Logo.astro";
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useTranslations(locale);
+const rp = (key: Parameters<typeof routePath>[0]) => routePath(key, locale);
+const year = 2026;
+
+const cols = [
+  {
+    title: t("footer.product"),
+    links: [
+      { label: t("nav.viewer"), href: rp("home") },
+      { label: t("nav.how_to"), href: rp("how-to") },
+      { label: t("nav.compare"), href: rp("compare") },
+      { label: t("nav.faq"), href: rp("faq") },
+    ],
+  },
+  {
+    title: t("footer.resources"),
+    links: [
+      { label: t("footer.desktop_app"), href: SITE.desktopUrl, ext: true },
+      { label: t("cta.appstore_short"), href: SITE.appStoreUrl, ext: true },
+      { label: t("footer.open_source"), href: SITE.repoUrl, ext: true },
+    ],
+  },
+  {
+    title: t("footer.legal"),
+    links: [
+      { label: t("footer.privacy"), href: rp("privacy") },
+      { label: t("footer.terms"), href: rp("terms") },
+    ],
+  },
+];
+---
+
+<footer class="border-t border-ink-100 bg-ink-50/40 dark:border-ink-800 dark:bg-ink-950">
+  <div class="container-page py-14">
+    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
+      <div>
+        <a href={rp("home")} class="flex items-center gap-2.5 font-semibold text-ink-900 dark:text-white">
+          <Logo class="h-7 w-7" />
+          Online Mbox Viewer
+        </a>
+        <p class="mt-3 max-w-xs text-sm text-ink-500 dark:text-ink-400">
+          {t("footer.tagline")}
+        </p>
+      </div>
+
+      {
+        cols.map((col) => (
+          <div>
+            <h2 class="text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400">
+              {col.title}
+            </h2>
+            <ul class="mt-3 space-y-2">
+              {col.links.map((l) => (
+                <li>
+                  <a
+                    href={l.href}
+                    target={(l as any).ext ? "_blank" : undefined}
+                    rel={(l as any).ext ? "noopener" : undefined}
+                    class="inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300"
+                  >
+                    {l.label}
+                    {(l as any).ext && <Icon name="external" class="h-3 w-3 opacity-60" />}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+
+    <div class="mt-12 border-t border-ink-100 pt-6 text-xs text-ink-500 dark:border-ink-800 dark:text-ink-400">
+      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+        <p>
+          © {year} —
+          <a href={SITE.authorUrl} class="hover:text-ink-600 dark:hover:text-ink-200" target="_blank" rel="noopener"
+            >{SITE.author}</a
+          >. {t("footer.rights")}
+        </p>
+        <p>
+          {t("footer.by")}
+          <a
+            href={SITE.authorUrl}
+            target="_blank"
+            rel="noopener"
+            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300">{SITE.author}</a
+          >
+          <span class="text-ink-300 dark:text-ink-600">·</span>
+          <a
+            href={SITE.repoUrl}
+            target="_blank"
+            rel="noopener"
+            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300"
+            >MIT · {t("footer.open_source")}</a
+          >
+        </p>
+      </div>
+      <p class="mt-4 text-center sm:text-left">{t("footer.made_with")}</p>
+    </div>
+  </div>
+</footer>
