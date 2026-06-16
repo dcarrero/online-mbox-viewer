@@ -1,7 +1,7 @@
 {
   "name": "onlinemboxviewer",
   "type": "module",
-  "version": "0.5.1",
+  "version": "0.5.2",
   "description": "Online MBOX Viewer — read .mbox email archives in your browser. Free, private, 100% client-side (Astro).",
   "homepage": "https://onlinemboxviewer.com",
   "author": "David Carrero Fernández-Baillo <https://carrero.es>",
@@ -16,7 +16,8 @@
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check"
+    "check": "astro check",
+    "release": "bash scripts/release.sh"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",
