@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.5.1
+
+- **Change: site footer.** Reworked the footer credit line to: "© 2026 — Color Vivo Internet, S.L. All rights reserved. · MIT · Open source on GitHub · Based on mboxShell by David Carrero Fernández-Baillo", with links to colorvivo.com, the GitHub repo, mboxShell and carrero.es.
+
 ## v0.5.0
 
 First public release.

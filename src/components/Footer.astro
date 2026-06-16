@@ -83,19 +83,14 @@ const cols = [
       <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
         <p>
           © {year} —
-          <a href={SITE.authorUrl} class="hover:text-ink-600 dark:hover:text-ink-200" target="_blank" rel="noopener"
-            >{SITE.author}</a
-          >. {t("footer.rights")}
-        </p>
-        <p>
-          {t("footer.by")}
           <a
-            href={SITE.authorUrl}
+            href={SITE.companyUrl}
             target="_blank"
             rel="noopener"
-            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300">{SITE.author}</a
-          >
-          <span class="text-ink-300 dark:text-ink-600">·</span>
+            class="hover:text-ink-600 dark:hover:text-ink-200">{SITE.company}</a
+          > {t("footer.rights")}
+        </p>
+        <p>
           <a
             href={SITE.repoUrl}
             target="_blank"
@@ -103,9 +98,23 @@ const cols = [
             class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300"
             >MIT · {t("footer.open_source")}</a
           >
+          <span class="text-ink-300 dark:text-ink-600">·</span>
+          {t("footer.based_on")}
+          <a
+            href={SITE.mboxshellUrl}
+            target="_blank"
+            rel="noopener"
+            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300">mboxShell</a
+          >
+          {t("footer.by")}
+          <a
+            href={SITE.authorUrl}
+            target="_blank"
+            rel="noopener"
+            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300">{SITE.author}</a
+          >.
         </p>
       </div>
-      <p class="mt-4 text-center sm:text-left">{t("footer.made_with")}</p>
     </div>
   </div>
 </footer>

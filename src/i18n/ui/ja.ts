@@ -32,6 +32,7 @@ export const ja: Partial<Record<UIKey, string>> = {
   "footer.desktop_app": "Mac 用デスクトップアプリ",
   "footer.rights": "All rights reserved.",
   "footer.open_source": "GitHub でオープンソース公開",
+  "footer.based_on": "ベース:",
   "footer.by": "作:",
   "footer.made_with": "スペイン、マドリードとエレンシア（シウダー・レアル）から ❤️ を込めて。",
 

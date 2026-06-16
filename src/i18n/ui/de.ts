@@ -32,6 +32,7 @@ export const de: Partial<Record<UIKey, string>> = {
   "footer.desktop_app": "Desktop-App für Mac",
   "footer.rights": "Alle Rechte vorbehalten.",
   "footer.open_source": "Open Source auf GitHub",
+  "footer.based_on": "Basiert auf",
   "footer.by": "von",
   "footer.made_with": "Mit ❤️ aus Madrid und Herencia (Ciudad Real) — Spanien.",
 

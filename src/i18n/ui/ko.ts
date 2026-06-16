@@ -32,6 +32,7 @@ export const ko: Partial<Record<UIKey, string>> = {
   "footer.desktop_app": "Mac용 데스크톱 앱",
   "footer.rights": "모든 권리 보유.",
   "footer.open_source": "GitHub에서 오픈소스",
+  "footer.based_on": "기반:",
   "footer.by": "제작:",
   "footer.made_with": "스페인 마드리드와 에렌시아(시우다드레알)에서 ❤️를 담아 만들었습니다.",
 

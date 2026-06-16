@@ -37,6 +37,7 @@ export const en = {
   "footer.desktop_app": "Desktop app for Mac",
   "footer.rights": "All rights reserved.",
   "footer.open_source": "Open source on GitHub",
+  "footer.based_on": "Based on",
   "footer.by": "by",
   "footer.made_with": "Made with ❤️ from Madrid and Herencia (Ciudad Real) — Spain.",
 
