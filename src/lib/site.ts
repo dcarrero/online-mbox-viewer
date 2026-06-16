@@ -41,9 +41,9 @@ export const SITE = {
   ogImageHeight: 630,
   twitter: "",
 
-  // Analytics — Google Analytics 4 con Consent Mode v2 (cookieless por defecto).
-  // Placeholder: sustituir por el ID de medición de este dominio antes de publicar.
-  ga4Id: "G-XXXXXXXXXX",
+  // Analytics — Google Analytics 4 con Consent Mode v2 (cookieless por defecto;
+  // cookies de analítica solo tras aceptar en el banner).
+  ga4Id: "G-LLRMPM1J24",
 } as const;
 
 export type Site = typeof SITE;
