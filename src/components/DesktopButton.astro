@@ -5,31 +5,53 @@ import Icon from "./Icon.astro";
 interface Props {
   label?: string;
   variant?: "brand" | "dark" | "ghost";
-  /** Tienda de destino. La app existe en ambas desde julio de 2026. */
-  store?: "apple" | "microsoft";
+  /**
+   * Destino:
+   *  - "apple" / "microsoft" → descarga directa de esa tienda. Úsalos donde el
+   *    usuario ya decidió descargar y le ofreces las dos opciones a la vez.
+   *  - "web" → mboxviewer.net, que lista todas las versiones disponibles. Es el
+   *    destino correcto para un CTA genérico ("Desktop app"): mandar el nav a una
+   *    sola tienda elegía plataforma por el usuario.
+   */
+  store?: "apple" | "microsoft" | "web";
   class?: string;
 }
 
 const { label, variant = "dark", store = "apple", class: className = "" } = Astro.props;
 const cls = variant === "brand" ? "btn-brand" : variant === "ghost" ? "btn-ghost" : "btn-primary";
 
-const isApple = store === "apple";
-const href = isApple ? SITE.appStoreUrl : SITE.microsoftStoreUrl;
-const analytics = isApple ? "appstore" : "microsoftstore";
-const icon = isApple ? "apple" : "windows";
+const TARGET = {
+  apple: { href: SITE.appStoreUrl, analytics: "appstore", icon: "apple", fallback: "Mac App Store" },
+  microsoft: {
+    href: SITE.microsoftStoreUrl,
+    analytics: "microsoftstore",
+    icon: "windows",
+    fallback: "Microsoft Store",
+  },
+  web: { href: SITE.desktopUrl, analytics: "desktopsite", icon: null, fallback: SITE.desktopName },
+} as const;
+
+const t = TARGET[store];
 ---
 
 <a
-  href={href}
+  href={t.href}
   target="_blank"
   rel="noopener"
   class={`${cls} ${className} group`}
-  data-analytics={analytics}
+  data-analytics={t.analytics}
 >
-  <Icon name={icon} class="h-4 w-4 shrink-0" />
-  <span>{label ?? (isApple ? "Mac App Store" : "Microsoft Store")}</span>
-  <Icon
-    name="arrow_right"
-    class="h-4 w-4 shrink-0 -translate-x-0.5 opacity-70 transition-transform duration-200 ease-out group-hover:translate-x-0"
-  />
+  {t.icon && <Icon name={t.icon} class="h-4 w-4 shrink-0" />}
+  <span>{label ?? t.fallback}</span>
+  {
+    store === "web" ? (
+      /* Sale a otro sitio: la flecha externa lo dice; la de avance, no. */
+      <Icon name="external" class="h-3.5 w-3.5 shrink-0 opacity-70" />
+    ) : (
+      <Icon
+        name="arrow_right"
+        class="h-4 w-4 shrink-0 -translate-x-0.5 opacity-70 transition-transform duration-200 ease-out group-hover:translate-x-0"
+      />
+    )
+  }
 </a>

@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.1
+
+- Fix: the "Desktop app" button in the top nav linked straight to the Mac App Store, which picked a platform for the reader now that Windows has shipped. It now goes to mboxviewer.net, where every available version is listed. The direct store buttons stay where the reader has already chosen to download.
+
 ## v0.6.0
 
 - Add: Microsoft Store. The Windows desktop app has shipped, so the site now links it everywhere the Mac App Store is linked — home, how-to, compare and the footer.
