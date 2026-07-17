@@ -16,7 +16,7 @@ export const nl: FaqContent = {
     },
     {
       q: "Wat is de maximale bestandsgrootte?",
-      a: "De online viewer verwerkt bestanden tot 25 MB zodat hij snel blijft in de browser. Voor grotere archieven — volledige Google Takeout-exports bijvoorbeeld — gebruik je de desktop-app, Mbox Viewer voor Mac, die bestanden van elke grootte streamt.",
+      a: "De online viewer verwerkt bestanden tot 25 MB zodat hij snel blijft in de browser. Voor grotere archieven — volledige Google Takeout-exports bijvoorbeeld — gebruik je de desktop-app, Mbox Viewer voor Mac en Windows, die bestanden van elke grootte streamt.",
     },
     {
       q: "Welke e-mailapps exporteren .mbox-bestanden?",
@@ -36,7 +36,7 @@ export const nl: FaqContent = {
     },
     {
       q: "Is het echt gratis?",
-      a: "Ja, de online viewer is volledig gratis en open source (MIT-licentie). De optionele desktop-app voor Mac is een apart product voor gevorderde gebruikers die zeer grote archieven moeten openen.",
+      a: "Ja, de online viewer is volledig gratis en open source (MIT-licentie). De optionele desktop-app voor Mac en Windows is een apart product voor gevorderde gebruikers die zeer grote archieven moeten openen.",
     },
   ],
 };

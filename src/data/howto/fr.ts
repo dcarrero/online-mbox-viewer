@@ -28,5 +28,5 @@ export const fr: HowToContent = {
   ],
   desktopHeading: "Ouvrir de très grandes archives",
   desktopBody:
-    "Le visualiseur en ligne est optimisé pour les fichiers jusqu'à 25 MB. Un Google Takeout complet peut peser plusieurs gigaoctets — pour ceux-là, utilisez Mbox Viewer, l'application de bureau native pour Mac (Windows bientôt), qui traite en flux les archives de n'importe quelle taille et ajoute la recherche et l'export.",
+    "Le visualiseur en ligne est optimisé pour les fichiers jusqu'à 25 MB. Un Google Takeout complet peut peser plusieurs gigaoctets — pour ceux-là, utilisez Mbox Viewer, l'application de bureau native pour Mac et Windows, qui traite en flux les archives de n'importe quelle taille et ajoute la recherche et l'export.",
 };

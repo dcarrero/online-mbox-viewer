@@ -5,24 +5,31 @@ import Icon from "./Icon.astro";
 interface Props {
   label?: string;
   variant?: "brand" | "dark" | "ghost";
+  /** Tienda de destino. La app existe en ambas desde julio de 2026. */
+  store?: "apple" | "microsoft";
   class?: string;
 }
 
-const { label, variant = "dark", class: className = "" } = Astro.props;
+const { label, variant = "dark", store = "apple", class: className = "" } = Astro.props;
 const cls = variant === "brand" ? "btn-brand" : variant === "ghost" ? "btn-ghost" : "btn-primary";
+
+const isApple = store === "apple";
+const href = isApple ? SITE.appStoreUrl : SITE.microsoftStoreUrl;
+const analytics = isApple ? "appstore" : "microsoftstore";
+const icon = isApple ? "apple" : "windows";
 ---
 
 <a
-  href={SITE.appStoreUrl}
+  href={href}
   target="_blank"
   rel="noopener"
   class={`${cls} ${className} group`}
-  data-analytics="appstore"
+  data-analytics={analytics}
 >
-  <Icon name="apple" class="h-4 w-4" />
-  <span>{label ?? "Mac App Store"}</span>
+  <Icon name={icon} class="h-4 w-4 shrink-0" />
+  <span>{label ?? (isApple ? "Mac App Store" : "Microsoft Store")}</span>
   <Icon
     name="arrow_right"
-    class="h-4 w-4 -translate-x-0.5 opacity-70 transition-transform group-hover:translate-x-0"
+    class="h-4 w-4 shrink-0 -translate-x-0.5 opacity-70 transition-transform duration-200 ease-out group-hover:translate-x-0"
   />
 </a>

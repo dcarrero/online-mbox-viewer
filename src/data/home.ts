@@ -23,7 +23,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Open MBOX and EML archives of any size — no 25 MB limit.",
       "Full-text search, folders and Gmail labels.",
-      "Works fully offline on your Mac (Windows coming soon).",
+      "Works fully offline on your Mac and on Windows.",
     ],
     linkHowTo: "How to open a .mbox file",
     linkHowToDesc: "A short guide and the apps that export .mbox.",
@@ -42,7 +42,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Abre archivos MBOX y EML de cualquier tamaño — sin límite de 25 MB.",
       "Búsqueda de texto completo, carpetas y etiquetas de Gmail.",
-      "Funciona totalmente sin conexión en tu Mac (Windows muy pronto).",
+      "Funciona totalmente sin conexión en Mac y en Windows.",
     ],
     linkHowTo: "Cómo abrir un fichero .mbox",
     linkHowToDesc: "Una guía breve y las apps que exportan .mbox.",
@@ -61,7 +61,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Öffne MBOX- und EML-Archive jeder Größe — kein 25-MB-Limit.",
       "Volltextsuche, Ordner und Gmail-Labels.",
-      "Läuft komplett offline auf dem Mac (Windows demnächst).",
+      "Läuft komplett offline auf dem Mac und unter Windows.",
     ],
     linkHowTo: "Eine .mbox-Datei öffnen",
     linkHowToDesc: "Eine kurze Anleitung und die Apps, die .mbox exportieren.",
@@ -80,7 +80,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Ouvrez des archives MBOX et EML de toute taille — sans limite de 25 Mo.",
       "Recherche en texte intégral, dossiers et libellés Gmail.",
-      "Fonctionne entièrement hors ligne sur votre Mac (Windows bientôt).",
+      "Fonctionne entièrement hors ligne sur Mac et sur Windows.",
     ],
     linkHowTo: "Ouvrir un fichier .mbox",
     linkHowToDesc: "Un guide court et les apps qui exportent du .mbox.",
@@ -99,7 +99,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Abra arquivos MBOX e EML de qualquer tamanho — sem limite de 25 MB.",
       "Busca em texto completo, pastas e marcadores do Gmail.",
-      "Funciona totalmente offline no seu Mac (Windows em breve).",
+      "Funciona totalmente offline no Mac e no Windows.",
     ],
     linkHowTo: "Como abrir um arquivo .mbox",
     linkHowToDesc: "Um guia rápido e os apps que exportam .mbox.",
@@ -118,7 +118,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "あらゆるサイズの MBOX・EML アーカイブを開けます — 25MB の制限なし。",
       "全文検索、フォルダ、Gmail ラベルに対応。",
-      "Mac で完全オフライン動作（Windows 版は近日公開）。",
+      "Mac と Windows で完全オフライン動作。",
     ],
     linkHowTo: ".mbox ファイルの開き方",
     linkHowToDesc: "簡単なガイドと .mbox をエクスポートできるアプリ。",
@@ -137,7 +137,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Apri archivi MBOX ed EML di qualsiasi dimensione — nessun limite di 25 MB.",
       "Ricerca full-text, cartelle ed etichette di Gmail.",
-      "Funziona completamente offline sul tuo Mac (Windows presto).",
+      "Funziona completamente offline su Mac e su Windows.",
     ],
     linkHowTo: "Come aprire un file .mbox",
     linkHowToDesc: "Una breve guida e le app che esportano .mbox.",
@@ -156,7 +156,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Open MBOX- en EML-archieven van elke grootte — geen limiet van 25 MB.",
       "Volledige tekstzoek, mappen en Gmail-labels.",
-      "Werkt volledig offline op je Mac (Windows binnenkort).",
+      "Werkt volledig offline op je Mac en op Windows.",
     ],
     linkHowTo: "Een .mbox-bestand openen",
     linkHowToDesc: "Een korte handleiding en de apps die .mbox exporteren.",
@@ -175,7 +175,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "어떤 크기의 MBOX 및 EML 아카이브도 열기 — 25MB 제한 없음.",
       "전문 검색, 폴더, Gmail 라벨.",
-      "Mac에서 완전 오프라인 작동 (Windows 곧 출시).",
+      "Mac과 Windows에서 완전 오프라인으로 작동합니다.",
     ],
     linkHowTo: ".mbox 파일 여는 법",
     linkHowToDesc: "간단한 가이드와 .mbox를 내보내는 앱들.",
@@ -194,7 +194,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     desktopPoints: [
       "Otwieraj archiwa MBOX i EML dowolnej wielkości — bez limitu 25 MB.",
       "Wyszukiwanie pełnotekstowe, foldery i etykiety Gmaila.",
-      "Działa całkowicie offline na Macu (Windows wkrótce).",
+      "Działa całkowicie offline na Macu i w systemie Windows.",
     ],
     linkHowTo: "Jak otworzyć plik .mbox",
     linkHowToDesc: "Krótki poradnik i aplikacje eksportujące .mbox.",

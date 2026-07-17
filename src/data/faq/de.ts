@@ -16,7 +16,7 @@ export const de: FaqContent = {
     },
     {
       q: "Wie groß darf die Datei maximal sein?",
-      a: "Der Online-Viewer verarbeitet Dateien bis zu 25 MB, damit er im Browser schnell bleibt. Für größere Archive — zum Beispiel vollständige Gmail-Takeout-Exporte — nutzen Sie die Desktop-App, Mbox Viewer für Mac, die Dateien beliebiger Größe per Streaming verarbeitet.",
+      a: "Der Online-Viewer verarbeitet Dateien bis zu 25 MB, damit er im Browser schnell bleibt. Für größere Archive — zum Beispiel vollständige Gmail-Takeout-Exporte — nutzen Sie die Desktop-App, Mbox Viewer für Mac und Windows, die Dateien beliebiger Größe per Streaming verarbeitet.",
     },
     {
       q: "Welche E-Mail-Apps exportieren .mbox-Dateien?",
@@ -36,7 +36,7 @@ export const de: FaqContent = {
     },
     {
       q: "Ist er wirklich kostenlos?",
-      a: "Ja, der Online-Viewer ist völlig kostenlos und quelloffen (MIT-lizenziert). Die optionale Desktop-App für Mac ist ein separates Produkt für fortgeschrittene Nutzer, die sehr große Archive öffnen müssen.",
+      a: "Ja, der Online-Viewer ist völlig kostenlos und quelloffen (MIT-lizenziert). Die optionale Desktop-App für Mac und Windows ist ein separates Produkt für fortgeschrittene Nutzer, die sehr große Archive öffnen müssen.",
     },
   ],
 };

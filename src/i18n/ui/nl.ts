@@ -9,7 +9,7 @@ export const nl: Partial<Record<UIKey, string>> = {
   "nav.desktop": "Desktop-app",
 
   "cta.appstore_short": "Verkrijgbaar in de Mac App Store",
-  "cta.windows_soon": "Windows — binnenkort",
+  "cta.microsoftstore_short": "Downloaden in de Microsoft Store",
   "cta.get_desktop": "Download de desktop-app",
   "cta.open_viewer": "Open de viewer",
   "cta.learn_more": "Meer informatie",
@@ -29,7 +29,7 @@ export const nl: Partial<Record<UIKey, string>> = {
   "footer.legal": "Juridisch",
   "footer.privacy": "Privacybeleid",
   "footer.terms": "Gebruiksvoorwaarden",
-  "footer.desktop_app": "Desktop-app voor Mac",
+  "footer.desktop_app": "Desktop-app voor Mac en Windows",
   "footer.rights": "Alle rechten voorbehouden.",
   "footer.open_source": "Open source op GitHub",
   "footer.based_on": "Gebaseerd op",

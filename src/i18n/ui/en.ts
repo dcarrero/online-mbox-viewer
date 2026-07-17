@@ -13,7 +13,7 @@ export const en = {
 
   // CTAs
   "cta.appstore_short": "Get it on the Mac App Store",
-  "cta.windows_soon": "Windows — coming soon",
+  "cta.microsoftstore_short": "Get it on the Microsoft Store",
   "cta.get_desktop": "Get the desktop app",
   "cta.open_viewer": "Open the viewer",
   "cta.learn_more": "Learn more",
@@ -34,7 +34,7 @@ export const en = {
   "footer.legal": "Legal",
   "footer.privacy": "Privacy Policy",
   "footer.terms": "Terms of Service",
-  "footer.desktop_app": "Desktop app for Mac",
+  "footer.desktop_app": "Desktop app for Mac & Windows",
   "footer.rights": "All rights reserved.",
   "footer.open_source": "Open source on GitHub",
   "footer.based_on": "Based on",

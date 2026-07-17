@@ -28,5 +28,5 @@ export const it: HowToContent = {
   ],
   desktopHeading: "Aprire archivi molto grandi",
   desktopBody:
-    "Il visualizzatore online è ottimizzato per file fino a 25 MB. Un Google Takeout completo di Gmail può essere di diversi gigabyte — per quei casi, usa Mbox Viewer, l'app desktop nativa per Mac (Windows in arrivo), che gestisce in streaming archivi di qualsiasi dimensione e aggiunge ricerca ed esportazione.",
+    "Il visualizzatore online è ottimizzato per file fino a 25 MB. Un Google Takeout completo di Gmail può essere di diversi gigabyte — per quei casi, usa Mbox Viewer, l'app desktop nativa per Mac e Windows, che gestisce in streaming archivi di qualsiasi dimensione e aggiunge ricerca ed esportazione.",
 };

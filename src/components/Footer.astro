@@ -10,111 +10,96 @@ interface Props {
 const { locale } = Astro.props;
 const t = useTranslations(locale);
 const rp = (key: Parameters<typeof routePath>[0]) => routePath(key, locale);
-const year = 2026;
+// Se resuelve en build. El sitio es estático, así que el año es el del último
+// despliegue — correcto sin tener que acordarse de tocarlo cada enero.
+const year = new Date().getFullYear();
 
-const cols = [
-  {
-    title: t("footer.product"),
-    links: [
-      { label: t("nav.viewer"), href: rp("home") },
-      { label: t("nav.how_to"), href: rp("how-to") },
-      { label: t("nav.compare"), href: rp("compare") },
-      { label: t("nav.faq"), href: rp("faq") },
-    ],
-  },
-  {
-    title: t("footer.resources"),
-    links: [
-      { label: t("footer.desktop_app"), href: SITE.desktopUrl, ext: true },
-      { label: t("cta.appstore_short"), href: SITE.appStoreUrl, ext: true },
-      { label: t("footer.open_source"), href: SITE.repoUrl, ext: true },
-    ],
-  },
-  {
-    title: t("footer.legal"),
-    links: [
-      { label: t("footer.privacy"), href: rp("privacy") },
-      { label: t("footer.terms"), href: rp("terms") },
-    ],
-  },
+// Ft2 · una sola línea inline. Los nueve destinos siguen aquí; lo que se va son los
+// encabezados de columna (Product · Resources · Legal), que con nueve enlaces no
+// clasificaban nada — solo dibujaban la silueta del footer SaaS genérico.
+// Nota: las claves footer.product / footer.resources / footer.legal quedan sin uso
+// en los 10 locales. No las borro: son inertes y tocar 10 ficheros no entra en este pase.
+const links: { label: string; href: string; ext?: boolean }[] = [
+  { label: t("nav.viewer"), href: rp("home") },
+  { label: t("nav.how_to"), href: rp("how-to") },
+  { label: t("nav.compare"), href: rp("compare") },
+  { label: t("nav.faq"), href: rp("faq") },
+  { label: t("footer.desktop_app"), href: SITE.desktopUrl, ext: true },
+  { label: t("cta.appstore_short"), href: SITE.appStoreUrl, ext: true },
+  { label: t("cta.microsoftstore_short"), href: SITE.microsoftStoreUrl, ext: true },
+  { label: t("footer.open_source"), href: SITE.repoUrl, ext: true },
+  { label: t("footer.privacy"), href: rp("privacy") },
+  { label: t("footer.terms"), href: rp("terms") },
 ];
 ---
 
-<footer class="border-t border-ink-100 bg-ink-50/40 dark:border-ink-800 dark:bg-ink-950">
-  <div class="container-page py-14">
-    <div class="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.4fr_1fr_1fr_1fr]">
-      <div>
-        <a href={rp("home")} class="flex items-center gap-2.5 font-semibold text-ink-900 dark:text-white">
-          <Logo class="h-7 w-7" />
-          Online Mbox Viewer
-        </a>
-        <p class="mt-3 max-w-xs text-sm text-ink-500 dark:text-ink-400">
-          {t("footer.tagline")}
-        </p>
-      </div>
+<footer class="border-t border-ink-100 dark:border-ink-800">
+  <div class="container-page py-10">
+    <!-- Línea 1 — wordmark + tagline -->
+    <div class="flex flex-wrap items-baseline gap-x-3 gap-y-1">
+      <a
+        href={rp("home")}
+        class="flex items-center gap-2 self-center whitespace-nowrap text-sm font-semibold text-ink-900 dark:text-white"
+      >
+        <Logo class="h-5 w-5" />
+        Online Mbox Viewer
+      </a>
+      <span class="text-sm text-ink-500 dark:text-ink-400">{t("footer.tagline")}</span>
+    </div>
 
+    <!-- Línea 2 — los destinos, a fila completa.
+         Sin middots: con nueve enlaces la fila envuelve, y un separador arrastrado al
+         principio de la línea siguiente se lee como un error de maquetación. El hueco
+         separa igual de bien y no puede quedar huérfano. -->
+    <ul class="mt-5 flex flex-wrap items-center gap-x-5 gap-y-2 text-sm">
       {
-        cols.map((col) => (
-          <div>
-            <h2 class="text-xs font-semibold uppercase tracking-wider text-ink-500 dark:text-ink-400">
-              {col.title}
-            </h2>
-            <ul class="mt-3 space-y-2">
-              {col.links.map((l) => (
-                <li>
-                  <a
-                    href={l.href}
-                    target={(l as any).ext ? "_blank" : undefined}
-                    rel={(l as any).ext ? "noopener" : undefined}
-                    class="inline-flex items-center gap-1 text-sm text-ink-600 transition-colors hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300"
-                  >
-                    {l.label}
-                    {(l as any).ext && <Icon name="external" class="h-3 w-3 opacity-60" />}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
+        links.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              target={l.ext ? "_blank" : undefined}
+              rel={l.ext ? "noopener" : undefined}
+              class="inline-flex items-center gap-1 whitespace-nowrap text-ink-600 transition-colors duration-200 ease-out hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300"
+            >
+              {l.label}
+              {l.ext && <Icon name="external" class="h-3 w-3 opacity-60" />}
+            </a>
+          </li>
         ))
       }
-    </div>
+    </ul>
 
-    <div class="mt-12 border-t border-ink-100 pt-6 text-xs text-ink-500 dark:border-ink-800 dark:text-ink-400">
-      <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-        <p>
-          © {year} —
-          <a
-            href={SITE.companyUrl}
-            target="_blank"
-            rel="noopener"
-            class="hover:text-ink-600 dark:hover:text-ink-200">{SITE.company}</a
-          > {t("footer.rights")}
-        </p>
-        <p>
-          <a
-            href={SITE.repoUrl}
-            target="_blank"
-            rel="noopener"
-            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300"
-            >MIT · {t("footer.open_source")}</a
-          >
-          <span class="text-ink-300 dark:text-ink-600">·</span>
-          {t("footer.based_on")}
-          <a
-            href={SITE.mboxshellUrl}
-            target="_blank"
-            rel="noopener"
-            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300">mboxShell</a
-          >
-          {t("footer.by")}
-          <a
-            href={SITE.authorUrl}
-            target="_blank"
-            rel="noopener"
-            class="font-medium text-ink-500 hover:text-brand-600 dark:text-ink-300 dark:hover:text-brand-300">{SITE.author}</a
-          >.
-        </p>
-      </div>
-    </div>
+    <!-- Línea 2 — el crédito, en tipo pequeño y apagado -->
+    <p class="mt-6 text-xs leading-relaxed text-ink-500 dark:text-ink-400">
+      © {year} —
+      <a
+        href={SITE.companyUrl}
+        target="_blank"
+        rel="noopener"
+        class="hover:text-ink-700 dark:hover:text-ink-200">{SITE.company}</a
+      > {t("footer.rights")}
+      <span class="text-ink-300 dark:text-ink-700" aria-hidden="true">·</span>
+      <a
+        href={SITE.repoUrl}
+        target="_blank"
+        rel="noopener"
+        class="hover:text-brand-600 dark:hover:text-brand-300">MIT · {t("footer.open_source")}</a
+      >
+      <span class="text-ink-300 dark:text-ink-700" aria-hidden="true">·</span>
+      {t("footer.based_on")}
+      <a
+        href={SITE.mboxshellUrl}
+        target="_blank"
+        rel="noopener"
+        class="hover:text-brand-600 dark:hover:text-brand-300">mboxShell</a
+      >
+      {t("footer.by")}
+      <a
+        href={SITE.authorUrl}
+        target="_blank"
+        rel="noopener"
+        class="hover:text-brand-600 dark:hover:text-brand-300">{SITE.author}</a
+      >.
+    </p>
   </div>
 </footer>

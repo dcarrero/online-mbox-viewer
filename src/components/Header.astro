@@ -12,30 +12,44 @@ const { locale } = Astro.props;
 const t = useTranslations(locale);
 const rp = (key: Parameters<typeof routePath>[0]) => routePath(key, locale);
 
+// N5 pide un nav dimensionado por su contenido: si la lista lo empuja más allá de
+// ~720px deja de ser una píldora y es una barra con las puntas redondeadas.
+// "Viewer" sale de la lista — el wordmark ya lleva a home, era navegación redundante.
 const nav = [
-  { label: t("nav.viewer"), href: rp("home") },
   { label: t("nav.how_to"), href: rp("how-to") },
   { label: t("nav.compare"), href: rp("compare") },
   { label: t("nav.faq"), href: rp("faq") },
 ];
 const path = Astro.url.pathname;
+const atHome = path === rp("home");
 ---
 
-<header
-  class="sticky top-0 z-40 border-b border-ink-100/70 bg-white/80 backdrop-blur-xl dark:border-ink-800/70 dark:bg-ink-950/80"
->
-  <div class="container-page flex h-16 items-center justify-between gap-4">
-    <!-- Logo -->
+<!--
+  N5 · Floating pill. La envoltura es `sticky`, no `fixed`, a propósito: sigue ocupando
+  su alto en el flujo, así las seis plantillas de página conservan su holgura superior
+  sin repartir un padding-top nuevo por todas ellas. La píldora sigue estando despegada
+  de los bordes, que es lo que define a N5. La franja transparente no captura clics
+  (pointer-events), solo la píldora y el panel móvil.
+-->
+<header class="pointer-events-none sticky top-0 z-40 flex flex-col items-center gap-2 px-4 py-3">
+  <nav
+    class="pointer-events-auto flex items-center gap-1 rounded-full border border-ink-200/70 bg-white/75 py-1.5 pl-3 pr-1.5 shadow-[0_8px_24px_-12px_rgb(11_14_20/0.18)] backdrop-blur-xl backdrop-saturate-150 dark:border-ink-700/60 dark:bg-ink-900/75"
+    aria-label="Primary"
+  >
+    <!-- Wordmark — es también el enlace a home, por eso "Viewer" no está en la lista -->
     <a
       href={rp("home")}
-      class="flex shrink-0 items-center gap-2.5 font-semibold tracking-tight text-ink-900 dark:text-white"
+      aria-current={atHome ? "page" : undefined}
+      class="flex shrink-0 items-center gap-2 whitespace-nowrap text-sm font-semibold tracking-tight text-ink-900 dark:text-white"
     >
-      <Logo class="h-7 w-7" />
-      <span>Online&nbsp;Mbox&nbsp;Viewer</span>
+      <Logo class="h-6 w-6" />
+      <span class="hidden sm:inline">Online&nbsp;Mbox&nbsp;Viewer</span>
+      <span class="sm:hidden">Mbox&nbsp;Viewer</span>
     </a>
 
-    <!-- Nav desktop -->
-    <nav class="hidden items-center gap-1 md:flex" aria-label="Primary">
+    <span class="mx-1 hidden h-5 w-px shrink-0 bg-ink-200 lg:block dark:bg-ink-700" aria-hidden="true"></span>
+
+    <div class="hidden items-center gap-0.5 lg:flex">
       {
         nav.map((item) => {
           const active = path === item.href;
@@ -44,7 +58,7 @@ const path = Astro.url.pathname;
               href={item.href}
               aria-current={active ? "page" : undefined}
               class:list={[
-                "rounded-full px-3 py-2 text-sm font-medium transition-colors",
+                "whitespace-nowrap rounded-full px-3 py-1.5 text-sm font-medium transition-colors duration-200 ease-out",
                 active
                   ? "text-brand-600 dark:text-brand-300"
                   : "text-ink-600 hover:text-ink-900 dark:text-ink-300 dark:hover:text-white",
@@ -55,21 +69,22 @@ const path = Astro.url.pathname;
           );
         })
       }
-    </nav>
+    </div>
 
-    <!-- Acciones -->
-    <div class="flex items-center gap-2">
-      <div class="hidden sm:block"><LanguagePicker locale={locale} /></div>
+    <span class="mx-1 hidden h-5 w-px shrink-0 bg-ink-200 lg:block dark:bg-ink-700" aria-hidden="true"></span>
+
+    <div class="flex items-center gap-1">
+      <LanguagePicker locale={locale} />
       <ThemeToggle locale={locale} />
-      <div class="sm:hidden"><LanguagePicker locale={locale} /></div>
-      <div class="hidden lg:block">
-        <DesktopButton label={t("nav.desktop")} class="!px-4 !py-2 text-sm" />
+      <!-- El CTA entra solo a partir de xl: entre 1024 y 1279 empujaba la píldora
+           hasta rozar el ancho del viewport, que es justo lo que N5 prohíbe. -->
+      <div class="hidden xl:block">
+        <DesktopButton label={t("nav.desktop")} class="!px-4 !py-1.5 text-sm" />
       </div>
-      <!-- Botón menú móvil -->
       <button
         type="button"
         id="mobile-menu-btn"
-        class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-ink-200 text-ink-600 md:hidden dark:border-ink-700 dark:text-ink-300"
+        class="inline-flex h-9 w-9 items-center justify-center rounded-full text-ink-600 lg:hidden dark:text-ink-300"
         aria-label={t("common.menu")}
         aria-expanded="false"
         aria-controls="mobile-menu"
@@ -79,26 +94,27 @@ const path = Astro.url.pathname;
         </svg>
       </button>
     </div>
-  </div>
+  </nav>
 
-  <!-- Menú móvil -->
+  <!-- Menú móvil: hoja bajo la píldora, no una banda a ancho completo -->
   <div
     id="mobile-menu"
-    class="hidden border-t border-ink-100 bg-white px-5 py-4 md:hidden dark:border-ink-800 dark:bg-ink-950"
+    class="pointer-events-auto hidden w-full max-w-sm rounded-2xl border border-ink-200/70 bg-white/95 p-2 shadow-[0_12px_32px_-16px_rgb(11_14_20/0.3)] backdrop-blur-xl lg:hidden dark:border-ink-700/60 dark:bg-ink-900/95"
   >
-    <nav class="flex flex-col gap-1" aria-label="Mobile">
+    <nav class="flex flex-col" aria-label="Mobile">
       {
         nav.map((item) => (
           <a
             href={item.href}
-            class="rounded-lg px-3 py-2.5 text-base font-medium text-ink-700 hover:bg-ink-50 dark:text-ink-200 dark:hover:bg-ink-800"
+            aria-current={path === item.href ? "page" : undefined}
+            class="rounded-xl px-3 py-2.5 text-base font-medium text-ink-700 hover:bg-ink-50 dark:text-ink-200 dark:hover:bg-ink-800"
           >
             {item.label}
           </a>
         ))
       }
     </nav>
-    <div class="mt-4">
+    <div class="mt-2">
       <DesktopButton label={t("nav.desktop")} class="w-full justify-center" />
     </div>
   </div>

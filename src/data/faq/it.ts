@@ -16,7 +16,7 @@ export const it: FaqContent = {
     },
     {
       q: "Qual è la dimensione massima del file?",
-      a: "Il visualizzatore online gestisce file fino a 25 MB per rimanere veloce nel browser. Per archivi più grandi — ad esempio le esportazioni complete di Gmail con Google Takeout — usa l'app desktop, Mbox Viewer per Mac, che gestisce in streaming file di qualsiasi dimensione.",
+      a: "Il visualizzatore online gestisce file fino a 25 MB per rimanere veloce nel browser. Per archivi più grandi — ad esempio le esportazioni complete di Gmail con Google Takeout — usa l'app desktop, Mbox Viewer per Mac e Windows, che gestisce in streaming file di qualsiasi dimensione.",
     },
     {
       q: "Quali app di posta esportano file .mbox?",
@@ -36,7 +36,7 @@ export const it: FaqContent = {
     },
     {
       q: "È davvero gratuito?",
-      a: "Sì, il visualizzatore online è completamente gratuito e open source (licenza MIT). L'app desktop opzionale per Mac è un prodotto separato per gli utenti esperti che hanno bisogno di aprire archivi molto grandi.",
+      a: "Sì, il visualizzatore online è completamente gratuito e open source (licenza MIT). L'app desktop opzionale per Mac e Windows è un prodotto separato per gli utenti esperti che hanno bisogno di aprire archivi molto grandi.",
     },
   ],
 };
