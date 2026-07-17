@@ -9,7 +9,7 @@ export const ja: Partial<Record<UIKey, string>> = {
   "nav.desktop": "デスクトップアプリ",
 
   "cta.appstore_short": "Mac App Store で入手",
-  "cta.windows_soon": "Windows — 近日公開",
+  "cta.microsoftstore_short": "Microsoft Store で入手",
   "cta.get_desktop": "デスクトップアプリを入手",
   "cta.open_viewer": "ビューアを開く",
   "cta.learn_more": "詳しく見る",
@@ -29,7 +29,7 @@ export const ja: Partial<Record<UIKey, string>> = {
   "footer.legal": "法的情報",
   "footer.privacy": "プライバシーポリシー",
   "footer.terms": "利用規約",
-  "footer.desktop_app": "Mac 用デスクトップアプリ",
+  "footer.desktop_app": "Mac・Windows 用デスクトップアプリ",
   "footer.rights": "All rights reserved.",
   "footer.open_source": "GitHub でオープンソース公開",
   "footer.based_on": "ベース:",

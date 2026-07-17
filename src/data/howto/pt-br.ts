@@ -28,5 +28,5 @@ export const ptbr: HowToContent = {
   ],
   desktopHeading: "Abrir arquivos muito grandes",
   desktopBody:
-    "O visualizador online é ajustado para arquivos de até 25 MB. Um Google Takeout completo pode ocupar vários gigabytes — para esses casos, use o Mbox Viewer, o app nativo de desktop para Mac (Windows em breve), que processa arquivos de qualquer tamanho e adiciona busca e exportação.",
+    "O visualizador online é ajustado para arquivos de até 25 MB. Um Google Takeout completo pode ocupar vários gigabytes — para esses casos, use o Mbox Viewer, o app nativo de desktop para Mac e Windows, que processa arquivos de qualquer tamanho e adiciona busca e exportação.",
 };

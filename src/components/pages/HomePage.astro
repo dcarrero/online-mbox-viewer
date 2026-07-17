@@ -39,6 +39,13 @@ const runtime = {
   allLabels: c.allLabels,
 };
 
+// Índice de "seguir leyendo" — sustituye al segundo grid de tres tarjetas.
+const seoLinks = [
+  { label: h.linkHowTo, desc: h.linkHowToDesc, href: routePath("how-to", locale) },
+  { label: h.linkCompare, desc: h.linkCompareDesc, href: routePath("compare", locale) },
+  { label: h.linkFaq, desc: h.linkFaqDesc, href: routePath("faq", locale) },
+];
+
 const schema = [
   {
     "@context": "https://schema.org",
@@ -58,50 +65,63 @@ const schema = [
 <BaseLayout locale={locale} title={c.metaTitle} description={c.metaDescription} schema={schema}>
   <script type="application/json" id="mbox-i18n" set:html={JSON.stringify(runtime)} is:inline />
 
-  <section class="container-page pt-16 pb-12 sm:pt-20">
-    <div class="mx-auto max-w-3xl text-center">
-      <h1 class="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl dark:text-white">
-        {c.title}
-      </h1>
-      <p class="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-ink-600 dark:text-ink-300">
-        {c.subtitle}
-      </p>
-      <p
-        class="pill mx-auto mt-6 border-brand-200 bg-brand-50 text-brand-700 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-300"
-      >
-        <Icon name="lock" class="h-4 w-4" />
-        {c.privacy}
-      </p>
-    </div>
-
-    <!-- Aviso solo en móvil: el visor está pensado para pantallas grandes -->
-    <p
-      class="mx-auto mt-8 max-w-2xl rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 sm:hidden dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+  <section class="container-page pt-10 pb-12 sm:pt-14">
+    <!--
+      Workbench: la herramienta es el héroe. Texto y visor comparten el fold en díptico.
+      El texto vive DENTRO de #mbox-intro a propósito — el script hace intro.hidden = true
+      al abrir un fichero, así que el marketing se aparta solo y la app se queda con toda
+      la página. El h1 se oculta en ese estado; es estado de aplicación tras un gesto del
+      usuario, así que los rastreadores lo ven igualmente.
+    -->
+    <div
+      id="mbox-intro"
+      class="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,30rem)] lg:gap-14"
     >
-      {c.mobileNote}
-    </p>
+      <div>
+        <h1 class="text-4xl font-bold tracking-tight text-ink-900 sm:text-5xl dark:text-white">
+          {c.title}
+        </h1>
+        <p class="mt-5 max-w-xl text-lg leading-relaxed text-ink-600 dark:text-ink-300">
+          {c.subtitle}
+        </p>
+        <p
+          class="pill mt-6 border-brand-200 bg-brand-50 text-brand-700 dark:border-brand-800 dark:bg-brand-900/40 dark:text-brand-300"
+        >
+          <Icon name="lock" class="h-4 w-4" />
+          {c.privacy}
+        </p>
 
-    <!-- Intro / dropzone -->
-    <div id="mbox-intro" class="mx-auto mt-10 max-w-2xl">
-      <div
-        id="mbox-dropzone"
-        role="button"
-        tabindex="0"
-        aria-label={c.dropTitle}
-        class="mbox-dropzone flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-ink-200 bg-ink-50/40 px-6 py-16 text-center transition-colors hover:border-brand-400 hover:bg-brand-50/40 dark:border-ink-700 dark:bg-ink-900/40 dark:hover:border-brand-600"
-      >
-        <Icon name="upload" class="h-10 w-10 text-brand-500" />
-        <p class="mt-4 text-lg font-semibold text-ink-900 dark:text-white">{c.dropTitle}</p>
-        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{c.dropHint}</p>
-        <p class="mt-4 text-xs font-medium uppercase tracking-wider text-ink-400">{c.dropNote}</p>
-        <input id="mbox-file" type="file" accept=".mbox,.txt,application/mbox,message/rfc822" hidden />
+        <!-- Aviso solo en móvil: el visor está pensado para pantallas grandes -->
+        <p
+          class="mt-6 rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-sm text-amber-800 sm:hidden dark:border-amber-900/60 dark:bg-amber-950/40 dark:text-amber-200"
+        >
+          {c.mobileNote}
+        </p>
       </div>
-      <p
-        id="mbox-error"
-        class="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
-        hidden
-      >
-      </p>
+
+      <div>
+        <div
+          id="mbox-dropzone"
+          role="button"
+          tabindex="0"
+          aria-label={c.dropTitle}
+          class="mbox-dropzone flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-ink-200 bg-ink-50/40 px-6 py-14 text-center transition-colors duration-200 ease-out hover:border-brand-400 hover:bg-brand-50/40 dark:border-ink-700 dark:bg-ink-900/40 dark:hover:border-brand-600"
+        >
+          <Icon name="upload" class="h-10 w-10 text-brand-500" />
+          <p class="mt-4 text-lg font-semibold text-ink-900 dark:text-white">{c.dropTitle}</p>
+          <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{c.dropHint}</p>
+          <p class="mt-4 text-xs font-medium uppercase tracking-wider text-ink-500 dark:text-ink-400">
+            {c.dropNote}
+          </p>
+          <input id="mbox-file" type="file" accept=".mbox,.txt,application/mbox,message/rfc822" hidden />
+        </div>
+        <p
+          id="mbox-error"
+          class="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
+          hidden
+        >
+        </p>
+      </div>
     </div>
 
     <!-- App -->
@@ -143,87 +163,116 @@ const schema = [
     </div>
   </section>
 
-  <!-- Cómo funciona / privacidad (3 pasos) -->
-  <section class="container-page pb-8">
-    <div class="mx-auto max-w-4xl">
-      <h2 class="text-center text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl dark:text-white">
+  <!--
+    Cómo funciona / privacidad. Era un grid de 3 tarjetas iguales; ahora es una secuencia
+    F4: vertical, numerada, separada por filetes. Los pasos son ordinales de verdad
+    (elegir → leer → nada sale), así que el número es contenido, no un adorno de sección.
+  -->
+  <section class="container-page pb-10">
+    <div class="max-w-3xl">
+      <h2 class="text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl dark:text-white">
         {h.stepsTitle}
       </h2>
-      <div class="mt-10 grid gap-6 sm:grid-cols-3">
+      <ol class="mt-8 border-t border-ink-100 dark:border-ink-800">
         {
           h.steps.map((s, i) => (
-            <div class="card" data-reveal style={`--reveal-delay:${i * 80}ms`}>
-              <span class="inline-flex h-9 w-9 items-center justify-center rounded-full bg-brand-50 text-sm font-bold text-brand-600 dark:bg-brand-900/40 dark:text-brand-300">
-                {i + 1}
+            <li class="flex gap-5 border-b border-ink-100 py-6 dark:border-ink-800">
+              <!-- ink-500/400, no ink-400/500: a 12px el numeral es texto pequeño y
+                   necesita 4.5:1. ink-400 sobre blanco da 3.73:1 y no pasa AA. -->
+              <span class="shrink-0 pt-1 font-mono text-xs tabular-nums text-ink-500 dark:text-ink-400">
+                {String(i + 1).padStart(2, "0")}
               </span>
-              <h3 class="mt-4 text-lg font-semibold text-ink-900 dark:text-white">{s.title}</h3>
-              <p class="mt-2 text-sm leading-relaxed text-ink-600 dark:text-ink-300">{s.body}</p>
-            </div>
-          ))
-        }
-      </div>
-    </div>
-  </section>
-
-  <!-- Bloque de publicidad: app de escritorio -->
-  <section class="container-page py-12">
-    <div
-      class="mx-auto flex max-w-4xl flex-col items-center gap-5 rounded-3xl border border-ink-800 bg-ink-950 px-6 py-12 text-center sm:px-12"
-    >
-      <span
-        class="pill border-ink-700 bg-ink-900 text-ink-300"
-      >
-        <Icon name="apple" class="h-4 w-4" />{SITE.desktopName} · {SITE.minMacOS}
-      </span>
-      <h2 class="text-2xl font-bold tracking-tight text-white sm:text-3xl">{c.desktopTitle}</h2>
-      <p class="max-w-xl text-ink-300">{c.desktopBody}</p>
-      <ul class="mx-auto flex max-w-lg flex-col gap-2 text-left text-sm text-ink-300">
-        {
-          h.desktopPoints.map((p) => (
-            <li class="flex items-start gap-2">
-              <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
-              <span>{p}</span>
+              <div>
+                <h3 class="text-lg font-semibold text-ink-900 dark:text-white">{s.title}</h3>
+                <p class="mt-1.5 leading-relaxed text-ink-600 dark:text-ink-300">{s.body}</p>
+              </div>
             </li>
           ))
         }
-      </ul>
-      <div class="mt-2 flex flex-wrap items-center justify-center gap-3">
-        <DesktopButton label={t("cta.appstore_short")} variant="brand" class="!px-6 !py-3 text-base" />
-        <a
-          href={SITE.desktopUrl}
-          target="_blank"
-          rel="noopener"
-          class="btn-ghost !border-ink-700 !bg-transparent !text-ink-200 hover:!bg-ink-900 !px-6 !py-3 text-base"
-        >
-          {SITE.desktopName} · {SITE.domain.replace("onlinemboxviewer.com", "mboxviewer.net")}
-          <Icon name="external" class="h-4 w-4 opacity-70" />
-        </a>
-      </div>
-      <p class="text-xs text-ink-500">
-        <Icon name="windows" class="mr-1 inline h-3.5 w-3.5 align-text-bottom" />{t("cta.windows_soon")}
-      </p>
+      </ol>
     </div>
   </section>
 
-  <!-- Enlaces a páginas SEO -->
-  <section class="container-page pb-24">
-    <div class="mx-auto grid max-w-4xl gap-4 sm:grid-cols-3">
-      <a href={routePath("how-to", locale)} class="card card-hover">
-        <Icon name="bolt" class="h-6 w-6 text-brand-500" />
-        <h3 class="mt-3 font-semibold text-ink-900 dark:text-white">{h.linkHowTo}</h3>
-        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{h.linkHowToDesc}</p>
-      </a>
-      <a href={routePath("compare", locale)} class="card card-hover">
-        <Icon name="layers" class="h-6 w-6 text-brand-500" />
-        <h3 class="mt-3 font-semibold text-ink-900 dark:text-white">{h.linkCompare}</h3>
-        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{h.linkCompareDesc}</p>
-      </a>
-      <a href={routePath("faq", locale)} class="card card-hover">
-        <Icon name="shield" class="h-6 w-6 text-brand-500" />
-        <h3 class="mt-3 font-semibold text-ink-900 dark:text-white">{h.linkFaq}</h3>
-        <p class="mt-1 text-sm text-ink-500 dark:text-ink-400">{h.linkFaqDesc}</p>
-      </a>
+  <!-- Bloque de publicidad: app de escritorio. Alineado a la izquierda: la losa centrada
+       era el tercer tiempo del ritmo de plantilla (hero centrado → 3 tarjetas → losa). -->
+  <section class="container-page py-12">
+    <div class="rounded-3xl border border-ink-800 bg-ink-950 px-6 py-12 sm:px-12">
+      <div class="max-w-2xl">
+        <span class="pill border-ink-700 bg-ink-900 text-ink-300">
+          <Icon name="apple" class="h-4 w-4 shrink-0" />
+          <Icon name="windows" class="h-4 w-4 shrink-0" />
+          {SITE.desktopName} · {SITE.minMacOS} · {SITE.minWindows}
+        </span>
+        <h2 class="mt-5 text-2xl font-bold tracking-tight text-white sm:text-3xl">{c.desktopTitle}</h2>
+        <p class="mt-4 text-ink-300">{c.desktopBody}</p>
+        <ul class="mt-5 flex flex-col gap-2 text-sm text-ink-300">
+          {
+            h.desktopPoints.map((p) => (
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-brand-400" />
+                <span>{p}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <!-- Dos tiendas, mismo peso: la app existe en ambas. A ancho completo en
+             móvil para que las etiquetas no partan en dos líneas (gate 49). -->
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <DesktopButton
+            label={t("cta.appstore_short")}
+            variant="brand"
+            store="apple"
+            class="w-full justify-center !px-5 !py-3 sm:w-auto"
+          />
+          <DesktopButton
+            label={t("cta.microsoftstore_short")}
+            variant="ghost"
+            store="microsoft"
+            class="w-full justify-center !border-ink-700 !bg-transparent !px-5 !py-3 !text-ink-200 hover:!bg-ink-900 sm:w-auto"
+          />
+        </div>
+        <p class="mt-5 text-xs">
+          <a
+            href={SITE.desktopUrl}
+            target="_blank"
+            rel="noopener"
+            class="inline-flex items-center gap-1 text-ink-400 underline-offset-2 transition-colors duration-200 ease-out hover:text-ink-200 hover:underline"
+          >
+            {SITE.desktopName} · {SITE.domain.replace("onlinemboxviewer.com", "mboxviewer.net")}
+            <Icon name="external" class="h-3 w-3 opacity-70" />
+          </a>
+        </p>
+      </div>
     </div>
+  </section>
+
+  <!--
+    Enlaces a páginas SEO. Era el segundo grid de 3 tarjetas con icono encima; ahora es
+    un índice: filas a filete, título y descripción en la misma línea base, flecha a la
+    derecha. Los iconos (bolt/layers/shield) caen — eran decoración del patrón de tarjeta.
+  -->
+  <section class="container-page pb-24">
+    <ul class="border-t border-ink-100 dark:border-ink-800">
+      {
+        seoLinks.map((l) => (
+          <li>
+            <a
+              href={l.href}
+              class="group flex flex-wrap items-baseline gap-x-3 gap-y-1 border-b border-ink-100 py-5 dark:border-ink-800"
+            >
+              <span class="font-semibold text-ink-900 transition-colors duration-200 ease-out group-hover:text-brand-600 dark:text-white dark:group-hover:text-brand-300">
+                {l.label}
+              </span>
+              <span class="text-sm text-ink-500 dark:text-ink-400">{l.desc}</span>
+              <Icon
+                name="arrow_right"
+                class="ml-auto h-4 w-4 shrink-0 self-center text-ink-300 transition-transform duration-200 ease-out group-hover:translate-x-0.5 dark:text-ink-600"
+              />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
   </section>
 
   <script>

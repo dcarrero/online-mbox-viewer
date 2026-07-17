@@ -16,7 +16,7 @@ export const ptbr: FaqContent = {
     },
     {
       q: "Qual é o tamanho máximo de arquivo?",
-      a: "O visualizador online lida com arquivos de até 25 MB para manter a velocidade no navegador. Para arquivos maiores — exportações completas do Google Takeout, por exemplo — use o app de desktop, Mbox Viewer para Mac, que processa arquivos de qualquer tamanho.",
+      a: "O visualizador online lida com arquivos de até 25 MB para manter a velocidade no navegador. Para arquivos maiores — exportações completas do Google Takeout, por exemplo — use o app de desktop, Mbox Viewer para Mac e Windows, que processa arquivos de qualquer tamanho.",
     },
     {
       q: "Quais aplicativos de e-mail exportam arquivos .mbox?",
@@ -36,7 +36,7 @@ export const ptbr: FaqContent = {
     },
     {
       q: "É realmente gratuito?",
-      a: "Sim, o visualizador online é totalmente gratuito e de código aberto (licença MIT). O app de desktop opcional para Mac é um produto à parte, para usuários avançados que precisam abrir arquivos muito grandes.",
+      a: "Sim, o visualizador online é totalmente gratuito e de código aberto (licença MIT). O app de desktop opcional para Mac e Windows é um produto à parte, para usuários avançados que precisam abrir arquivos muito grandes.",
     },
   ],
 };

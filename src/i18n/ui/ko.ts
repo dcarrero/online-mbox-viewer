@@ -9,7 +9,7 @@ export const ko: Partial<Record<UIKey, string>> = {
   "nav.desktop": "데스크톱 앱",
 
   "cta.appstore_short": "Mac App Store에서 받기",
-  "cta.windows_soon": "Windows — 출시 예정",
+  "cta.microsoftstore_short": "Microsoft Store에서 받기",
   "cta.get_desktop": "데스크톱 앱 받기",
   "cta.open_viewer": "뷰어 열기",
   "cta.learn_more": "자세히 보기",
@@ -29,7 +29,7 @@ export const ko: Partial<Record<UIKey, string>> = {
   "footer.legal": "법적 고지",
   "footer.privacy": "개인정보 처리방침",
   "footer.terms": "서비스 이용약관",
-  "footer.desktop_app": "Mac용 데스크톱 앱",
+  "footer.desktop_app": "Mac·Windows용 데스크톱 앱",
   "footer.rights": "모든 권리 보유.",
   "footer.open_source": "GitHub에서 오픈소스",
   "footer.based_on": "기반:",

@@ -16,7 +16,7 @@ export const es: FaqContent = {
     },
     {
       q: "¿Cuál es el tamaño máximo de fichero?",
-      a: "El visor online admite ficheros de hasta 25 MB para mantenerse rápido en el navegador. Para archivos más grandes —por ejemplo, exportaciones completas de Gmail Takeout— usa la app de escritorio, Mbox Viewer para Mac, que procesa ficheros de cualquier tamaño.",
+      a: "El visor online admite ficheros de hasta 25 MB para mantenerse rápido en el navegador. Para archivos más grandes —por ejemplo, exportaciones completas de Gmail Takeout— usa la app de escritorio, Mbox Viewer para Mac y Windows, que procesa ficheros de cualquier tamaño.",
     },
     {
       q: "¿Qué aplicaciones de correo exportan ficheros .mbox?",
@@ -36,7 +36,7 @@ export const es: FaqContent = {
     },
     {
       q: "¿Es realmente gratis?",
-      a: "Sí, el visor online es completamente gratuito y de código abierto (licencia MIT). La app de escritorio opcional para Mac es un producto aparte para usuarios avanzados que necesitan abrir archivos muy grandes.",
+      a: "Sí, el visor online es completamente gratuito y de código abierto (licencia MIT). La app de escritorio opcional para Mac y Windows es un producto aparte para usuarios avanzados que necesitan abrir archivos muy grandes.",
     },
   ],
 };

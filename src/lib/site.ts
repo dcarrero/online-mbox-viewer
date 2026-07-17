@@ -2,8 +2,8 @@
  * Configuración del sitio y enlaces — única fuente de verdad.
  *
  * Este sitio es SOLO el visor web de mbox (100% en el navegador, nada se sube).
- * La app de escritorio (Mac, y pronto Windows) se promociona como vía para
- * abrir ficheros más grandes y vive en mboxviewer.net.
+ * La app de escritorio (Mac y Windows) se promociona como vía para abrir
+ * ficheros más grandes y vive en mboxviewer.net.
  */
 
 export const SITE = {
@@ -12,7 +12,7 @@ export const SITE = {
   url: "https://onlinemboxviewer.com",
 
   /** Versión del sitio web. Se muestra en el pie. */
-  version: "0.5.2",
+  version: "0.6.0",
   repoUrl: "https://github.com/dcarrero/online-mbox-viewer",
 
   // Visor web (100% en el navegador, nada se sube): límite de tamaño por fichero.
@@ -22,8 +22,10 @@ export const SITE = {
   desktopName: "Mbox Viewer",
   desktopUrl: "https://mboxviewer.net",
   appStoreUrl: "https://apps.apple.com/app/mbox-viewer-pro/id6759237715",
-  windowsAvailable: false, // futura tienda de apps de Windows
+  microsoftStoreUrl: "https://apps.microsoft.com/store/detail/9NW3GVFG7DDB",
+  windowsAvailable: true,
   minMacOS: "macOS 14 Sonoma",
+  minWindows: "Windows 10+",
 
   // Empresa / autor
   author: "David Carrero Fernández-Baillo",

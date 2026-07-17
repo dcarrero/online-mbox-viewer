@@ -28,5 +28,5 @@ export const pl: HowToContent = {
   ],
   desktopHeading: "Otwieranie bardzo dużych archiwów",
   desktopBody:
-    "Przeglądarka online jest zoptymalizowana dla plików do 25 MB. Pełny eksport z Google Takeout może mieć kilka gigabajtów — w takich przypadkach skorzystaj z Mbox Viewer, natywnej aplikacji desktopowej na Maca (Windows wkrótce), która strumieniuje archiwa dowolnej wielkości oraz dodaje wyszukiwanie i eksport.",
+    "Przeglądarka online jest zoptymalizowana dla plików do 25 MB. Pełny eksport z Google Takeout może mieć kilka gigabajtów — w takich przypadkach skorzystaj z Mbox Viewer, natywnej aplikacji desktopowej na Maca i Windows, która strumieniuje archiwa dowolnej wielkości oraz dodaje wyszukiwanie i eksport.",
 };

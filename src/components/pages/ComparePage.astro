@@ -15,14 +15,14 @@ const c = getCompare(locale);
 
 <BaseLayout locale={locale} title={c.title} description={c.description}>
   <section class="container-page py-16 sm:py-20">
-    <header class="mx-auto max-w-3xl text-center">
+    <header class="max-w-3xl">
       <h1 class="text-3xl font-bold tracking-tight text-ink-900 sm:text-4xl dark:text-white">
         {c.title}
       </h1>
       <p class="mt-4 text-lg leading-relaxed text-ink-600 dark:text-ink-300">{c.intro}</p>
     </header>
 
-    <div class="mx-auto mt-12 max-w-3xl overflow-hidden rounded-2xl border border-ink-100 dark:border-ink-800">
+    <div class="mt-12 max-w-3xl overflow-x-auto rounded-2xl border border-ink-100 dark:border-ink-800">
       <table class="w-full border-collapse text-left text-sm">
         <thead class="bg-ink-50 dark:bg-ink-900">
           <tr>
@@ -45,15 +45,23 @@ const c = getCompare(locale);
       </table>
     </div>
 
-    <div class="mx-auto mt-10 max-w-3xl rounded-2xl border border-brand-200 bg-brand-50 p-6 dark:border-brand-800 dark:bg-brand-900/30">
+    <div class="mt-10 max-w-3xl rounded-2xl border border-brand-200 bg-brand-50 p-6 dark:border-brand-800 dark:bg-brand-900/30">
       <p class="text-ink-700 dark:text-ink-200">{c.closing}</p>
-      <div class="mt-5 flex flex-wrap items-center gap-3">
-        <DesktopButton label={t("cta.get_desktop")} variant="brand" />
-        <a
-          href={routePath("home", locale)}
-          class="btn-ghost"
-        >
-          <Icon name="upload" class="h-4 w-4" />
+      <div class="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+        <DesktopButton
+          label={t("cta.appstore_short")}
+          variant="brand"
+          store="apple"
+          class="w-full justify-center sm:w-auto"
+        />
+        <DesktopButton
+          label={t("cta.microsoftstore_short")}
+          variant="ghost"
+          store="microsoft"
+          class="w-full justify-center sm:w-auto"
+        />
+        <a href={routePath("home", locale)} class="btn-ghost w-full justify-center sm:w-auto">
+          <Icon name="upload" class="h-4 w-4 shrink-0" />
           {t("cta.open_viewer")}
         </a>
       </div>

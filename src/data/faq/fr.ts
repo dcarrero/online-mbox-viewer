@@ -16,7 +16,7 @@ export const fr: FaqContent = {
     },
     {
       q: "Quelle est la taille maximale du fichier ?",
-      a: "Le visualiseur en ligne gère les fichiers jusqu'à 25 MB afin de rester rapide dans le navigateur. Pour les archives plus volumineuses — les exports complets de Google Takeout, par exemple — utilisez l'application de bureau, Mbox Viewer pour Mac, qui traite en flux les fichiers de n'importe quelle taille.",
+      a: "Le visualiseur en ligne gère les fichiers jusqu'à 25 MB afin de rester rapide dans le navigateur. Pour les archives plus volumineuses — les exports complets de Google Takeout, par exemple — utilisez l'application de bureau, Mbox Viewer pour Mac et Windows, qui traite en flux les fichiers de n'importe quelle taille.",
     },
     {
       q: "Quelles applications de messagerie exportent des fichiers .mbox ?",
@@ -36,7 +36,7 @@ export const fr: FaqContent = {
     },
     {
       q: "Est-ce vraiment gratuit ?",
-      a: "Oui, le visualiseur en ligne est entièrement gratuit et open source (sous licence MIT). L'application de bureau optionnelle pour Mac est un produit distinct destiné aux utilisateurs avancés qui ont besoin d'ouvrir de très grandes archives.",
+      a: "Oui, le visualiseur en ligne est entièrement gratuit et open source (sous licence MIT). L'application de bureau optionnelle pour Mac et Windows est un produit distinct destiné aux utilisateurs avancés qui ont besoin d'ouvrir de très grandes archives.",
     },
   ],
 };

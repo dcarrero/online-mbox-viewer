@@ -28,5 +28,5 @@ export const nl: HowToContent = {
   ],
   desktopHeading: "Zeer grote archieven openen",
   desktopBody:
-    "De online viewer is afgestemd op bestanden tot 25 MB. Een volledige Google Takeout kan meerdere gigabytes groot zijn — gebruik daarvoor Mbox Viewer, de native desktop-app voor Mac (Windows binnenkort), die archieven van elke grootte streamt en zoeken en exporteren toevoegt.",
+    "De online viewer is afgestemd op bestanden tot 25 MB. Een volledige Google Takeout kan meerdere gigabytes groot zijn — gebruik daarvoor Mbox Viewer, de native desktop-app voor Mac en Windows, die archieven van elke grootte streamt en zoeken en exporteren toevoegt.",
 };

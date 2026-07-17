@@ -28,6 +28,6 @@ export const en: HowToContent = {
   ],
   desktopHeading: "Opening very large archives",
   desktopBody:
-    "The online viewer is tuned for files up to 25 MB. A full Gmail Takeout can be several gigabytes — for those, use Mbox Viewer, the native desktop app for Mac (Windows coming soon), which streams archives of any size and adds search and export.",
+    "The online viewer is tuned for files up to 25 MB. A full Gmail Takeout can be several gigabytes — for those, use Mbox Viewer, the native desktop app for Mac and Windows, which streams archives of any size and adds search and export.",
 };
 

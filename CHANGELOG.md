@@ -4,6 +4,19 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.0
+
+- Add: Microsoft Store. The Windows desktop app has shipped, so the site now links it everywhere the Mac App Store is linked — home, how-to, compare and the footer.
+- Fix: the site claimed "Windows — coming soon" in all 10 languages. That is no longer true. Every Mac-only / Windows-pending string was corrected across the UI strings, home, viewer, how-to, FAQ, compare and llms.txt.
+- Change: navigation is now a content-sized floating pill instead of a full-width sticky bar.
+- Change: the footer is a single inline line of links instead of Product / Resources / Legal columns.
+- Change: the home page leads with the viewer itself — text and dropzone share the fold, and the tool takes the whole page once a file is open.
+- Change: the two three-card grids became a numbered step sequence and a typographic index.
+- Fix: "Inter" was declared in the font stack but never loaded, so the site always rendered in the system stack. The dead declaration and its Inter-only font-feature-settings are gone; the system stack is now the deliberate choice.
+- Fix: the logo emitted a duplicate gradient id when rendered in both the nav and the footer.
+- Fix: two contrast failures on small ink-400 text. The site is now axe-core WCAG 2.1 AA clean across every template, both themes.
+- Remove: scroll-reveal animations, the dead .text-gradient / .bg-grid rules and the universal card hover lift.
+
 ## v0.5.2
 
 - Add: own brand icons (favicon, 32/64/128/256/512 PNG, apple-touch-icon) replacing the desktop-app placeholders.

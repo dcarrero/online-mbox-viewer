@@ -16,7 +16,7 @@ export const en: FaqContent = {
     },
     {
       q: "What is the maximum file size?",
-      a: "The online viewer handles files up to 25 MB so it stays fast in the browser. For larger archives — full Gmail Takeout exports, for example — use the desktop app, Mbox Viewer for Mac, which streams files of any size.",
+      a: "The online viewer handles files up to 25 MB so it stays fast in the browser. For larger archives — full Gmail Takeout exports, for example — use the desktop app, Mbox Viewer for Mac and Windows, which streams files of any size.",
     },
     {
       q: "Which email apps export .mbox files?",
@@ -36,7 +36,7 @@ export const en: FaqContent = {
     },
     {
       q: "Is it really free?",
-      a: "Yes, the online viewer is completely free and open source (MIT licensed). The optional desktop app for Mac is a separate product for power users who need to open very large archives.",
+      a: "Yes, the online viewer is completely free and open source (MIT licensed). The optional desktop app for Mac and Windows is a separate product for power users who need to open very large archives.",
     },
   ],
 };

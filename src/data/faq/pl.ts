@@ -16,7 +16,7 @@ export const pl: FaqContent = {
     },
     {
       q: "Jaki jest maksymalny rozmiar pliku?",
-      a: "Przeglądarka online obsługuje pliki do 25 MB, dzięki czemu pozostaje szybka w przeglądarce. W przypadku większych archiwów — na przykład pełnych eksportów z Google Takeout — skorzystaj z aplikacji desktopowej Mbox Viewer for Mac, która strumieniuje pliki dowolnej wielkości.",
+      a: "Przeglądarka online obsługuje pliki do 25 MB, dzięki czemu pozostaje szybka w przeglądarce. W przypadku większych archiwów — na przykład pełnych eksportów z Google Takeout — skorzystaj z aplikacji desktopowej Mbox Viewer for Mac i Windows, która strumieniuje pliki dowolnej wielkości.",
     },
     {
       q: "Które programy pocztowe eksportują pliki .mbox?",
@@ -36,7 +36,7 @@ export const pl: FaqContent = {
     },
     {
       q: "Czy to naprawdę darmowe?",
-      a: "Tak, przeglądarka online jest całkowicie darmowa i ma otwarty kod źródłowy (na licencji MIT). Opcjonalna aplikacja desktopowa na Maca to osobny produkt dla zaawansowanych użytkowników, którzy potrzebują otwierać bardzo duże archiwa.",
+      a: "Tak, przeglądarka online jest całkowicie darmowa i ma otwarty kod źródłowy (na licencji MIT). Opcjonalna aplikacja desktopowa na Maca i Windows to osobny produkt dla zaawansowanych użytkowników, którzy potrzebują otwierać bardzo duże archiwa.",
     },
   ],
 };

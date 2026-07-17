@@ -26,7 +26,11 @@ const current = LOCALE_META[locale];
     data-lang-trigger
   >
     <Icon name="globe" class="h-4 w-4" />
-    <span class="hidden sm:inline">{current.label}</span>
+    {/* Código, no nombre nativo: el nav es una píldora dimensionada por su contenido y
+        "Português (BR)" la desbordaba. El desplegable sí lleva los nombres completos. */}
+    <span class="hidden font-mono text-xs tracking-wide sm:inline">
+      {current.htmlLang.toUpperCase()}
+    </span>
     <Icon name="chevron_down" class="h-3.5 w-3.5 opacity-60" />
   </button>
 

@@ -28,6 +28,6 @@ export const es: HowToContent = {
   ],
   desktopHeading: "Abrir archivos muy grandes",
   desktopBody:
-    "El visor online está ajustado para ficheros de hasta 25 MB. Un Gmail Takeout completo puede ocupar varios gigabytes — para esos casos, usa Mbox Viewer, la app nativa de escritorio para Mac (Windows muy pronto), que procesa archivos de cualquier tamaño y añade búsqueda y exportación.",
+    "El visor online está ajustado para ficheros de hasta 25 MB. Un Gmail Takeout completo puede ocupar varios gigabytes — para esos casos, usa Mbox Viewer, la app nativa de escritorio para Mac y Windows, que procesa archivos de cualquier tamaño y añade búsqueda y exportación.",
 };
 

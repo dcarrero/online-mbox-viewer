@@ -28,5 +28,5 @@ export const ko: HowToContent = {
   ],
   desktopHeading: "매우 큰 아카이브 열기",
   desktopBody:
-    "온라인 뷰어는 최대 25 MB의 파일에 최적화되어 있습니다. 전체 Google Takeout은 수 기가바이트가 될 수 있으며, 그런 경우에는 어떤 크기의 아카이브든 스트리밍하고 검색과 내보내기를 더해주는 Mac용 네이티브 데스크톱 앱 Mbox Viewer(Windows 출시 예정)를 사용하세요.",
+    "온라인 뷰어는 최대 25 MB의 파일에 최적화되어 있습니다. 전체 Google Takeout은 수 기가바이트가 될 수 있으며, 그런 경우에는 어떤 크기의 아카이브든 스트리밍하고 검색과 내보내기를 더해주는 Mac·Windows용 네이티브 데스크톱 앱 Mbox Viewer를 사용하세요.",
 };

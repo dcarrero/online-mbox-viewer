@@ -1,19 +1,32 @@
 ---
-/** Marca inline: sobre dentro de un cuadrado con gradiente de marca. */
+/**
+ * Marca inline: sobre dentro de un cuadrado con el degradado de marca.
+ *
+ * El degradado (índigo → cian) es la identidad, y vive SOLO aquí y en los
+ * activos estáticos (favicon.svg, icon-*.png). La interfaz no lo usa: su acento
+ * es un único ancla índigo. Los stops referencian los tokens de marca para que
+ * el color tenga una sola fuente de verdad; public/favicon.svg es un artefacto
+ * aparte y necesita los hex literales — si cambias uno, cambia el otro.
+ */
 interface Props {
   class?: string;
 }
 const { class: className = "h-7 w-7" } = Astro.props;
+
+// El logo se pinta más de una vez por página (nav y pie). Un id fijo para el
+// degradado los duplicaba en el DOM; cada instancia genera el suyo.
+const gradId = `omv-logo-${crypto.randomUUID().slice(0, 8)}`;
 ---
 
 <svg viewBox="0 0 32 32" class={className} role="img" aria-label="Online Mbox Viewer">
   <defs>
-    <linearGradient id="omv-logo" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#635bf1"></stop>
-      <stop offset="1" stop-color="#0ea5e9"></stop>
+    <linearGradient id={gradId} x1="0" y1="0" x2="1" y2="1">
+      {/* vía `style`: var() en atributos de presentación SVG no es fiable */}
+      <stop offset="0" style="stop-color: var(--color-brand-500)"></stop>
+      <stop offset="1" style="stop-color: var(--color-accent-500)"></stop>
     </linearGradient>
   </defs>
-  <rect width="32" height="32" rx="8" fill="url(#omv-logo)"></rect>
+  <rect width="32" height="32" rx="8" fill={`url(#${gradId})`}></rect>
   <path
     d="M8 11.5a1.5 1.5 0 0 1 1.5-1.5h13a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 8 20.5v-9Z"
     fill="none"
