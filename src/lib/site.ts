@@ -12,7 +12,7 @@ export const SITE = {
   url: "https://onlinemboxviewer.com",
 
   /** Versión del sitio web. Se muestra en el pie. */
-  version: "0.7.8",
+  version: "0.7.9",
   repoUrl: "https://github.com/dcarrero/online-mbox-viewer",
 
   // Visor web (100% en el navegador, nada se sube): límite de tamaño por fichero.

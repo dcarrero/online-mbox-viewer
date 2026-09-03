@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.9
+
+- Fix: nothing had deployed since v0.7.1. Moving sharp to devDependencies changed package.json without regenerating pnpm-lock.yaml, and Cloudflare Pages installs with a frozen lockfile, so every build failed with ERR_PNPM_OUTDATED_LOCKFILE while the live site kept serving v0.7.1 — including the CSP that blocks "Show images", fixed in v0.7.3 but never shipped.
+- Fix: the CI workflow failed on its first two runs — pnpm/action-setup requires an explicit version, so package.json now pins packageManager.
+
 ## v0.7.8
 
 - Add: scripts/smoke.mjs and a CI workflow. The checks cover what actually broke in production and what code review missed: that the CSP keeps data: and https: in img-src (or emails lose their images), that it allows GA's regional hosts and Cloudflare's beacon, that every inline script in the output is hashed into the policy, that the viewer stays a separate lazily-loaded chunk, and that all 10 locales carry the same keys. Each check was verified to fail when the thing it guards is broken.
