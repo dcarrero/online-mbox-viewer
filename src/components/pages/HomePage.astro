@@ -24,6 +24,7 @@ const runtime = {
   maxMb: max,
   loading: c.loading,
   reading: c.reading,
+  multiple: c.multiple,
   tooLarge: c.tooLarge,
   empty: c.empty,
   error: c.error,
@@ -135,6 +136,17 @@ const schema = [
       class="mt-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
       hidden
     >
+      <span id="mbox-error-text"></span>
+      <a
+        id="mbox-error-cta"
+        href={SITE.desktopUrl}
+        target="_blank"
+        rel="noopener"
+        class="ml-1 font-semibold underline underline-offset-2"
+        hidden
+      >
+        {t("cta.get_desktop")}<span class="sr-only"> ({t("common.opens_new_tab")})</span>
+      </a>
     </p>
 
     <!--
@@ -187,7 +199,7 @@ const schema = [
         </aside>
         <section
           id="mbox-reader"
-          class="min-h-[70vh] overflow-hidden rounded-xl border border-ink-100 bg-white dark:border-ink-800 dark:bg-ink-950"
+          class="min-h-[70vh] overflow-hidden rounded-xl border border-ink-100 bg-white lg:h-[70vh] lg:min-h-0 dark:border-ink-800 dark:bg-ink-950"
         >
         </section>
       </div>
@@ -416,9 +428,16 @@ const schema = [
     .mbox-frame {
       flex: 1;
       width: 100%;
-      min-height: 50vh;
+      /* En lg el panel mide 70vh y flex:1 reparte; por debajo no hay altura
+         que repartir, así que el iframe pone la suya. */
+      min-height: 70vh;
       border: 0;
       background: #fff;
+    }
+    @media (min-width: 1024px) {
+      .mbox-frame {
+        min-height: 0;
+      }
     }
     .mbox-text {
       flex: 1;

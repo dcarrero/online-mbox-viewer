@@ -16,6 +16,7 @@ interface Strings {
   maxMb: number;
   loading: string;
   reading: string; // {name}
+  multiple: string; // {name}
   tooLarge: string; // {mb} y {max} se sustituyen
   empty: string;
   error: string;
@@ -377,6 +378,8 @@ class Viewer {
       reader: id("mbox-reader"),
       filename: id("mbox-filename"),
       error: id("mbox-error"),
+      errorText: id("mbox-error-text"),
+      errorCta: id("mbox-error-cta"),
       loadingEl: id("mbox-loading"),
     };
 
@@ -401,8 +404,11 @@ class Viewer {
     this.el.loadingEl.hidden = msg === null;
   }
 
-  private showError(msg: string) {
-    this.el.error.textContent = msg;
+  private showError(msg: string, offerDesktop = false) {
+    this.el.errorText.textContent = msg;
+    // El mensaje de "demasiado grande" recomienda la app de escritorio; el
+    // enlace estaba dos pantallas más abajo.
+    this.el.errorCta.hidden = !offerDesktop;
     this.el.error.hidden = false;
   }
 
@@ -417,6 +423,7 @@ class Viewer {
     if (mb > this.S.maxMb) {
       this.showError(
         this.S.tooLarge.replace("{mb}", mb.toFixed(1)).replace("{max}", String(this.S.maxMb)),
+        true,
       );
       return;
     }

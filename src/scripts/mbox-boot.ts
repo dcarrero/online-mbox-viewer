@@ -19,17 +19,28 @@ if (intro) {
     dropzone?.addEventListener(ev, () => void viewerModule(), { once: true }),
   );
 
-  const onFile = async (file: File | Blob, name: string) => {
+  const strings = () =>
+    JSON.parse(document.getElementById("mbox-i18n")?.textContent || "{}");
+
+  const onFile = async (file: File | Blob, name: string, dropped = 1) => {
     try {
       const m = await viewerModule();
       await m.openFile(file, name);
+      // Soltar varios ficheros abría el primero en silencio.
+      if (dropped > 1) {
+        const note = document.getElementById("mbox-loading");
+        if (note) {
+          note.textContent = (strings().multiple || "").replace("{name}", name);
+          note.hidden = false;
+        }
+      }
     } catch {
       // Si el módulo no llega (red caída), hay que decirlo: sin esto, soltar
       // un fichero no haría absolutamente nada.
       const err = document.getElementById("mbox-error");
-      if (!err) return;
-      const S = JSON.parse(document.getElementById("mbox-i18n")?.textContent || "{}");
-      err.textContent = S.error || "";
+      const txt = document.getElementById("mbox-error-text");
+      if (!err || !txt) return;
+      txt.textContent = strings().error || "";
       err.hidden = false;
     }
   };
@@ -75,7 +86,8 @@ if (intro) {
     }),
   );
   dropzone?.addEventListener("drop", (e) => {
-    const f = (e as DragEvent).dataTransfer?.files?.[0];
-    if (f) onFile(f, f.name);
+    const files = (e as DragEvent).dataTransfer?.files;
+    const f = files?.[0];
+    if (f) onFile(f, f.name, files?.length ?? 1);
   });
 }

@@ -7,16 +7,16 @@ export const fr: FaqContent = {
   intro: "Tout ce que vous pourriez vouloir savoir avant d'ouvrir votre fichier .mbox dans le navigateur.",
   items: [
     {
-      q: "Le visualiseur MBOX en ligne est-il sûr ?",
+      q: "La visionneuse MoOX en ligne est-elle sûre ?",
       a: "Oui. Votre fichier est lu intégralement dans votre navigateur — il n'est jamais téléversé vers un serveur. Le HTML des messages est assaini avec DOMPurify et affiché dans un iframe isolé (sandbox), et les images distantes sont bloquées par défaut pour stopper les pixels de pistage.",
     },
     {
       q: "Mon courrier est-il téléversé quelque part ?",
-      a: "Non. Il n'y a aucun téléversement et aucun backend. L'ensemble du visualiseur s'exécute en JavaScript dans votre navigateur, de sorte que le contenu de votre fichier .mbox ne quitte jamais votre appareil.",
+      a: "Non. Il n'y a aucun téléversement et aucun backend. L'ensemble de la visionneuse s'exécute en JavaScript dans votre navigateur, de sorte que le contenu de votre fichier .mbox ne quitte jamais votre appareil.",
     },
     {
       q: "Quelle est la taille maximale du fichier ?",
-      a: "Le visualiseur en ligne gère les fichiers jusqu'à 25 MB afin de rester rapide dans le navigateur. Pour les archives plus volumineuses — les exports complets de Google Takeout, par exemple — utilisez l'application de bureau, Mbox Viewer pour Mac et Windows, qui traite en flux les fichiers de n'importe quelle taille.",
+      a: "La visionneuse en ligne gère les fichiers jusqu'à 25 Mo afin de rester rapide dans le navigateur. Pour les archives plus volumineuses — les exports complets de Google Takeout, par exemple — utilisez l'application de bureau, Mbox Viewer pour Mac et Windows, qui traite en flux les fichiers de n'importe quelle taille.",
     },
     {
       q: "Quelles applications de messagerie exportent des fichiers .mbox ?",
@@ -24,7 +24,7 @@ export const fr: FaqContent = {
     },
     {
       q: "Peut-il aussi ouvrir des fichiers .eml ?",
-      a: "Oui. Un message .eml unique est ouvert comme une archive d'un seul message. Le visualiseur lit aussi les libellés Gmail stockés dans l'en-tête X-Gmail-Labels et vous permet de filtrer la liste des messages par libellé.",
+      a: "Oui. Un message .eml unique est ouvert comme une archive d'un seul message. La visionneuse lit aussi les libellés Gmail stockés dans l'en-tête X-Gmail-Labels et vous permet de filtrer la liste des messages par libellé.",
     },
     {
       q: "Fonctionne-t-il hors ligne ?",
@@ -36,7 +36,7 @@ export const fr: FaqContent = {
     },
     {
       q: "Est-ce vraiment gratuit ?",
-      a: "Oui, le visualiseur en ligne est entièrement gratuit et open source (sous licence MIT). L'application de bureau optionnelle pour Mac et Windows est un produit distinct destiné aux utilisateurs avancés qui ont besoin d'ouvrir de très grandes archives.",
+      a: "Oui, la visionneuse en ligne est entièrement gratuite et open source (sous licence MIT). L'application de bureau optionnelle pour Mac et Windows est un produit distinct destiné aux utilisateurs avancés qui ont besoin d'ouvrir de très grandes archives.",
     },
   ],
 };

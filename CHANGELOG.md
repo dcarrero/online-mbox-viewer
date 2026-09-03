@@ -4,6 +4,13 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.6
+
+- Fix: long messages scrolled twice — once inside the message frame and once in the page. The reader panel had no height, so the frame fell back to its minimum and the panel grew with the content. On desktop the panel now matches the message list at 70vh and the frame fills it; on smaller screens the frame keeps its own height.
+- Fix: the "file too large" error recommended the desktop app without linking to it, because the message was written as plain text. It now carries a link, shown only for that error.
+- Fix: dropping several files opened the first one silently. It says which one, in all 10 languages.
+- Fix: the French pages called the viewer "visualiseur" while the interface, the home page and the README call it "visionneuse", and wrote sizes in MB where the rest of the French copy uses Mo. Unified, with the gender agreement the change requires.
+
 ## v0.7.5
 
 - Fix: the language picker claimed to be a listbox (aria-haspopup, role=listbox, role=option, aria-selected) without implementing any of the keyboard behaviour that pattern requires, so a screen reader announced "option" for controls that only answered to Tab and Enter. It is a disclosure now: aria-expanded and aria-controls on the button, a plain list of links, aria-current on the active language. Escape also returns focus to the button instead of stranding it.
