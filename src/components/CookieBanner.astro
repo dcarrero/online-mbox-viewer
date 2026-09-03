@@ -65,6 +65,10 @@ const privacyHref = routePath("privacy", locale);
       try {
         localStorage.setItem(KEY, value);
       } catch (e) {}
+      // Rechazar impide que gtag llegue a cargarse, en esta visita y en las
+      // siguientes; el consent update de abajo solo cubre el caso de que ya
+      // estuviera en la página.
+      if (value === "denied") (window as any).__blockAnalytics?.();
       const g = (window as any).gtag;
       if (typeof g === "function") {
         g("consent", "update", { analytics_storage: value });

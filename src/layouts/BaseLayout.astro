@@ -85,9 +85,11 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
     <link rel="manifest" href="/site.webmanifest" />
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Rendimiento: adelantar la conexión a Google Analytics -->
+    <!--
+      Solo dns-prefetch: el preconnect abría la conexión con Google antes de
+      saber si el usuario va a permitir analíticas siquiera.
+    -->
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-    <link rel="preconnect" href="https://www.googletagmanager.com" />
 
     <!-- Theme color -->
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -172,8 +174,28 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
         gtag("config", gaId, { anonymize_ip: true });
 
         var loaded = false;
+        // "Rechazar" tiene que impedir la carga, no solo actualizar el consent
+        // mode: antes el script se descargaba igual y seguía enviando pings.
+        var blocked = false;
+        try {
+          blocked = localStorage.getItem("cookie-consent") === "denied";
+        } catch (e) {}
+        window.__blockAnalytics = function () {
+          blocked = true;
+        };
         function loadGtag() {
-          if (loaded) return;
+          if (loaded || blocked) return;
+          // Y nunca con un archivo de correo abierto. Ojo con lo que esto
+          // vale: en una visita normal gtag ya se ha cargado en idle mucho
+          // antes de que nadie suelte un fichero, así que esto solo cubre el
+          // caso en que la carga aún no se haya producido. Excluir del todo
+          // la página del visor sería la versión fuerte, a cambio de perder
+          // la medición de la página más visitada.
+          var app = document.getElementById("mbox-app");
+          if (app && !app.hidden) {
+            blocked = true;
+            return;
+          }
           loaded = true;
           var s = document.createElement("script");
           s.async = true;

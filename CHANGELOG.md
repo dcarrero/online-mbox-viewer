@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.0
+
+- Change: rejecting cookies now actually stops Google Analytics from loading, on that visit and on later ones. Previously the banner only updated consent mode — the script was downloaded and kept sending cookieless pings whatever the visitor pressed. Leaving the banner unanswered still measures cookielessly, as the privacy policy states.
+- Change: dropped the preconnect to googletagmanager, which opened a connection to Google before the visitor had any say. dns-prefetch stays.
+
 ## v0.6.9
 
 - Add: a Content-Security-Policy, generated at build time from the SHA-256 hashes of the inline scripts actually present in the output, so it cannot drift from what is served. It closes off base-uri, form-action, object-src and framing, and pins script and connection origins.
