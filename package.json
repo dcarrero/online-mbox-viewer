@@ -1,10 +1,10 @@
 {
   "name": "onlinemboxviewer",
   "type": "module",
-  "version": "0.7.1",
-  "description": "Online MBOX Viewer — read .mbox email archives in your browser. Free, private, 100% client-side (Astro).",
+  "version": "0.7.2",
+  "description": "Online MBOX Viewer \u2014 read .mbox email archives in your browser. Free, private, 100% client-side (Astro).",
   "homepage": "https://onlinemboxviewer.com",
-  "author": "David Carrero Fernández-Baillo <https://carrero.es>",
+  "author": "David Carrero Fern\u00e1ndez-Baillo <https://carrero.es>",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -23,12 +23,12 @@
     "@astrojs/sitemap": "^3.2.1",
     "astro": "^5.7.0",
     "dompurify": "^3.4.10",
-    "postal-mime": "^2.7.4",
-    "sharp": "^0.33.5"
+    "postal-mime": "^2.7.4"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
     "@tailwindcss/vite": "^4.1.4",
+    "sharp": "^0.33.5",
     "tailwindcss": "^4.1.4",
     "typescript": "^5.8.3"
   }

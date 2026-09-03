@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.2
+
+- Change: stylesheets are no longer inlined into every page. All 60 pages carried the same ~7.6 KB gzipped of CSS in their HTML, and with prefetch on hover each prefetched link pulled it again. The CSS is now one file that _headers already serves immutable for a year, and each page's HTML drops from 18.7 to 11.1 KB gzipped.
+- Change: sharp moved from dependencies to devDependencies. Nothing in the build or at runtime uses it — it is the tool that generated the icons and the OG image — so it no longer ships as a production dependency.
+
 ## v0.7.1
 
 - Change: the message header shows the real address next to the display name, for both From and To. The viewer used to show only the display name, so a message from evil@example.com calling itself "PayPal" appeared simply as "PayPal" — in an archive you are opening precisely to check what something was, that is the wrong half to keep. The list still shows the name alone, where there is no room for more.

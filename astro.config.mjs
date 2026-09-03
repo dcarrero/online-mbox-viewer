@@ -139,7 +139,11 @@ export default defineConfig({
     },
   },
   build: {
-    inlineStylesheets: "always",
+    // "auto" inlina solo lo pequeño. Con "always", las 60 páginas repetían
+    // ~7,6 KB gz de CSS en cada HTML y el prefetch de cada enlace volvía a
+    // arrastrarlos, en vez de reutilizar /_astro/*.css, que _headers ya sirve
+    // con immutable a un año.
+    inlineStylesheets: "auto",
   },
   integrations: [sitemap(), localizedSlugRedirects(), contentSecurityPolicy()],
   vite: {
