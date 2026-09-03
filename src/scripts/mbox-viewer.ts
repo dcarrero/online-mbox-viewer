@@ -670,65 +670,14 @@ function getStrings(): Strings {
   return JSON.parse(node?.textContent || "{}") as Strings;
 }
 
-function init() {
-  const intro = document.getElementById("mbox-intro");
-  if (!intro) return; // no estamos en la página del visor
-  const S = getStrings();
-  const viewer = new Viewer(S);
+let viewer: Viewer | null = null;
 
-  const input = document.getElementById("mbox-file") as HTMLInputElement | null;
-  const dropzone = document.getElementById("mbox-dropzone");
-
-  const onFile = (file: File | Blob, name: string) => viewer.load(file, name);
-
-  input?.addEventListener("change", () => {
-    const f = input.files?.[0];
-    if (f) onFile(f, f.name);
-  });
-  dropzone?.addEventListener("click", () => input?.click());
-  document.querySelectorAll("[data-mbox-open]").forEach((b) =>
-    b.addEventListener("click", () => input?.click()),
-  );
-  dropzone?.addEventListener("keydown", (e) => {
-    if ((e as KeyboardEvent).key === "Enter" || (e as KeyboardEvent).key === " ") {
-      e.preventDefault();
-      input?.click();
-    }
-  });
-
-  // Sin esto, soltar el fichero un poco fuera del recuadro dispara el
-  // comportamiento por defecto del navegador: abre o descarga el .mbox y
-  // abandona la página.
-  ["dragover", "drop"].forEach((ev) =>
-    document.addEventListener(ev, (e) => {
-      if (!dropzone?.contains(e.target as Node)) e.preventDefault();
-    }),
-  );
-
-  const stop = (e: Event) => {
-    e.preventDefault();
-    e.stopPropagation();
-  };
-  ["dragenter", "dragover"].forEach((ev) =>
-    dropzone?.addEventListener(ev, (e) => {
-      stop(e);
-      dropzone.classList.add("is-drag");
-    }),
-  );
-  ["dragleave", "drop"].forEach((ev) =>
-    dropzone?.addEventListener(ev, (e) => {
-      stop(e);
-      dropzone.classList.remove("is-drag");
-    }),
-  );
-  dropzone?.addEventListener("drop", (e) => {
-    const f = (e as DragEvent).dataTransfer?.files?.[0];
-    if (f) onFile(f, f.name);
-  });
-}
-
-if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", init);
-} else {
-  init();
+/**
+ * Punto de entrada del módulo perezoso. Lo llama `mbox-boot`, que es lo único
+ * que se evalúa al cargar la página; este módulo (postal-mime + DOMPurify)
+ * solo llega cuando alguien va a abrir un fichero de verdad.
+ */
+export function openFile(file: File | Blob, name: string) {
+  viewer ??= new Viewer(getStrings());
+  return viewer.load(file, name);
 }

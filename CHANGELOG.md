@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.4
+
+- Change: the viewer itself is now loaded on demand. The home page evaluated ~36 KB gzipped of parser and sanitiser on every visit, including the many that never open a file. The initial script is 1.2 KB gzipped; the viewer arrives when the pointer reaches the drop area, a drag starts, the zone takes keyboard focus, or a file is actually chosen — and if it cannot be fetched, the error is shown rather than the drop doing nothing.
+
 ## v0.7.3
 
 - Fix: the CSP added in v0.6.9 broke "Show images". A srcdoc iframe inherits the parent policy on top of its own, so with img-src limited to self and data:, remote images stayed blocked even after the reader explicitly allowed them. img-src now allows https:; blocking remote images by default is the viewer's job, not the header's, and that is unchanged.
