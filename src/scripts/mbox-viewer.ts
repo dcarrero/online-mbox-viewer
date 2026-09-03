@@ -84,8 +84,21 @@ function decodeRFC2047(input: string): string {
 function formatSender(raw: string, fallback: string): string {
   const v = decodeRFC2047(raw).trim();
   if (!v) return fallback;
-  const m = v.match(/^\s*"?(.*?)"?\s*<([^>]+)>\s*$/);
-  if (m) return (m[1] || m[2]).trim();
+  // Parseo lineal a propósito. La regex /^\s*"?(.*?)"?\s*<([^>]+)>\s*$/ que
+  // había aquí backtrackea de forma cuadrática con espacios interiores: una
+  // cabecera "From:" de 80.000 espacios tardaba 3,7 s, y corre por cada
+  // mensaje del archivo, así que un .mbox hostil congelaba la pestaña.
+  if (v.endsWith(">")) {
+    const lt = v.lastIndexOf("<");
+    if (lt !== -1) {
+      const addr = v.slice(lt + 1, -1).trim();
+      let name = v.slice(0, lt).trim();
+      if (name.length > 1 && name.startsWith('"') && name.endsWith('"')) {
+        name = name.slice(1, -1).trim();
+      }
+      if (name || addr) return name || addr;
+    }
+  }
   return v;
 }
 
@@ -530,7 +543,11 @@ class Viewer {
       files.forEach((a: any) => {
         const li = document.createElement("li");
         const link = document.createElement("a");
-        const blob = new Blob([a.content], { type: a.mimeType || "application/octet-stream" });
+        // Siempre octet-stream: el mimeType lo declara el correo, y un adjunto
+        // text/html o image/svg+xml abierto como documento (en vez de
+        // descargado) ejecutaría scripts en una blob: de nuestro propio origen.
+        // El atributo download conserva el nombre igual.
+        const blob = new Blob([a.content], { type: "application/octet-stream" });
         const url = URL.createObjectURL(blob);
         this.objectUrls.push(url);
         link.href = url;

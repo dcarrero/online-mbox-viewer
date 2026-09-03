@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.4
+
+- Fix: attachment downloads used the MIME type declared by the email. An HTML or SVG attachment produced a blob: URL on the site's own origin that would run scripts if opened as a document instead of downloaded. Attachments are always served as application/octet-stream now; the download name is unchanged.
+- Fix: the "From" header parser backtracked quadratically. A header padded with 80,000 spaces took 3.7 s, and it runs once per message, so a hostile .mbox could freeze the tab for minutes. It is a linear parse now: 400,000 spaces take under a millisecond.
+
 ## v0.6.3
 
 - Fix: the error message lived inside the intro block, which is hidden once a file opens. Opening a second file that was too large or unreadable showed nothing at all, leaving the previous message on screen as if nothing had happened. The error now sits outside the intro and carries role="alert" so screen readers announce it.
