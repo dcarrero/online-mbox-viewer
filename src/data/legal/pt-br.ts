@@ -40,7 +40,7 @@ export const ptbr: LegalContent = {
       {
         heading: "Contato",
         paragraphs: [
-          "Dúvidas sobre esta política? Escreva para support@mboxviewer.net.",
+          "Dúvidas sobre esta política? Escreva para support@mboxviewerpro.com.",
         ],
       },
     ],
@@ -79,7 +79,7 @@ export const ptbr: LegalContent = {
       },
       {
         heading: "Contato",
-        paragraphs: ["Dúvidas sobre estes termos? Escreva para support@mboxviewer.net."],
+        paragraphs: ["Dúvidas sobre estes termos? Escreva para support@mboxviewerpro.com."],
       },
     ],
   },

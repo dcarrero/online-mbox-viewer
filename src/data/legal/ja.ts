@@ -40,7 +40,7 @@ export const ja: LegalContent = {
       {
         heading: "お問い合わせ",
         paragraphs: [
-          "このポリシーについてご質問がありますか？ support@mboxviewer.net までメールでお問い合わせください。",
+          "このポリシーについてご質問がありますか？ support@mboxviewerpro.com までメールでお問い合わせください。",
         ],
       },
     ],
@@ -79,7 +79,7 @@ export const ja: LegalContent = {
       },
       {
         heading: "お問い合わせ",
-        paragraphs: ["これらの規約についてご質問がありますか？ support@mboxviewer.net までメールでお問い合わせください。"],
+        paragraphs: ["これらの規約についてご質問がありますか？ support@mboxviewerpro.com までメールでお問い合わせください。"],
       },
     ],
   },

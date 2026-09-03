@@ -19,6 +19,6 @@
 
 ## Project
 - Open source, MIT License. Author: David Carrero Fernández-Baillo — https://carrero.es
-- Desktop app: https://mboxviewer.net
+- Desktop app: https://mboxviewerpro.com
   - Mac App Store: https://apps.apple.com/app/mbox-viewer-pro/id6759237715
   - Microsoft Store: https://apps.microsoft.com/store/detail/9NW3GVFG7DDB

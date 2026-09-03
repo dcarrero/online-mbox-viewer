@@ -29,12 +29,12 @@ Online Mbox Viewer slaat dat allemaal over: sleep het bestand op de pagina en le
 
 ## Ook: Mbox Viewer voor Mac
 
-De online viewer is afgestemd op bestanden tot **25 MB**. Voor volledige Gmail Takeout-exports, zoeken op volledige tekst, mappen en exporteren is er een native desktop-app — **[Mbox Viewer](https://mboxviewer.net)** voor Mac (Windows komt binnenkort).
+De online viewer is afgestemd op bestanden tot **25 MB**. Voor volledige Gmail Takeout-exports, zoeken op volledige tekst, mappen en exporteren is er een native desktop-app — **[Mbox Viewer](https://mboxviewerpro.com)** voor Mac (Windows komt binnenkort).
 
 ## Gerelateerde projecten
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — de open-source terminaltool (CLI/TUI) om `.mbox`-archieven te lezen, doorzoeken en exporteren. Het is het zusterproject en een directe bron van inspiratie voor deze viewer.
-- **[Mbox Viewer](https://mboxviewer.net)** — de native desktop-app voor Mac (Windows komt binnenkort), voor archieven van elke omvang.
+- **[Mbox Viewer](https://mboxviewerpro.com)** — de native desktop-app voor Mac (Windows komt binnenkort), voor archieven van elke omvang.
 
 ## Tech-stack
 
@@ -80,4 +80,4 @@ src/
 
 ---
 
-Onderdeel van de **mbox**-familie van open tools, naast **[mboxShell](https://github.com/dcarrero/mboxshell)** (terminal) — het gerelateerde project en bron van inspiratie — en **[Mbox Viewer](https://mboxviewer.net)** (desktop). Gebouwd door [David Carrero Fernández-Baillo](https://carrero.es).
+Onderdeel van de **mbox**-familie van open tools, naast **[mboxShell](https://github.com/dcarrero/mboxshell)** (terminal) — het gerelateerde project en bron van inspiratie — en **[Mbox Viewer](https://mboxviewerpro.com)** (desktop). Gebouwd door [David Carrero Fernández-Baillo](https://carrero.es).

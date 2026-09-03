@@ -40,7 +40,7 @@ export const nl: LegalContent = {
       {
         heading: "Contact",
         paragraphs: [
-          "Vragen over dit beleid? Stuur een e-mail naar support@mboxviewer.net.",
+          "Vragen over dit beleid? Stuur een e-mail naar support@mboxviewerpro.com.",
         ],
       },
     ],
@@ -79,7 +79,7 @@ export const nl: LegalContent = {
       },
       {
         heading: "Contact",
-        paragraphs: ["Vragen over deze voorwaarden? Stuur een e-mail naar support@mboxviewer.net."],
+        paragraphs: ["Vragen over deze voorwaarden? Stuur een e-mail naar support@mboxviewerpro.com."],
       },
     ],
   },

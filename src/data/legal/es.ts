@@ -39,7 +39,7 @@ export const es: LegalContent = {
       },
       {
         heading: "Contacto",
-        paragraphs: ["¿Dudas sobre esta política? Escribe a support@mboxviewer.net."],
+        paragraphs: ["¿Dudas sobre esta política? Escribe a support@mboxviewerpro.com."],
       },
     ],
   },
@@ -77,7 +77,7 @@ export const es: LegalContent = {
       },
       {
         heading: "Contacto",
-        paragraphs: ["¿Dudas sobre estos términos? Escribe a support@mboxviewer.net."],
+        paragraphs: ["¿Dudas sobre estos términos? Escribe a support@mboxviewerpro.com."],
       },
     ],
   },

@@ -29,12 +29,12 @@ Online Mbox Viewer はそのすべてを省きます。ファイルをページ�
 
 ## さらに：Mbox Viewer for Mac
 
-オンラインビューアは **25 MB** までのファイル向けに最適化されています。Gmail Takeout エクスポート全体、全文検索、フォルダ、エクスポートには、ネイティブのデスクトップアプリ **[Mbox Viewer](https://mboxviewer.net)** for Mac（Windows版は近日公開）があります。
+オンラインビューアは **25 MB** までのファイル向けに最適化されています。Gmail Takeout エクスポート全体、全文検索、フォルダ、エクスポートには、ネイティブのデスクトップアプリ **[Mbox Viewer](https://mboxviewerpro.com)** for Mac（Windows版は近日公開）があります。
 
 ## 関連プロジェクト
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — `.mbox` アーカイブを読み、検索し、エクスポートするためのオープンソースのターミナル（CLI/TUI）ツールです。姉妹プロジェクトであり、このビューアの直接のインスピレーション源です。
-- **[Mbox Viewer](https://mboxviewer.net)** — あらゆるサイズのアーカイブに対応する、Mac向けのネイティブデスクトップアプリ（Windows版は近日公開）。
+- **[Mbox Viewer](https://mboxviewerpro.com)** — あらゆるサイズのアーカイブに対応する、Mac向けのネイティブデスクトップアプリ（Windows版は近日公開）。
 
 ## 技術スタック
 
@@ -80,4 +80,4 @@ src/
 
 ---
 
-オープンツールの **mbox** ファミリーの一員であり、**[mboxShell](https://github.com/dcarrero/mboxshell)**（ターミナル）— 関連プロジェクトでありインスピレーション源 — および **[Mbox Viewer](https://mboxviewer.net)**（デスクトップ）と並びます。[David Carrero Fernández-Baillo](https://carrero.es) によって構築されました。
+オープンツールの **mbox** ファミリーの一員であり、**[mboxShell](https://github.com/dcarrero/mboxshell)**（ターミナル）— 関連プロジェクトでありインスピレーション源 — および **[Mbox Viewer](https://mboxviewerpro.com)**（デスクトップ）と並びます。[David Carrero Fernández-Baillo](https://carrero.es) によって構築されました。

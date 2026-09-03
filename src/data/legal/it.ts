@@ -40,7 +40,7 @@ export const it: LegalContent = {
       {
         heading: "Contatti",
         paragraphs: [
-          "Domande su questa informativa? Scrivi a support@mboxviewer.net.",
+          "Domande su questa informativa? Scrivi a support@mboxviewerpro.com.",
         ],
       },
     ],
@@ -79,7 +79,7 @@ export const it: LegalContent = {
       },
       {
         heading: "Contatti",
-        paragraphs: ["Domande su questi termini? Scrivi a support@mboxviewer.net."],
+        paragraphs: ["Domande su questi termini? Scrivi a support@mboxviewerpro.com."],
       },
     ],
   },

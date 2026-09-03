@@ -3,7 +3,7 @@
  *
  * Este sitio es SOLO el visor web de mbox (100% en el navegador, nada se sube).
  * La app de escritorio (Mac y Windows) se promociona como vía para abrir
- * ficheros más grandes y vive en mboxviewer.net.
+ * ficheros más grandes y vive en mboxviewerpro.com.
  */
 
 export const SITE = {
@@ -12,7 +12,7 @@ export const SITE = {
   url: "https://onlinemboxviewer.com",
 
   /** Versión del sitio web. Se muestra en el pie. */
-  version: "0.6.1",
+  version: "0.6.2",
   repoUrl: "https://github.com/dcarrero/online-mbox-viewer",
 
   // Visor web (100% en el navegador, nada se sube): límite de tamaño por fichero.
@@ -20,7 +20,8 @@ export const SITE = {
 
   // App de escritorio (publicidad / ficheros grandes)
   desktopName: "Mbox Viewer",
-  desktopUrl: "https://mboxviewer.net",
+  desktopDomain: "mboxviewerpro.com",
+  desktopUrl: "https://mboxviewerpro.com",
   appStoreUrl: "https://apps.apple.com/app/mbox-viewer-pro/id6759237715",
   microsoftStoreUrl: "https://apps.microsoft.com/store/detail/9NW3GVFG7DDB",
   windowsAvailable: true,
@@ -32,7 +33,7 @@ export const SITE = {
   authorUrl: "https://carrero.es",
   company: "Color Vivo Internet, S.L.",
   companyUrl: "https://colorvivo.com",
-  supportEmail: "support@mboxviewer.net",
+  supportEmail: "support@mboxviewerpro.com",
 
   // Origen open source (herramienta de terminal hermana)
   mboxshellUrl: "https://github.com/dcarrero/mboxshell",

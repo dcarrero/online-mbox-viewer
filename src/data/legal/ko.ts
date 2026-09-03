@@ -40,7 +40,7 @@ export const ko: LegalContent = {
       {
         heading: "문의",
         paragraphs: [
-          "이 방침에 대해 질문이 있으신가요? support@mboxviewer.net으로 이메일을 보내주세요.",
+          "이 방침에 대해 질문이 있으신가요? support@mboxviewerpro.com으로 이메일을 보내주세요.",
         ],
       },
     ],
@@ -79,7 +79,7 @@ export const ko: LegalContent = {
       },
       {
         heading: "문의",
-        paragraphs: ["이 약관에 대해 질문이 있으신가요? support@mboxviewer.net으로 이메일을 보내주세요."],
+        paragraphs: ["이 약관에 대해 질문이 있으신가요? support@mboxviewerpro.com으로 이메일을 보내주세요."],
       },
     ],
   },

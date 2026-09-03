@@ -29,12 +29,12 @@ Online Mbox Viewer는 이 모든 과정을 건너뜁니다. 파일을 페이지�
 
 ## 그리고: Mac용 Mbox Viewer
 
-온라인 뷰어는 **25 MB**까지의 파일에 최적화되어 있습니다. 전체 Gmail Takeout 내보내기, 전문 검색, 폴더 및 내보내기 기능이 필요하다면, 네이티브 데스크톱 앱인 **[Mbox Viewer](https://mboxviewer.net)** for Mac이 있습니다 (Windows 버전은 곧 출시 예정).
+온라인 뷰어는 **25 MB**까지의 파일에 최적화되어 있습니다. 전체 Gmail Takeout 내보내기, 전문 검색, 폴더 및 내보내기 기능이 필요하다면, 네이티브 데스크톱 앱인 **[Mbox Viewer](https://mboxviewerpro.com)** for Mac이 있습니다 (Windows 버전은 곧 출시 예정).
 
 ## 관련 프로젝트
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — `.mbox` 아카이브를 읽고, 검색하고, 내보내는 오픈 소스 터미널(CLI/TUI) 도구입니다. 자매 프로젝트이자 이 뷰어의 직접적인 영감의 원천입니다.
-- **[Mbox Viewer](https://mboxviewer.net)** — 크기에 제한 없는 아카이브를 위한 Mac용 네이티브 데스크톱 앱입니다 (Windows 버전은 곧 출시 예정).
+- **[Mbox Viewer](https://mboxviewerpro.com)** — 크기에 제한 없는 아카이브를 위한 Mac용 네이티브 데스크톱 앱입니다 (Windows 버전은 곧 출시 예정).
 
 ## 기술 스택
 
@@ -80,4 +80,4 @@ src/
 
 ---
 
-오픈 도구 **mbox** 제품군의 일부로, **[mboxShell](https://github.com/dcarrero/mboxshell)**(터미널) — 관련 프로젝트이자 영감의 원천 — 및 **[Mbox Viewer](https://mboxviewer.net)**(데스크톱)와 함께합니다. [David Carrero Fernández-Baillo](https://carrero.es)가 제작했습니다.
+오픈 도구 **mbox** 제품군의 일부로, **[mboxShell](https://github.com/dcarrero/mboxshell)**(터미널) — 관련 프로젝트이자 영감의 원천 — 및 **[Mbox Viewer](https://mboxviewerpro.com)**(데스크톱)와 함께합니다. [David Carrero Fernández-Baillo](https://carrero.es)가 제작했습니다.

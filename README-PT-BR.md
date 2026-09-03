@@ -29,12 +29,12 @@ O Online Mbox Viewer dispensa tudo isso: arraste o arquivo para a página e leia
 
 ## Além disso: Mbox Viewer para Mac
 
-O visualizador online é otimizado para arquivos de até **25 MB**. Para exportações completas do Gmail Takeout, busca em texto completo, pastas e exportação, existe um aplicativo de desktop nativo — o **[Mbox Viewer](https://mboxviewer.net)** para Mac (Windows em breve).
+O visualizador online é otimizado para arquivos de até **25 MB**. Para exportações completas do Gmail Takeout, busca em texto completo, pastas e exportação, existe um aplicativo de desktop nativo — o **[Mbox Viewer](https://mboxviewerpro.com)** para Mac (Windows em breve).
 
 ## Projetos relacionados
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — a ferramenta de terminal (CLI/TUI) de código aberto para ler, pesquisar e exportar arquivos `.mbox`. É o projeto irmão e uma fonte direta de inspiração para este visualizador.
-- **[Mbox Viewer](https://mboxviewer.net)** — o aplicativo de desktop nativo para Mac (Windows em breve), para arquivos de qualquer tamanho.
+- **[Mbox Viewer](https://mboxviewerpro.com)** — o aplicativo de desktop nativo para Mac (Windows em breve), para arquivos de qualquer tamanho.
 
 ## Tecnologias utilizadas
 
@@ -80,4 +80,4 @@ src/
 
 ---
 
-Parte da família **mbox** de ferramentas abertas, ao lado do **[mboxShell](https://github.com/dcarrero/mboxshell)** (terminal) — o projeto relacionado e fonte de inspiração — e do **[Mbox Viewer](https://mboxviewer.net)** (desktop). Desenvolvido por [David Carrero Fernández-Baillo](https://carrero.es).
+Parte da família **mbox** de ferramentas abertas, ao lado do **[mboxShell](https://github.com/dcarrero/mboxshell)** (terminal) — o projeto relacionado e fonte de inspiração — e do **[Mbox Viewer](https://mboxviewerpro.com)** (desktop). Desenvolvido por [David Carrero Fernández-Baillo](https://carrero.es).
