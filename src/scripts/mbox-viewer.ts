@@ -15,6 +15,7 @@ interface Strings {
   locale: string;
   maxMb: number;
   loading: string;
+  reading: string; // {name}
   tooLarge: string; // {mb} y {max} se sustituyen
   empty: string;
   error: string;
@@ -335,6 +336,9 @@ class Viewer {
   private el: Record<string, HTMLElement>;
   private objectUrls: string[] = [];
   private showRemote = false;
+  private current = -1;
+  private activeLabel = "";
+  private renderSeq = 0;
 
   constructor(S: Strings) {
     this.S = S;
@@ -348,7 +352,28 @@ class Viewer {
       reader: id("mbox-reader"),
       filename: id("mbox-filename"),
       error: id("mbox-error"),
+      loadingEl: id("mbox-loading"),
     };
+
+    // Delegación: un listener para toda la lista. Antes se añadía uno por
+    // mensaje, 7.557 en un archivo de 24 MB.
+    this.el.list.addEventListener("click", (e) => {
+      const btn = (e.target as HTMLElement).closest<HTMLElement>(".mbox-item");
+      if (btn?.dataset.idx) this.open(Number(btn.dataset.idx));
+    });
+
+    // Se registra una vez, no en cada buildFilter(): abrir un segundo fichero
+    // acumulaba listeners sobre el mismo <select>.
+    this.el.filter?.addEventListener("change", () => {
+      this.activeLabel = (this.el.filter as HTMLSelectElement).value;
+      this.applyFilter();
+    });
+  }
+
+  /** Muestra u oculta el aviso de "leyendo…" (role="status", se anuncia). */
+  private setBusy(msg: string | null) {
+    this.el.loadingEl.textContent = msg ?? "";
+    this.el.loadingEl.hidden = msg === null;
   }
 
   private showError(msg: string) {
@@ -370,17 +395,23 @@ class Viewer {
       );
       return;
     }
+    // El indexado bloquea el hilo (≈440 ms con 24 MB), así que primero se
+    // pinta el aviso: dos rAF garantizan que el frame ha salido a pantalla.
+    this.setBusy(this.S.reading.replace("{name}", name));
+    await new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r)));
     try {
       const buf = await file.arrayBuffer();
       this.bytes = new Uint8Array(buf);
       this.msgs = splitMbox(this.bytes, this.S);
     } catch {
       this.showError(this.S.error);
+      this.setBusy(null);
       return;
     }
     if (this.msgs.length === 0) {
       // Vacío de verdad y no parseable son errores distintos para quien lo abre.
       this.showError(this.bytes.length === 0 ? this.S.empty : this.S.error);
+      this.setBusy(null);
       return;
     }
     this.el.filename.textContent = name;
@@ -388,29 +419,57 @@ class Viewer {
     this.el.app.hidden = false;
     this.renderList();
     this.open(0);
+    this.setBusy(null);
+    // El dropzone que tenía el foco acaba de desaparecer con el intro; sin
+    // esto el foco cae a <body> y hay que recorrer la página entera de nuevo.
+    this.el.list.querySelector<HTMLElement>(".mbox-item")?.focus();
   }
 
   private renderList() {
     this.el.count.textContent = this.S.messages.replace("{n}", String(this.msgs.length));
-    const frag = document.createDocumentFragment();
-    this.msgs.forEach((m, i) => {
-      const li = document.createElement("li");
-      li.dataset.idx = String(i);
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className = "mbox-item";
-      btn.dataset.idx = String(i);
-      btn.innerHTML =
-        `<span class="mbox-item-sender">${escapeHtml(m.sender)}</span>` +
-        `<span class="mbox-item-subject">${escapeHtml(m.subject)}</span>` +
-        (m.labels.length ? `<span class="mbox-item-tags">${tagPills(m.labels)}</span>` : "") +
-        `<span class="mbox-item-date">${escapeHtml(this.shortDate(m.date))}</span>`;
-      btn.addEventListener("click", () => this.open(i));
-      li.appendChild(btn);
-      frag.appendChild(li);
-    });
-    this.el.list.replaceChildren(frag);
+    this.el.list.replaceChildren();
+    const seq = ++this.renderSeq;
+    // Primero lo que cabe en pantalla; el resto en trozos, cediendo el hilo.
+    // De una tacada, 7.557 mensajes tardaban 1,78 s con la UI congelada.
+    const append = (start: number) => {
+      if (seq !== this.renderSeq) return; // llegó otro fichero por el camino
+      const end = Math.min(start + (start === 0 ? 80 : 500), this.msgs.length);
+      const frag = document.createDocumentFragment();
+      for (let i = start; i < end; i++) frag.appendChild(this.itemFor(i));
+      this.el.list.appendChild(frag);
+      if (end < this.msgs.length) requestAnimationFrame(() => append(end));
+    };
+    append(0);
     this.buildFilter();
+  }
+
+  private itemFor(i: number): HTMLLIElement {
+    const m = this.msgs[i];
+    const li = document.createElement("li");
+    li.dataset.idx = String(i);
+    // El filtro se aplica al crear: los lotes que aún faltan por pintar deben
+    // respetar la etiqueta ya seleccionada.
+    if (this.activeLabel && !m.labels.includes(this.activeLabel)) li.hidden = true;
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className = "mbox-item";
+    btn.dataset.idx = String(i);
+    btn.setAttribute("aria-current", this.current === i ? "true" : "false");
+    btn.innerHTML =
+      `<span class="mbox-item-sender">${escapeHtml(m.sender)}</span>` +
+      `<span class="mbox-item-subject">${escapeHtml(m.subject)}</span>` +
+      (m.labels.length ? `<span class="mbox-item-tags">${tagPills(m.labels)}</span>` : "") +
+      `<span class="mbox-item-date">${escapeHtml(this.shortDate(m.date))}</span>`;
+    li.appendChild(btn);
+    return li;
+  }
+
+  private applyFilter() {
+    const val = this.activeLabel;
+    this.el.list.querySelectorAll<HTMLElement>("li[data-idx]").forEach((li) => {
+      const idx = Number(li.dataset.idx);
+      li.hidden = !!val && !this.msgs[idx].labels.includes(val);
+    });
   }
 
   private buildFilter() {
@@ -427,13 +486,7 @@ class Viewer {
     sel.innerHTML =
       `<option value="">${escapeHtml(this.S.allLabels)}</option>` +
       labels.map((l) => `<option value="${escapeHtml(l)}">${escapeHtml(l)}</option>`).join("");
-    sel.addEventListener("change", () => {
-      const val = sel.value;
-      this.el.list.querySelectorAll<HTMLElement>("li[data-idx]").forEach((li) => {
-        const idx = Number(li.dataset.idx);
-        li.hidden = !!val && !this.msgs[idx].labels.includes(val);
-      });
-    });
+    this.activeLabel = "";
   }
 
   private shortDate(raw: string): string {
@@ -461,9 +514,13 @@ class Viewer {
   private async open(i: number) {
     if (!this.bytes || i < 0 || i >= this.msgs.length) return;
     this.showRemote = false;
-    this.el.list.querySelectorAll(".mbox-item").forEach((b) => {
-      b.setAttribute("aria-current", (b as HTMLElement).dataset.idx === String(i) ? "true" : "false");
-    });
+    this.el.list
+      .querySelector('.mbox-item[aria-current="true"]')
+      ?.setAttribute("aria-current", "false");
+    this.el.list
+      .querySelector(`.mbox-item[data-idx="${i}"]`)
+      ?.setAttribute("aria-current", "true");
+    this.current = i;
     this.el.reader.innerHTML = `<p class="mbox-status">${escapeHtml(this.S.loading)}</p>`;
     try {
       const raw = messageBytes(this.bytes, this.msgs[i]);

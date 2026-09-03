@@ -23,6 +23,7 @@ const runtime = {
   locale: LOCALE_META[locale].htmlLang,
   maxMb: max,
   loading: c.loading,
+  reading: c.reading,
   tooLarge: c.tooLarge,
   empty: c.empty,
   error: c.error,
@@ -131,6 +132,18 @@ const schema = [
     >
     </p>
 
+    <!--
+      Aviso de lectura: role="status" para que se anuncie sin robar el foco.
+      Fuera del intro, como el error, para seguir visible al abrir otro fichero.
+    -->
+    <p
+      id="mbox-loading"
+      role="status"
+      class="mt-6 rounded-xl border border-ink-200 bg-ink-50 px-4 py-3 text-sm text-ink-700 dark:border-ink-700 dark:bg-ink-900 dark:text-ink-200"
+      hidden
+    >
+    </p>
+
     <!-- App -->
     <div id="mbox-app" class="mt-8" hidden>
       <div
@@ -138,7 +151,7 @@ const schema = [
       >
         <div class="min-w-0">
           <p id="mbox-filename" class="truncate text-sm font-semibold text-ink-900 dark:text-white"></p>
-          <p id="mbox-count" class="text-xs text-ink-500 dark:text-ink-400"></p>
+          <p id="mbox-count" aria-live="polite" class="text-xs text-ink-500 dark:text-ink-400"></p>
         </div>
         <div class="flex items-center gap-2">
           <div id="mbox-filter-wrap" hidden>

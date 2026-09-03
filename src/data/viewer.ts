@@ -19,6 +19,7 @@ export interface ViewerCopy {
   metaDescription: string;
   // runtime
   loading: string;
+  reading: string; // {name}
   tooLarge: string;
   empty: string;
   error: string;
@@ -52,6 +53,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Free Online MBOX Viewer — open MBOX files in your browser",
       metaDescription: `Open and read MBOX files online, free and private. Everything runs in your browser — nothing is uploaded. Up to ${max} MB. For larger files, get Mbox Viewer for Mac or Windows.`,
       loading: "Loading message…",
+      reading: "Reading {name}…",
       tooLarge: `This file is {mb} MB. The online viewer is limited to {max} MB — get the desktop app for larger archives.`,
       empty: "No email messages were found in this file.",
       error: "This file could not be read as an MBOX archive.",
@@ -83,6 +85,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Visor de MBOX online gratis — abre ficheros MBOX en tu navegador",
       metaDescription: `Abre y lee ficheros MBOX online, gratis y privado. Todo se procesa en tu navegador — no se sube nada. Hasta ${max} MB. Para ficheros más grandes, descarga Mbox Viewer para Mac o Windows.`,
       loading: "Cargando mensaje…",
+      reading: "Leyendo {name}…",
       tooLarge: `Este fichero ocupa {mb} MB. El visor online está limitado a {max} MB — descarga la app de escritorio para archivos más grandes.`,
       empty: "No se encontró ningún correo en este fichero.",
       error: "No se pudo leer este fichero como archivo MBOX.",
@@ -114,6 +117,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Kostenloser Online-MBOX-Viewer — MBOX-Dateien im Browser öffnen",
       metaDescription: `Öffne und lies MBOX-Dateien online, kostenlos und privat. Alles läuft in deinem Browser — nichts wird hochgeladen. Bis zu ${max} MB. Für größere Dateien hol dir Mbox Viewer für Mac oder Windows.`,
       loading: "Nachricht wird geladen…",
+      reading: "{name} wird gelesen…",
       tooLarge: `Diese Datei ist {mb} MB groß. Der Online-Viewer ist auf {max} MB begrenzt — hol dir die Desktop-App für größere Archive.`,
       empty: "In dieser Datei wurden keine E-Mails gefunden.",
       error: "Diese Datei konnte nicht als MBOX-Archiv gelesen werden.",
@@ -145,6 +149,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Visionneuse MBOX en ligne gratuite — ouvrez vos fichiers MBOX dans le navigateur",
       metaDescription: `Ouvrez et lisez vos fichiers MBOX en ligne, gratuitement et en privé. Tout s'exécute dans votre navigateur — rien n'est téléversé. Jusqu'à ${max} Mo. Pour les fichiers plus volumineux, téléchargez Mbox Viewer pour Mac ou Windows.`,
       loading: "Chargement du message…",
+      reading: "Lecture de {name}…",
       tooLarge: `Ce fichier fait {mb} Mo. La visionneuse en ligne est limitée à {max} Mo — téléchargez l'application de bureau pour les archives plus volumineuses.`,
       empty: "Aucun e-mail n'a été trouvé dans ce fichier.",
       error: "Ce fichier n'a pas pu être lu comme une archive MBOX.",
@@ -176,6 +181,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Visualizador de MBOX online grátis — abra arquivos MBOX no navegador",
       metaDescription: `Abra e leia arquivos MBOX online, grátis e com privacidade. Tudo roda no seu navegador — nada é enviado. Até ${max} MB. Para arquivos maiores, baixe o Mbox Viewer para Mac ou Windows.`,
       loading: "Carregando mensagem…",
+      reading: "Lendo {name}…",
       tooLarge: `Este arquivo tem {mb} MB. O visualizador online é limitado a {max} MB — baixe o app de desktop para arquivos maiores.`,
       empty: "Nenhum e-mail foi encontrado neste arquivo.",
       error: "Não foi possível ler este arquivo como um arquivo MBOX.",
@@ -207,6 +213,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "無料オンラインMBOXビューア — ブラウザでMBOXファイルを開く",
       metaDescription: `MBOXファイルをオンラインで無料かつプライベートに開いて読めます。すべてブラウザ内で動作し、何もアップロードされません。最大${max}MBまで。大きなファイルにはMac・Windows 版Mbox Viewerをご利用ください。`,
       loading: "メッセージを読み込み中…",
+      reading: "{name} を読み込んでいます…",
       tooLarge: `このファイルは{mb}MBです。オンラインビューアは{max}MBまでです — 大きなアーカイブにはデスクトップアプリをご利用ください。`,
       empty: "このファイルにメールが見つかりませんでした。",
       error: "このファイルをMBOXアーカイブとして読み込めませんでした。",
@@ -238,6 +245,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Visualizzatore MBOX online gratuito — apri i file MBOX nel browser",
       metaDescription: `Apri e leggi i file MBOX online, gratis e in privato. Tutto funziona nel tuo browser — niente viene caricato. Fino a ${max} MB. Per file più grandi, scarica Mbox Viewer per Mac o Windows.`,
       loading: "Caricamento del messaggio…",
+      reading: "Lettura di {name}…",
       tooLarge: `Questo file è di {mb} MB. Il visualizzatore online è limitato a {max} MB — scarica l'app desktop per archivi più grandi.`,
       empty: "Nessuna e-mail trovata in questo file.",
       error: "Impossibile leggere questo file come archivio MBOX.",
@@ -269,6 +277,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Gratis online MBOX-viewer — open MBOX-bestanden in je browser",
       metaDescription: `Open en lees MBOX-bestanden online, gratis en privé. Alles draait in je browser — er wordt niets geüpload. Tot ${max} MB. Voor grotere bestanden download je Mbox Viewer voor Mac of Windows.`,
       loading: "Bericht laden…",
+      reading: "{name} wordt gelezen…",
       tooLarge: `Dit bestand is {mb} MB. De online viewer is beperkt tot {max} MB — download de desktop-app voor grotere archieven.`,
       empty: "Er zijn geen e-mails gevonden in dit bestand.",
       error: "Dit bestand kon niet als MBOX-archief worden gelezen.",
@@ -300,6 +309,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "무료 온라인 MBOX 뷰어 — 브라우저에서 MBOX 파일 열기",
       metaDescription: `MBOX 파일을 온라인에서 무료로 비공개로 열고 읽으세요. 모든 작업이 브라우저에서 실행되며 아무것도 업로드되지 않습니다. 최대 ${max}MB. 더 큰 파일은 Mac·Windows용 Mbox Viewer를 받으세요.`,
       loading: "메시지 불러오는 중…",
+      reading: "{name} 읽는 중…",
       tooLarge: `이 파일은 {mb}MB입니다. 온라인 뷰어는 {max}MB로 제한됩니다 — 더 큰 아카이브는 데스크톱 앱을 받으세요.`,
       empty: "이 파일에서 이메일을 찾을 수 없습니다.",
       error: "이 파일을 MBOX 아카이브로 읽을 수 없습니다.",
@@ -331,6 +341,7 @@ function build(max: number): Record<string, ViewerCopy> {
       metaTitle: "Darmowa przeglądarka MBOX online — otwórz pliki MBOX w przeglądarce",
       metaDescription: `Otwieraj i czytaj pliki MBOX online, za darmo i prywatnie. Wszystko działa w Twojej przeglądarce — nic nie jest wysyłane. Do ${max} MB. W przypadku większych plików pobierz Mbox Viewer na Maca lub Windows.`,
       loading: "Wczytywanie wiadomości…",
+      reading: "Wczytywanie {name}…",
       tooLarge: `Ten plik ma {mb} MB. Przeglądarka online jest ograniczona do {max} MB — pobierz aplikację desktopową dla większych archiwów.`,
       empty: "W tym pliku nie znaleziono żadnych wiadomości.",
       error: "Nie udało się odczytać tego pliku jako archiwum MBOX.",

@@ -4,6 +4,13 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.6
+
+- Change: opening a file no longer freezes the page. The message list is built in batches — the first 80 rows render immediately, the rest fill in across frames — and a single delegated listener replaces one per message. Measured on a 6,000-message archive: first rows on screen at 99 ms instead of 3.3 s, full list at 570 ms, and the main thread never blocks (984 frames during the load, previously none).
+- Add: a "Reading <file>…" notice while the archive is indexed, in all 10 languages. It is a role="status" region, so screen readers announce it, and it appears before the parse starts rather than after.
+- Fix: focus fell to the body when the intro was hidden, so keyboard users had to traverse the whole page again to reach the messages. Focus now moves to the first message.
+- Fix: the message count is announced (aria-live), the label filter no longer stacked a fresh listener on every file opened, and rows rendered after a filter was chosen now respect it.
+
 ## v0.6.5
 
 - Fix: the Terms of Service still called the desktop app "Mbox Viewer for Mac" in all 10 languages, and the 10 READMEs still said "Windows coming soon" in their heading and both mentions. The v0.6.0 sweep covered the UI strings, home, viewer, how-to, FAQ, compare and llms.txt, but not legal/ or the READMEs. Windows shipped in July; every remaining claim is corrected.
