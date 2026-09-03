@@ -1,0 +1,27 @@
+# Construye, comprueba tipos y pasa las comprobaciones de humo en cada push.
+#
+# Existe porque el 2026-09-03 se rompieron en producción dos cosas que ninguna
+# revisión de código detectó: la CSP bloqueando las imágenes de los correos, y
+# la misma CSP bloqueando el beacon de Cloudflare. scripts/smoke.mjs comprueba
+# justamente eso.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm exec astro check
+      - run: pnpm smoke

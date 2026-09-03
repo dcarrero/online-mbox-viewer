@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.8
+
+- Add: scripts/smoke.mjs and a CI workflow. The checks cover what actually broke in production and what code review missed: that the CSP keeps data: and https: in img-src (or emails lose their images), that it allows GA's regional hosts and Cloudflare's beacon, that every inline script in the output is hashed into the policy, that the viewer stays a separate lazily-loaded chunk, and that all 10 locales carry the same keys. Each check was verified to fail when the thing it guards is broken.
+
 ## v0.7.7
 
 - Fix: the CSP blocked Cloudflare Web Analytics in production. Pages injects its beacon at the edge, so it never appears in the built output and local testing could not see it — the policy has allowed the beacon's origin since it was written, but only for hosts visible in dist/. Verified against the live site.
