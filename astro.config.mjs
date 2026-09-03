@@ -101,8 +101,12 @@ function contentSecurityPolicy() {
           // Las hojas van inlinadas (build.inlineStylesheets), y el srcdoc del
           // visor lleva su propio <style>.
           "style-src 'self' 'unsafe-inline'",
-          // data: es lo que hace visibles las imágenes cid: de los correos.
-          "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com",
+          // data: hace visibles las imágenes cid: de los correos, y https:
+          // es imprescindible para el botón "mostrar imágenes": el srcdoc
+          // hereda ESTA política además de la suya, así que sin https: aquí
+          // las imágenes remotas se bloquean aunque el lector las permita.
+          // Quien las bloquea por defecto es el visor, no esta cabecera.
+          "img-src 'self' data: https:",
           "font-src 'self' data:",
           "media-src 'self' data:",
           "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",

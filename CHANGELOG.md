@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.3
+
+- Fix: the CSP added in v0.6.9 broke "Show images". A srcdoc iframe inherits the parent policy on top of its own, so with img-src limited to self and data:, remote images stayed blocked even after the reader explicitly allowed them. img-src now allows https:; blocking remote images by default is the viewer's job, not the header's, and that is unchanged.
+- Change: the cid → data: map is built once per message instead of on every render, so allowing images no longer re-encodes every inline attachment.
+
 ## v0.7.2
 
 - Change: stylesheets are no longer inlined into every page. All 60 pages carried the same ~7.6 KB gzipped of CSS in their HTML, and with prefetch on hover each prefetched link pulled it again. The CSS is now one file that _headers already serves immutable for a year, and each page's HTML drops from 18.7 to 11.1 KB gzipped.

@@ -284,9 +284,27 @@ interface BuiltBody {
 }
 
 /** Sanea el HTML del email y construye el documento del iframe. */
+/**
+ * cid → data: para las imágenes incrustadas. Se calcula una vez por mensaje y
+ * se le pasa a buildHtmlDoc: pulsar "mostrar imágenes" vuelve a sanear (hay
+ * que hacerlo) pero antes re-codificaba en base64 todos los adjuntos inline
+ * otra vez, que en un boletín con imágenes pesa.
+ */
+function buildCidMap(
+  attachments: { contentId?: string; mimeType: string; content: ArrayBuffer | Uint8Array }[],
+): Map<string, string> {
+  const cidMap = new Map<string, string>();
+  for (const a of attachments) {
+    if (a.contentId) {
+      cidMap.set(a.contentId.replace(/^<|>$/g, ""), bytesToDataUrl(a.content, a.mimeType));
+    }
+  }
+  return cidMap;
+}
+
 function buildHtmlDoc(
   html: string,
-  attachments: { contentId?: string; mimeType: string; content: ArrayBuffer | Uint8Array }[],
+  cidMap: Map<string, string>,
   showRemote: boolean,
 ): BuiltBody {
   const root = DOMPurify.sanitize(html, {
@@ -295,15 +313,6 @@ function buildHtmlDoc(
     FORBID_ATTR: ["srcset", "background", "style"],
     ALLOW_DATA_ATTR: false,
   }) as HTMLElement;
-
-  // Mapa cid → data: para imágenes inline.
-  const cidMap = new Map<string, string>();
-  for (const a of attachments) {
-    if (a.contentId) {
-      const id = a.contentId.replace(/^<|>$/g, "");
-      cidMap.set(id, bytesToDataUrl(a.content, a.mimeType));
-    }
-  }
 
   let blocked = 0;
   root.querySelectorAll("img").forEach((img) => {
@@ -585,7 +594,8 @@ class Viewer {
     // Cuerpo
     const attachments = email.attachments || [];
     if (email.html) {
-      const built = buildHtmlDoc(email.html, attachments, this.showRemote);
+      const cidMap = buildCidMap(attachments);
+      const built = buildHtmlDoc(email.html, cidMap, this.showRemote);
       if (built.blockedImages > 0) {
         const bar = document.createElement("button");
         bar.type = "button";
@@ -593,7 +603,7 @@ class Viewer {
         bar.textContent = `${S.imagesBlocked} · ${S.showImages}`;
         bar.addEventListener("click", () => {
           this.showRemote = true;
-          const re = buildHtmlDoc(email.html, attachments, true);
+          const re = buildHtmlDoc(email.html, cidMap, true);
           frame.srcdoc = re.srcdoc;
           bar.remove();
         });
