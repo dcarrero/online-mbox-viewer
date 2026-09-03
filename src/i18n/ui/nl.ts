@@ -20,6 +20,7 @@ export const nl: Partial<Record<UIKey, string>> = {
   "common.menu": "Menu",
   "common.nav_primary": "Primair",
   "common.nav_mobile": "Mobiel",
+  "common.opens_new_tab": "opent in een nieuw tabblad",
   "common.close": "Sluiten",
   "common.on_this_page": "Op deze pagina",
   "common.updated": "Bijgewerkt",

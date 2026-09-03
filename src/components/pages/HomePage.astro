@@ -102,11 +102,15 @@ const schema = [
       </div>
 
       <div>
+        <!--
+          Sin aria-label a propósito: sustituía al contenido, así que "o haz
+          clic para elegir un fichero" y el límite de tamaño no se anunciaban.
+          El nombre accesible sale ahora de los propios párrafos.
+        -->
         <div
           id="mbox-dropzone"
           role="button"
           tabindex="0"
-          aria-label={c.dropTitle}
           class="mbox-dropzone flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-ink-400 bg-ink-50/40 px-6 py-14 text-center transition-colors duration-200 ease-out hover:border-brand-400 hover:bg-brand-50/40 dark:border-ink-400 dark:bg-ink-900/40 dark:hover:border-brand-600"
         >
           <Icon name="upload" class="h-10 w-10 text-brand-500" />
@@ -147,6 +151,12 @@ const schema = [
 
     <!-- App -->
     <div id="mbox-app" class="mt-8" hidden>
+      <!--
+        El h1 de la página vive en #mbox-intro, que se oculta al abrir un
+        fichero: sin este, el estado de aplicación se queda sin encabezado de
+        nivel 1. Solo uno de los dos está visible en cada momento.
+      -->
+      <h1 class="sr-only">{c.title}</h1>
       <div
         class="mb-4 flex flex-wrap items-center justify-between gap-3 rounded-xl border border-ink-100 bg-white px-4 py-3 dark:border-ink-800 dark:bg-ink-950"
       >
@@ -261,7 +271,7 @@ const schema = [
           >
             {SITE.desktopName} · {SITE.desktopDomain}
             <Icon name="external" class="h-3 w-3 opacity-70" />
-          </a>
+          <span class="sr-only"> ({t("common.opens_new_tab")})</span></a>
         </p>
       </div>
     </div>

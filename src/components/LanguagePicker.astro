@@ -20,12 +20,14 @@ const current = LOCALE_META[locale];
   <button
     type="button"
     class="inline-flex h-9 items-center gap-1.5 rounded-full border border-ink-200 px-3 text-sm font-medium text-ink-600 transition-colors hover:bg-ink-50 dark:border-ink-700 dark:text-ink-300 dark:hover:bg-ink-800"
-    aria-haspopup="listbox"
     aria-expanded="false"
-    aria-label={t("common.change_language")}
+    aria-controls="lang-menu"
     data-lang-trigger
   >
     <Icon name="globe" class="h-4 w-4" />
+    {/* Como texto, no como aria-label: el nombre accesible incluye así el
+        código visible ("Cambiar idioma ES"), que es lo que pide 2.5.3. */}
+    <span class="sr-only">{t("common.change_language")}</span>
     {/* Código, no nombre nativo: el nav es una píldora dimensionada por su contenido y
         "Português (BR)" la desbordaba. El desplegable sí lleva los nombres completos. */}
     <span class="hidden font-mono text-xs tracking-wide sm:inline">
@@ -36,15 +38,14 @@ const current = LOCALE_META[locale];
 
   <ul
     class="absolute right-0 z-50 mt-2 hidden max-h-[70vh] w-44 overflow-auto rounded-xl border border-ink-100 bg-white p-1.5 shadow-[var(--shadow-card)] dark:border-ink-800 dark:bg-ink-900"
-    role="listbox"
+    id="lang-menu"
     data-lang-menu
   >
     {
       LOCALES.map((l) => (
-        <li role="none">
+        <li>
           <a
-            role="option"
-            aria-selected={l === locale ? "true" : "false"}
+            aria-current={l === locale ? "true" : undefined}
             hreflang={LOCALE_META[l].htmlLang}
             href={switchLocalePath(Astro.url, l)}
             class:list={[
@@ -68,9 +69,13 @@ const current = LOCALE_META[locale];
     const trigger = root.querySelector("[data-lang-trigger]");
     const menu = root.querySelector("[data-lang-menu]");
     if (!trigger || !menu) return;
-    const close = () => {
+    const close = (restoreFocus = false) => {
       menu.classList.add("hidden");
       trigger.setAttribute("aria-expanded", "false");
+      // Si el foco estaba dentro del menú, cerrarlo lo dejaba en el limbo.
+      if (restoreFocus && menu.contains(document.activeElement)) {
+        (trigger as HTMLElement).focus();
+      }
     };
     trigger.addEventListener("click", (e) => {
       e.stopPropagation();
@@ -81,7 +86,7 @@ const current = LOCALE_META[locale];
       if (!root.contains(e.target as Node)) close();
     });
     document.addEventListener("keydown", (e) => {
-      if ((e as KeyboardEvent).key === "Escape") close();
+      if ((e as KeyboardEvent).key === "Escape") close(true);
     });
   });
 </script>

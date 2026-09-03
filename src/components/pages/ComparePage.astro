@@ -26,16 +26,16 @@ const c = getCompare(locale);
       <table class="w-full border-collapse text-left text-sm">
         <thead class="bg-ink-50 dark:bg-ink-900">
           <tr>
-            <th class="px-4 py-3 font-semibold text-ink-900 dark:text-white"></th>
-            <th class="px-4 py-3 font-semibold text-brand-600 dark:text-brand-300">{c.onlineLabel}</th>
-            <th class="px-4 py-3 font-semibold text-ink-900 dark:text-white">{c.desktopLabel}</th>
+            <th scope="col" class="px-4 py-3 font-semibold text-ink-900 dark:text-white"></th>
+            <th scope="col" class="px-4 py-3 font-semibold text-brand-600 dark:text-brand-300">{c.onlineLabel}</th>
+            <th scope="col" class="px-4 py-3 font-semibold text-ink-900 dark:text-white">{c.desktopLabel}</th>
           </tr>
         </thead>
         <tbody>
           {
             c.rows.map((r) => (
               <tr class="border-t border-ink-100 dark:border-ink-800">
-                <th class="px-4 py-3 text-left font-medium text-ink-700 dark:text-ink-200">{r.feature}</th>
+                <th scope="row" class="px-4 py-3 text-left font-medium text-ink-700 dark:text-ink-200">{r.feature}</th>
                 <td class="px-4 py-3 text-ink-600 dark:text-ink-300">{r.online}</td>
                 <td class="px-4 py-3 text-ink-600 dark:text-ink-300">{r.desktop}</td>
               </tr>

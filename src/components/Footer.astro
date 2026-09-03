@@ -41,7 +41,7 @@ const links: { label: string; href: string; ext?: boolean }[] = [
         href={rp("home")}
         class="flex items-center gap-2 self-center whitespace-nowrap text-sm font-semibold text-ink-900 dark:text-white"
       >
-        <Logo class="h-5 w-5" />
+        <Logo class="h-5 w-5" decorative />
         Online Mbox Viewer
       </a>
       <span class="text-sm text-ink-500 dark:text-ink-400">{t("footer.tagline")}</span>
@@ -63,6 +63,7 @@ const links: { label: string; href: string; ext?: boolean }[] = [
             >
               {l.label}
               {l.ext && <Icon name="external" class="h-3 w-3 opacity-60" />}
+              {l.ext && <span class="sr-only"> ({t("common.opens_new_tab")})</span>}
             </a>
           </li>
         ))
@@ -76,14 +77,14 @@ const links: { label: string; href: string; ext?: boolean }[] = [
         href={SITE.companyUrl}
         target="_blank"
         rel="noopener"
-        class="hover:text-ink-700 dark:hover:text-ink-200">{SITE.company}</a
+        class="hover:text-ink-700 dark:hover:text-ink-200">{SITE.company}<span class="sr-only"> ({t("common.opens_new_tab")})</span></a
       > {t("footer.rights")}
       <span class="text-ink-300 dark:text-ink-700" aria-hidden="true">·</span>
       <a
         href={SITE.repoUrl}
         target="_blank"
         rel="noopener"
-        class="hover:text-brand-600 dark:hover:text-brand-300">MIT · {t("footer.open_source")}</a
+        class="hover:text-brand-600 dark:hover:text-brand-300">MIT · {t("footer.open_source")}<span class="sr-only"> ({t("common.opens_new_tab")})</span></a
       >
       <span class="text-ink-300 dark:text-ink-700" aria-hidden="true">·</span>
       {t("footer.based_on")}
@@ -91,14 +92,14 @@ const links: { label: string; href: string; ext?: boolean }[] = [
         href={SITE.mboxshellUrl}
         target="_blank"
         rel="noopener"
-        class="hover:text-brand-600 dark:hover:text-brand-300">mboxShell</a
+        class="hover:text-brand-600 dark:hover:text-brand-300">mboxShell<span class="sr-only"> ({t("common.opens_new_tab")})</span></a
       >
       {t("footer.by")}
       <a
         href={SITE.authorUrl}
         target="_blank"
         rel="noopener"
-        class="hover:text-brand-600 dark:hover:text-brand-300">{SITE.author}</a
+        class="hover:text-brand-600 dark:hover:text-brand-300">{SITE.author}<span class="sr-only"> ({t("common.opens_new_tab")})</span></a
       >.
     </p>
   </div>

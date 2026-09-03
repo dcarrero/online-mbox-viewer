@@ -20,6 +20,7 @@ export const ko: Partial<Record<UIKey, string>> = {
   "common.menu": "메뉴",
   "common.nav_primary": "기본",
   "common.nav_mobile": "모바일",
+  "common.opens_new_tab": "새 탭에서 열립니다",
   "common.close": "닫기",
   "common.on_this_page": "이 페이지에서",
   "common.updated": "업데이트됨",

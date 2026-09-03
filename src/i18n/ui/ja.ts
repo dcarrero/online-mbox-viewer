@@ -20,6 +20,7 @@ export const ja: Partial<Record<UIKey, string>> = {
   "common.menu": "メニュー",
   "common.nav_primary": "メイン",
   "common.nav_mobile": "モバイル",
+  "common.opens_new_tab": "新しいタブで開きます",
   "common.close": "閉じる",
   "common.on_this_page": "このページの内容",
   "common.updated": "更新日",

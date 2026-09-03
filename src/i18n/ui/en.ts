@@ -25,6 +25,7 @@ export const en = {
   "common.menu": "Menu",
   "common.nav_primary": "Primary",
   "common.nav_mobile": "Mobile",
+  "common.opens_new_tab": "opens in a new tab",
   "common.close": "Close",
   "common.on_this_page": "On this page",
   "common.updated": "Updated",

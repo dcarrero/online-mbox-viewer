@@ -4,6 +4,14 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.5
+
+- Fix: the language picker claimed to be a listbox (aria-haspopup, role=listbox, role=option, aria-selected) without implementing any of the keyboard behaviour that pattern requires, so a screen reader announced "option" for controls that only answered to Tab and Enter. It is a disclosure now: aria-expanded and aria-controls on the button, a plain list of links, aria-current on the active language. Escape also returns focus to the button instead of stranding it.
+- Fix: the picker's accessible name was "Change language" while its visible text is the language code, which fails WCAG 2.5.3. The label is now part of the button's content, so the name reads "Change language ES".
+- Fix: the logo carried its own accessible name next to the site name in the same link, so screen readers announced "Online Mbox Viewer Online Mbox Viewer" twice per page. It is decorative where the text is already there.
+- Fix: the dropzone's aria-label replaced its contents, hiding "or click to choose a file" and the size limit from screen readers. Removed, so the instructions are the accessible name.
+- Fix: links that open a new tab now say so, the comparison table's headers have scope, and the viewer keeps an h1 once the intro is hidden.
+
 ## v0.7.4
 
 - Change: the viewer itself is now loaded on demand. The home page evaluated ~36 KB gzipped of parser and sanitiser on every visit, including the many that never open a file. The initial script is 1.2 KB gzipped; the viewer arrives when the pointer reaches the drop area, a drag starts, the zone takes keyboard focus, or a file is actually chosen — and if it cannot be fetched, the error is shown rather than the drop doing nothing.

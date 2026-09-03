@@ -20,6 +20,7 @@ export const es: Partial<Record<UIKey, string>> = {
   "common.menu": "Menú",
   "common.nav_primary": "Principal",
   "common.nav_mobile": "Móvil",
+  "common.opens_new_tab": "se abre en una pestaña nueva",
   "common.close": "Cerrar",
   "common.on_this_page": "En esta página",
   "common.updated": "Actualizado",

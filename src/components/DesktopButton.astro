@@ -1,6 +1,7 @@
 ---
 import { SITE } from "@/lib/site";
 import Icon from "./Icon.astro";
+import { DEFAULT_LOCALE, useTranslations, type Locale } from "@/i18n/utils";
 
 interface Props {
   label?: string;
@@ -18,6 +19,7 @@ interface Props {
 }
 
 const { label, variant = "dark", store = "apple", class: className = "" } = Astro.props;
+const tr = useTranslations((Astro.currentLocale as Locale) || DEFAULT_LOCALE);
 const cls = variant === "brand" ? "btn-brand" : variant === "ghost" ? "btn-ghost" : "btn-primary";
 
 const TARGET = {
@@ -54,4 +56,4 @@ const t = TARGET[store];
       />
     )
   }
-</a>
+<span class="sr-only"> ({tr("common.opens_new_tab")})</span></a>
