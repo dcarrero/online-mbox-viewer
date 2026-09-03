@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.1
+
+- Change: the message header shows the real address next to the display name, for both From and To. The viewer used to show only the display name, so a message from evil@example.com calling itself "PayPal" appeared simply as "PayPal" — in an archive you are opening precisely to check what something was, that is the wrong half to keep. The list still shows the name alone, where there is no room for more.
+
 ## v0.7.0
 
 - Change: rejecting cookies now actually stops Google Analytics from loading, on that visit and on later ones. Previously the banner only updated consent mode — the script was downloaded and kept sending cookieless pings whatever the visitor pressed. Leaving the banner unanswered still measures cookielessly, as the privacy policy states.

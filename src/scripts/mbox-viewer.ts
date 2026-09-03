@@ -83,6 +83,21 @@ function decodeRFC2047(input: string): string {
     );
 }
 
+/**
+ * Nombre visible y dirección real, juntos. formatSender() se queda con el
+ * display name y tira la dirección, así que un correo de evil@example.com que
+ * se llame "PayPal" se veía solo como "PayPal" — justo el dato por el que se
+ * abre un archivo de correo viejo. En la lista no cabe; en la cabecera sí.
+ */
+function addressHtml(p: any, fallback: string): string {
+  const name = decodeRFC2047(String(p?.name || "")).trim();
+  const addr = String(p?.address || "").trim();
+  if (!name && !addr) return escapeHtml(fallback);
+  if (!addr) return escapeHtml(name);
+  if (!name) return `<span class="mbox-addr">${escapeHtml(addr)}</span>`;
+  return `${escapeHtml(name)} <span class="mbox-addr">&lt;${escapeHtml(addr)}&gt;</span>`;
+}
+
 function formatSender(raw: string, fallback: string): string {
   const v = decodeRFC2047(raw).trim();
   if (!v) return fallback;
@@ -545,11 +560,9 @@ class Viewer {
   private renderMessage(email: any, labels: string[] = []) {
     this.clearObjectUrls();
     const S = this.S;
-    const fromName = email.from
-      ? formatSender(`${email.from.name || ""} <${email.from.address || ""}>`, S.noSender)
-      : S.noSender;
-    const toList = (email.to || [])
-      .map((t: any) => formatSender(`${t.name || ""} <${t.address || ""}>`, ""))
+    const fromHtml = addressHtml(email.from, S.noSender);
+    const toHtml = (email.to || [])
+      .map((t: any) => addressHtml(t, ""))
       .filter(Boolean)
       .join(", ");
     const subject = decodeRFC2047(email.subject || "") || S.noSubject;
@@ -562,8 +575,8 @@ class Viewer {
     head.innerHTML =
       `<h2 class="mbox-msg-subject">${escapeHtml(subject)}</h2>` +
       `<dl class="mbox-msg-meta">` +
-      `<div><dt>${escapeHtml(S.from)}</dt><dd>${escapeHtml(fromName)}</dd></div>` +
-      (toList ? `<div><dt>${escapeHtml(S.to)}</dt><dd>${escapeHtml(toList)}</dd></div>` : "") +
+      `<div><dt>${escapeHtml(S.from)}</dt><dd>${fromHtml}</dd></div>` +
+      (toHtml ? `<div><dt>${escapeHtml(S.to)}</dt><dd>${toHtml}</dd></div>` : "") +
       `<div><dt>${escapeHtml(S.date)}</dt><dd>${escapeHtml(this.longDate(email.date || ""))}</dd></div>` +
       `</dl>` +
       (labels.length ? `<div class="mbox-msg-tags">${tagPills(labels)}</div>` : "");
