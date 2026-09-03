@@ -86,6 +86,8 @@
 
   html {
     scroll-behavior: smooth;
+    /* La píldora del nav es sticky: sin esto tapa el destino de un ancla. */
+    scroll-padding-top: 5rem;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     text-rendering: optimizeLegibility;
@@ -96,6 +98,20 @@
   }
   .dark body {
     @apply bg-ink-950 text-ink-200;
+  }
+
+  /* 2.3.3: quien pide menos movimiento no debería recibir ninguno. */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    ::before,
+    ::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 
   ::selection {

@@ -107,7 +107,7 @@ const schema = [
           role="button"
           tabindex="0"
           aria-label={c.dropTitle}
-          class="mbox-dropzone flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-ink-200 bg-ink-50/40 px-6 py-14 text-center transition-colors duration-200 ease-out hover:border-brand-400 hover:bg-brand-50/40 dark:border-ink-700 dark:bg-ink-900/40 dark:hover:border-brand-600"
+          class="mbox-dropzone flex cursor-pointer flex-col items-center justify-center rounded-2xl border-2 border-dashed border-ink-400 bg-ink-50/40 px-6 py-14 text-center transition-colors duration-200 ease-out hover:border-brand-400 hover:bg-brand-50/40 dark:border-ink-400 dark:bg-ink-900/40 dark:hover:border-brand-600"
         >
           <Icon name="upload" class="h-10 w-10 text-brand-500" />
           <p class="mt-4 text-lg font-semibold text-ink-900 dark:text-white">{c.dropTitle}</p>
@@ -341,6 +341,10 @@ const schema = [
       display: block;
       margin-top: 0.125rem;
       font-size: 0.6875rem;
+      /* ink-400 sobre blanco es 3.73:1, por debajo del 4.5:1 de 1.4.3. */
+      color: var(--color-ink-500);
+    }
+    .dark .mbox-item-date {
       color: var(--color-ink-400);
     }
     .dark .mbox-item-sender {
@@ -466,6 +470,12 @@ const schema = [
       color: var(--color-ink-500);
       font-size: 0.875rem;
     }
+    /* Sin override en oscuro, ink-500 sobre ink-950 queda en 3.10:1. */
+    .dark .mbox-msg-meta dt,
+    .dark .mbox-status,
+    .dark .mbox-attach h3 {
+      color: var(--color-ink-400);
+    }
     .mbox-item-tags {
       display: flex;
       flex-wrap: wrap;
@@ -485,7 +495,7 @@ const schema = [
       font-weight: 600;
       line-height: 1.4;
       border-radius: 9999px;
-      color: hsl(var(--h) 65% 32%);
+      color: hsl(var(--h) 65% 26%);
       background: hsl(var(--h) 70% 93%);
       white-space: nowrap;
     }

@@ -23,6 +23,8 @@ export const en = {
   "common.toggle_theme": "Toggle dark mode",
   "common.change_language": "Change language",
   "common.menu": "Menu",
+  "common.nav_primary": "Primary",
+  "common.nav_mobile": "Mobile",
   "common.close": "Close",
   "common.on_this_page": "On this page",
   "common.updated": "Updated",

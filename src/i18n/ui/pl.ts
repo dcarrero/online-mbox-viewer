@@ -18,6 +18,8 @@ export const pl: Partial<Record<UIKey, string>> = {
   "common.toggle_theme": "Przełącz tryb ciemny",
   "common.change_language": "Zmień język",
   "common.menu": "Menu",
+  "common.nav_primary": "Główna",
+  "common.nav_mobile": "Mobilna",
   "common.close": "Zamknij",
   "common.on_this_page": "Na tej stronie",
   "common.updated": "Zaktualizowano",

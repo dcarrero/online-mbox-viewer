@@ -18,6 +18,8 @@ export const nl: Partial<Record<UIKey, string>> = {
   "common.toggle_theme": "Donkere modus wisselen",
   "common.change_language": "Taal wijzigen",
   "common.menu": "Menu",
+  "common.nav_primary": "Primair",
+  "common.nav_mobile": "Mobiel",
   "common.close": "Sluiten",
   "common.on_this_page": "Op deze pagina",
   "common.updated": "Bijgewerkt",

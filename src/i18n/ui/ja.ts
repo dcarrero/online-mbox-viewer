@@ -18,6 +18,8 @@ export const ja: Partial<Record<UIKey, string>> = {
   "common.toggle_theme": "ダークモードを切り替え",
   "common.change_language": "言語を変更",
   "common.menu": "メニュー",
+  "common.nav_primary": "メイン",
+  "common.nav_mobile": "モバイル",
   "common.close": "閉じる",
   "common.on_this_page": "このページの内容",
   "common.updated": "更新日",

@@ -48,7 +48,18 @@ const privacyHref = routePath("privacy", locale);
       choice = localStorage.getItem(KEY);
     } catch (e) {}
 
-    if (!choice) banner.hidden = false;
+    // El banner es fixed: sin reservar ese hueco, los enlaces del pie
+    // quedan debajo y el navegador no puede desplazarlos a la vista.
+    function reserve(on: boolean) {
+      const h = on ? banner!.offsetHeight + "px" : "";
+      document.documentElement.style.scrollPaddingBottom = h;
+      document.body.style.paddingBottom = h;
+    }
+
+    if (!choice) {
+      banner.hidden = false;
+      reserve(true);
+    }
 
     function decide(value: "granted" | "denied") {
       try {
@@ -59,6 +70,7 @@ const privacyHref = routePath("privacy", locale);
         g("consent", "update", { analytics_storage: value });
       }
       banner!.hidden = true;
+      reserve(false);
     }
 
     banner.querySelector('[data-cookie="accept"]')?.addEventListener("click", () => decide("granted"));

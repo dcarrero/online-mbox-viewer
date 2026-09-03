@@ -4,6 +4,14 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.8
+
+- Fix: on phones and portrait tablets the list and the reader stack, and tapping a message scrolled nowhere — it looked like nothing had happened. Tapping now brings the reader into view, on the devices below 1024px only, and honours prefers-reduced-motion.
+- Fix: four text colours sat below the 4.5:1 contrast minimum — the message date, and the field labels, status text and attachment headings in dark mode. The Gmail label pills failed on 142 of the 360 possible hues; the worst hue is now 5.15:1. The dropzone border, the only visual edge of the control, was 1.43:1 in light and 1.87:1 in dark against a 3:1 minimum; both are now above 5:1.
+- Fix: the cookie banner is fixed to the bottom and covered the footer links when tabbing to them, which WCAG 2.2 rules out. It now reserves its own height while shown.
+- Fix: "Skip to content" and the two nav landmarks were hardcoded English on all 10 language versions, although the translation already existed and went unused.
+- Add: the message iframe carries the subject as its title, the theme button exposes aria-pressed, sticky-nav anchors get scroll padding, and prefers-reduced-motion is honoured site-wide.
+
 ## v0.6.7
 
 - Fix: the file picker did not offer .eml files, although the FAQ says the viewer opens them. They appeared greyed out in the browser's file dialog.

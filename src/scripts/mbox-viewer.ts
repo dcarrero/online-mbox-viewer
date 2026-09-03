@@ -360,7 +360,7 @@ class Viewer {
     // mensaje, 7.557 en un archivo de 24 MB.
     this.el.list.addEventListener("click", (e) => {
       const btn = (e.target as HTMLElement).closest<HTMLElement>(".mbox-item");
-      if (btn?.dataset.idx) this.open(Number(btn.dataset.idx));
+      if (btn?.dataset.idx) this.open(Number(btn.dataset.idx), true);
     });
 
     // Se registra una vez, no en cada buildFilter(): abrir un segundo fichero
@@ -516,7 +516,7 @@ class Viewer {
     }
   }
 
-  private async open(i: number) {
+  private async open(i: number, fromUser = false) {
     if (!this.bytes || i < 0 || i >= this.msgs.length) return;
     this.showRemote = false;
     this.el.list
@@ -527,6 +527,12 @@ class Viewer {
       ?.setAttribute("aria-current", "true");
     this.current = i;
     this.el.reader.innerHTML = `<p class="mbox-status">${escapeHtml(this.S.loading)}</p>`;
+    // Por debajo de lg la lista y el lector se apilan: sin esto, tocar un
+    // mensaje en móvil o en iPad vertical no produce ningún cambio visible.
+    if (fromUser && window.matchMedia("(max-width: 1023px)").matches) {
+      const still = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      this.el.reader.scrollIntoView({ block: "start", behavior: still ? "auto" : "smooth" });
+    }
     try {
       const raw = messageBytes(this.bytes, this.msgs[i]);
       const email = await PostalMime.parse(raw);
@@ -584,6 +590,7 @@ class Viewer {
       frame.className = "mbox-frame";
       frame.setAttribute("sandbox", "allow-popups allow-popups-to-escape-sandbox");
       frame.setAttribute("referrerpolicy", "no-referrer");
+      frame.title = email.subject || S.noSubject;
       frame.srcdoc = built.srcdoc;
       wrap.appendChild(frame);
     } else {

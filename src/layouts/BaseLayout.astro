@@ -6,6 +6,7 @@ import {
   LOCALE_META,
   DEFAULT_LOCALE,
   switchLocalePath,
+  useTranslations,
   type Locale,
 } from "@/i18n/utils";
 import Header from "@/components/Header.astro";
@@ -45,6 +46,7 @@ const {
 } = Astro.props;
 
 const meta = LOCALE_META[locale];
+const t = useTranslations(locale);
 const canonical = new URL(Astro.url.pathname, SITE.url).href;
 const ogImage = new URL(image, SITE.url).href;
 const ogImageAlt = imageAlt ?? SITE.name;
@@ -133,6 +135,11 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
             stored === "dark" ||
             (!stored && window.matchMedia("(prefers-color-scheme: dark)").matches);
           if (dark) document.documentElement.classList.add("dark");
+          // aria-pressed antes de pintar, para no anunciar un estado falso.
+          document.addEventListener("DOMContentLoaded", function () {
+            var b = document.getElementById("theme-toggle");
+            if (b) b.setAttribute("aria-pressed", String(!!dark));
+          });
         } catch (e) {}
       })();
     </script>
@@ -192,7 +199,7 @@ const schemaList = schema ? (Array.isArray(schema) ? schema : [schema]) : [];
       href="#main"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded-lg focus:bg-ink-900 focus:px-4 focus:py-2 focus:text-white"
     >
-      Skip to content
+      {t("common.skip_to_content")}
     </a>
 
     <Header locale={locale} />
