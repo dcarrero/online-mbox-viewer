@@ -27,14 +27,14 @@ Online Mbox Viewer évite tout cela : déposez le fichier sur la page et lisez-l
 - **Multilingue & prêt pour le SEO** — 10 langues avec des URL localisées, `hreflang`, sitemap et données structurées.
 - **Rapide & statique** — construit avec Astro, déployé sur Cloudflare Pages.
 
-## Également : Mbox Viewer pour Mac
+## Également : Mbox Viewer pour Mac et Windows
 
-La visionneuse en ligne est optimisée pour les fichiers jusqu'à **25 Mo**. Pour les exports complets de Gmail Takeout, la recherche en texte intégral, les dossiers et l'export, il existe une application de bureau native — **[Mbox Viewer](https://mboxviewerpro.com)** pour Mac (Windows bientôt disponible).
+La visionneuse en ligne est optimisée pour les fichiers jusqu'à **25 Mo**. Pour les exports complets de Gmail Takeout, la recherche en texte intégral, les dossiers et l'export, il existe une application de bureau native — **[Mbox Viewer](https://mboxviewerpro.com)** pour Mac et Windows.
 
 ## Projets connexes
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — l'outil en terminal (CLI/TUI) open source pour lire, rechercher et exporter des archives `.mbox`. C'est le projet frère et une source directe d'inspiration pour cette visionneuse.
-- **[Mbox Viewer](https://mboxviewerpro.com)** — l'application de bureau native pour Mac (Windows bientôt disponible), pour des archives de toute taille.
+- **[Mbox Viewer](https://mboxviewerpro.com)** — l'application de bureau native pour Mac et Windows, pour des archives de toute taille.
 
 ## Stack technique
 

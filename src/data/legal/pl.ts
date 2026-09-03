@@ -56,7 +56,7 @@ export const pl: LegalContent = {
         heading: "Korzystanie z usługi",
         paragraphs: [
           "Online Mbox Viewer można bezpłatnie używać do odczytywania archiwów e-mail w formacie .mbox w przeglądarce. Możesz otwierać wyłącznie pliki, które są Twoją własnością lub do których masz upoważniony dostęp.",
-          "Przeglądarka działa tylko do odczytu: nie modyfikuje, nie wysyła ani nie usuwa Twojej poczty. Jest przeznaczona do szybkiego podglądu niewielkich archiwów (do 25 MB). W przypadku większych plików i zaawansowanych funkcji skorzystaj z aplikacji desktopowej Mbox Viewer for Mac.",
+          "Przeglądarka działa tylko do odczytu: nie modyfikuje, nie wysyła ani nie usuwa Twojej poczty. Jest przeznaczona do szybkiego podglądu niewielkich archiwów (do 25 MB). W przypadku większych plików i zaawansowanych funkcji skorzystaj z aplikacji desktopowej Mbox Viewer na Maca i Windows.",
         ],
       },
       {

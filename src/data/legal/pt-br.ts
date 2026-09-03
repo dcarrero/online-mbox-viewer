@@ -56,7 +56,7 @@ export const ptbr: LegalContent = {
         heading: "Uso do serviço",
         paragraphs: [
           "O Visualizador de MBOX online é de uso gratuito para ler arquivos de e-mail .mbox no seu navegador. Você só pode abrir arquivos de sua propriedade ou aos quais esteja autorizado a acessar.",
-          "O visualizador é somente leitura: ele não modifica, envia nem exclui seu e-mail. Foi pensado para dar uma olhada rápida em arquivos pequenos (até 25 MB). Para arquivos maiores e recursos avançados, use o app de desktop, Mbox Viewer para Mac.",
+          "O visualizador é somente leitura: ele não modifica, envia nem exclui seu e-mail. Foi pensado para dar uma olhada rápida em arquivos pequenos (até 25 MB). Para arquivos maiores e recursos avançados, use o app de desktop, Mbox Viewer para Mac e Windows.",
         ],
       },
       {

@@ -56,7 +56,7 @@ export const de: LegalContent = {
         heading: "Nutzung des Dienstes",
         paragraphs: [
           "Online Mbox Viewer ist kostenlos nutzbar, um .mbox-E-Mail-Archive in Ihrem Browser zu lesen. Sie dürfen nur Dateien öffnen, die Ihnen gehören oder zu deren Zugriff Sie berechtigt sind.",
-          "Der Viewer ist schreibgeschützt: Er ändert, sendet oder löscht Ihre E-Mails nicht. Er ist für einen schnellen Blick auf kleine Archive (bis zu 25 MB) gedacht. Für größere Dateien und erweiterte Funktionen nutzen Sie die Desktop-App, Mbox Viewer für Mac.",
+          "Der Viewer ist schreibgeschützt: Er ändert, sendet oder löscht Ihre E-Mails nicht. Er ist für einen schnellen Blick auf kleine Archive (bis zu 25 MB) gedacht. Für größere Dateien und erweiterte Funktionen nutzen Sie die Desktop-App, Mbox Viewer für Mac und Windows.",
         ],
       },
       {

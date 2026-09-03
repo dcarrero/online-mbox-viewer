@@ -54,7 +54,7 @@ export const es: LegalContent = {
         heading: "Uso del servicio",
         paragraphs: [
           "Visor de MBOX online es de uso gratuito para leer archivos de correo .mbox en tu navegador. Solo puedes abrir ficheros de tu propiedad o a los que estés autorizado a acceder.",
-          "El visor es de solo lectura: no modifica, envía ni elimina tu correo. Está pensado para echar un vistazo rápido a archivos pequeños (hasta 25 MB). Para ficheros más grandes y funciones avanzadas, usa la app de escritorio, Mbox Viewer para Mac.",
+          "El visor es de solo lectura: no modifica, envía ni elimina tu correo. Está pensado para echar un vistazo rápido a archivos pequeños (hasta 25 MB). Para ficheros más grandes y funciones avanzadas, usa la app de escritorio, Mbox Viewer para Mac y Windows.",
         ],
       },
       {

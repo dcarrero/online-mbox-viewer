@@ -27,14 +27,14 @@ Online Mbox Viewer는 이 모든 과정을 건너뜁니다. 파일을 페이지�
 - **다국어 및 SEO 지원** — 현지화된 URL, `hreflang`, 사이트맵, 구조화된 데이터를 갖춘 10개 언어를 지원합니다.
 - **빠르고 정적** — Astro로 빌드되어 Cloudflare Pages에 배포됩니다.
 
-## 그리고: Mac용 Mbox Viewer
+## 그리고: Mac·Windows용 Mbox Viewer
 
-온라인 뷰어는 **25 MB**까지의 파일에 최적화되어 있습니다. 전체 Gmail Takeout 내보내기, 전문 검색, 폴더 및 내보내기 기능이 필요하다면, 네이티브 데스크톱 앱인 **[Mbox Viewer](https://mboxviewerpro.com)** for Mac이 있습니다 (Windows 버전은 곧 출시 예정).
+온라인 뷰어는 **25 MB**까지의 파일에 최적화되어 있습니다. 전체 Gmail Takeout 내보내기, 전문 검색, 폴더 및 내보내기 기능이 필요하다면, 네이티브 데스크톱 앱인 **[Mbox Viewer](https://mboxviewerpro.com)**(Mac·Windows용)이 있습니다.
 
 ## 관련 프로젝트
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — `.mbox` 아카이브를 읽고, 검색하고, 내보내는 오픈 소스 터미널(CLI/TUI) 도구입니다. 자매 프로젝트이자 이 뷰어의 직접적인 영감의 원천입니다.
-- **[Mbox Viewer](https://mboxviewerpro.com)** — 크기에 제한 없는 아카이브를 위한 Mac용 네이티브 데스크톱 앱입니다 (Windows 버전은 곧 출시 예정).
+- **[Mbox Viewer](https://mboxviewerpro.com)** — 크기에 제한 없는 아카이브를 위한 Mac·Windows용 네이티브 데스크톱 앱입니다.
 
 ## 기술 스택
 

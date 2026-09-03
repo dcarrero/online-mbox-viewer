@@ -56,7 +56,7 @@ export const nl: LegalContent = {
         heading: "Gebruik van de service",
         paragraphs: [
           "Online Mbox Viewer is gratis te gebruiken om .mbox-e-mailarchieven in je browser te lezen. Je mag alleen bestanden openen die je bezit of waartoe je gemachtigd bent toegang te krijgen.",
-          "De viewer is alleen-lezen: hij wijzigt, verzendt of verwijdert je e-mail niet. Hij is bedoeld om snel kleine archieven (tot 25 MB) te bekijken. Voor grotere bestanden en geavanceerde functies gebruik je de desktop-app, Mbox Viewer voor Mac.",
+          "De viewer is alleen-lezen: hij wijzigt, verzendt of verwijdert je e-mail niet. Hij is bedoeld om snel kleine archieven (tot 25 MB) te bekijken. Voor grotere bestanden en geavanceerde functies gebruik je de desktop-app, Mbox Viewer voor Mac en Windows.",
         ],
       },
       {

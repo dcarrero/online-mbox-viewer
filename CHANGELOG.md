@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.5
+
+- Fix: the Terms of Service still called the desktop app "Mbox Viewer for Mac" in all 10 languages, and the 10 READMEs still said "Windows coming soon" in their heading and both mentions. The v0.6.0 sweep covered the UI strings, home, viewer, how-to, FAQ, compare and llms.txt, but not legal/ or the READMEs. Windows shipped in July; every remaining claim is corrected.
+- Fix: the Polish, Japanese and Korean copy carried an untranslated English "for Mac" inside otherwise translated sentences, in the terms, the FAQ and the comparison page.
+
 ## v0.6.4
 
 - Fix: attachment downloads used the MIME type declared by the email. An HTML or SVG attachment produced a blob: URL on the site's own origin that would run scripts if opened as a document instead of downloaded. Attachments are always served as application/octet-stream now; the download name is unchanged.

@@ -27,14 +27,14 @@ Online Mbox Viewer slaat dat allemaal over: sleep het bestand op de pagina en le
 - **Meertalig & SEO-klaar** — 10 talen met gelokaliseerde URL's, `hreflang`, sitemap en gestructureerde data.
 - **Snel & statisch** — gebouwd met Astro, uitgerold op Cloudflare Pages.
 
-## Ook: Mbox Viewer voor Mac
+## Ook: Mbox Viewer voor Mac en Windows
 
-De online viewer is afgestemd op bestanden tot **25 MB**. Voor volledige Gmail Takeout-exports, zoeken op volledige tekst, mappen en exporteren is er een native desktop-app — **[Mbox Viewer](https://mboxviewerpro.com)** voor Mac (Windows komt binnenkort).
+De online viewer is afgestemd op bestanden tot **25 MB**. Voor volledige Gmail Takeout-exports, zoeken op volledige tekst, mappen en exporteren is er een native desktop-app — **[Mbox Viewer](https://mboxviewerpro.com)** voor Mac en Windows.
 
 ## Gerelateerde projecten
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — de open-source terminaltool (CLI/TUI) om `.mbox`-archieven te lezen, doorzoeken en exporteren. Het is het zusterproject en een directe bron van inspiratie voor deze viewer.
-- **[Mbox Viewer](https://mboxviewerpro.com)** — de native desktop-app voor Mac (Windows komt binnenkort), voor archieven van elke omvang.
+- **[Mbox Viewer](https://mboxviewerpro.com)** — de native desktop-app voor Mac en Windows, voor archieven van elke omvang.
 
 ## Tech-stack
 

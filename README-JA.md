@@ -27,14 +27,14 @@ Online Mbox Viewer はそのすべてを省きます。ファイルをページ�
 - **多言語＆SEO対応** — ローカライズされたURL、`hreflang`、サイトマップ、構造化データを備えた10言語に対応。
 - **高速＆静的** — Astro で構築され、Cloudflare Pages にデプロイされています。
 
-## さらに：Mbox Viewer for Mac
+## さらに：Mbox Viewer（Mac・Windows 版）
 
-オンラインビューアは **25 MB** までのファイル向けに最適化されています。Gmail Takeout エクスポート全体、全文検索、フォルダ、エクスポートには、ネイティブのデスクトップアプリ **[Mbox Viewer](https://mboxviewerpro.com)** for Mac（Windows版は近日公開）があります。
+オンラインビューアは **25 MB** までのファイル向けに最適化されています。Gmail Takeout エクスポート全体、全文検索、フォルダ、エクスポートには、ネイティブのデスクトップアプリ **[Mbox Viewer](https://mboxviewerpro.com)**（Mac・Windows 版）があります。
 
 ## 関連プロジェクト
 
 - **[mboxShell](https://github.com/dcarrero/mboxshell)** — `.mbox` アーカイブを読み、検索し、エクスポートするためのオープンソースのターミナル（CLI/TUI）ツールです。姉妹プロジェクトであり、このビューアの直接のインスピレーション源です。
-- **[Mbox Viewer](https://mboxviewerpro.com)** — あらゆるサイズのアーカイブに対応する、Mac向けのネイティブデスクトップアプリ（Windows版は近日公開）。
+- **[Mbox Viewer](https://mboxviewerpro.com)** — あらゆるサイズのアーカイブに対応する、Mac・Windows 向けのネイティブデスクトップアプリ。
 
 ## 技術スタック
 

@@ -16,7 +16,7 @@ export const ko: FaqContent = {
     },
     {
       q: "최대 파일 크기는 얼마인가요?",
-      a: "온라인 뷰어는 브라우저에서 빠르게 유지되도록 최대 25 MB의 파일을 처리합니다. 더 큰 아카이브(예: 전체 Google Takeout 내보내기)에는, 어떤 크기의 파일이든 스트리밍하는 데스크톱 앱 Mbox Viewer for Mac·Windows를 사용하세요.",
+      a: "온라인 뷰어는 브라우저에서 빠르게 유지되도록 최대 25 MB의 파일을 처리합니다. 더 큰 아카이브(예: 전체 Google Takeout 내보내기)에는, 어떤 크기의 파일이든 스트리밍하는 Mac·Windows용 데스크톱 앱 Mbox Viewer를 사용하세요.",
     },
     {
       q: "어떤 이메일 앱이 .mbox 파일을 내보내나요?",

@@ -56,7 +56,7 @@ export const en: LegalContent = {
         heading: "Use of the service",
         paragraphs: [
           "Online Mbox Viewer is free to use for reading .mbox email archives in your browser. You may only open files you own or are authorized to access.",
-          "The viewer is read-only: it does not modify, send or delete your email. It is intended for a quick look at small archives (up to 25 MB). For larger files and advanced features, use the desktop app, Mbox Viewer for Mac.",
+          "The viewer is read-only: it does not modify, send or delete your email. It is intended for a quick look at small archives (up to 25 MB). For larger files and advanced features, use the desktop app, Mbox Viewer for Mac and Windows.",
         ],
       },
       {

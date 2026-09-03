@@ -3,7 +3,7 @@ import type { CompareContent } from "./types";
 export const pl: CompareContent = {
   title: "Przeglądarka online a aplikacja desktopowa",
   description:
-    "Porównaj darmową przeglądarkę plików MBOX online z aplikacją desktopową Mbox Viewer for Mac i Windows — rozmiar plików, wyszukiwanie, prywatność i praca offline.",
+    "Porównaj darmową przeglądarkę plików MBOX online z aplikacją desktopową Mbox Viewer na Maca i Windows — rozmiar plików, wyszukiwanie, prywatność i praca offline.",
   intro:
     "Obie odczytują Twoją pocztę lokalnie i prywatnie. Przeglądarka działająca w przeglądarce to najszybszy sposób na podejrzenie niewielkiego archiwum; aplikacja desktopowa jest stworzona do dużych plików i zaawansowanych funkcji.",
   onlineLabel: "Przeglądarka online",

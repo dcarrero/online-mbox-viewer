@@ -56,7 +56,7 @@ export const fr: LegalContent = {
         heading: "Utilisation du service",
         paragraphs: [
           "Online Mbox Viewer est gratuit pour lire les archives de courrier .mbox dans votre navigateur. Vous ne pouvez ouvrir que des fichiers dont vous êtes propriétaire ou auxquels vous êtes autorisé à accéder.",
-          "Le visualiseur est en lecture seule : il ne modifie, n'envoie ni ne supprime votre courrier. Il est conçu pour jeter un coup d'œil rapide à de petites archives (jusqu'à 25 MB). Pour les fichiers plus volumineux et les fonctionnalités avancées, utilisez l'application de bureau, Mbox Viewer pour Mac.",
+          "Le visualiseur est en lecture seule : il ne modifie, n'envoie ni ne supprime votre courrier. Il est conçu pour jeter un coup d'œil rapide à de petites archives (jusqu'à 25 MB). Pour les fichiers plus volumineux et les fonctionnalités avancées, utilisez l'application de bureau, Mbox Viewer pour Mac et Windows.",
         ],
       },
       {

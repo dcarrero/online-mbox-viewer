@@ -16,7 +16,7 @@ export const pl: FaqContent = {
     },
     {
       q: "Jaki jest maksymalny rozmiar pliku?",
-      a: "Przeglądarka online obsługuje pliki do 25 MB, dzięki czemu pozostaje szybka w przeglądarce. W przypadku większych archiwów — na przykład pełnych eksportów z Google Takeout — skorzystaj z aplikacji desktopowej Mbox Viewer for Mac i Windows, która strumieniuje pliki dowolnej wielkości.",
+      a: "Przeglądarka online obsługuje pliki do 25 MB, dzięki czemu pozostaje szybka w przeglądarce. W przypadku większych archiwów — na przykład pełnych eksportów z Google Takeout — skorzystaj z aplikacji desktopowej Mbox Viewer na Maca i Windows, która strumieniuje pliki dowolnej wielkości.",
     },
     {
       q: "Które programy pocztowe eksportują pliki .mbox?",
