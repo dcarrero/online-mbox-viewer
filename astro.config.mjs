@@ -1,5 +1,6 @@
 // @ts-check
-import { writeFileSync } from "node:fs";
+import { readdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
+import { createHash } from "node:crypto";
 import { fileURLToPath } from "node:url";
 import { defineConfig } from "astro/config";
 import sitemap from "@astrojs/sitemap";
@@ -46,6 +47,81 @@ function localizedSlugRedirects() {
   };
 }
 
+/**
+ * Integración: escribe la Content-Security-Policy en `dist/_headers` con los
+ * hashes SHA-256 de los scripts inline ejecutables que Astro deja en el HTML
+ * (el anti-flash de tema y el arranque de GA, ambos `is:inline`, que
+ * `experimental.csp` NO cubre). Se calculan del HTML ya construido, así que
+ * no se pueden desincronizar del que se sirve.
+ *
+ * Cuidado al tocarla: el iframe del visor usa `srcdoc`, y un documento srcdoc
+ * HEREDA la CSP del padre además de la suya propia. Si `img-src` deja de
+ * permitir `data:`, las imágenes `cid:` incrustadas en los correos dejan de
+ * verse; si `style-src` pierde `'unsafe-inline'`, el correo se queda sin
+ * estilos. Ambos están comprobados en dist antes de escribir la cabecera.
+ */
+function contentSecurityPolicy() {
+  return {
+    name: "content-security-policy",
+    hooks: {
+      "astro:build:done": (
+        /** @type {{ dir: URL, logger: { info: (msg: string) => void } }} */ { dir, logger },
+      ) => {
+        const root = fileURLToPath(dir);
+
+        const htmlFiles = [];
+        (function walk(d) {
+          for (const e of readdirSync(d)) {
+            const full = `${d}/${e}`;
+            if (statSync(full).isDirectory()) walk(full);
+            else if (e.endsWith(".html")) htmlFiles.push(full);
+          }
+        })(root);
+
+        // Solo scripts inline EJECUTABLES: sin src, y sin un type de datos
+        // (application/json, ld+json) que el navegador no ejecuta.
+        const hashes = new Set();
+        for (const f of htmlFiles) {
+          const html = readFileSync(f, "utf8");
+          for (const m of html.matchAll(/<script([^>]*)>([\s\S]*?)<\/script>/g)) {
+            const attrs = m[1];
+            if (/\ssrc=/.test(attrs)) continue;
+            if (/type=["'](application|text)\/(ld\+)?json["']/.test(attrs)) continue;
+            hashes.add(`'sha256-${createHash("sha256").update(m[2], "utf8").digest("base64")}'`);
+          }
+        }
+
+        const csp = [
+          "default-src 'self'",
+          "base-uri 'self'",
+          "form-action 'none'",
+          "frame-ancestors 'none'",
+          "object-src 'none'",
+          `script-src 'self' https://www.googletagmanager.com ${[...hashes].sort().join(" ")}`,
+          // Las hojas van inlinadas (build.inlineStylesheets), y el srcdoc del
+          // visor lleva su propio <style>.
+          "style-src 'self' 'unsafe-inline'",
+          // data: es lo que hace visibles las imágenes cid: de los correos.
+          "img-src 'self' data: https://www.googletagmanager.com https://www.google-analytics.com",
+          "font-src 'self' data:",
+          "media-src 'self' data:",
+          "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
+          "frame-src 'self'",
+        ].join("; ");
+
+        const headersPath = fileURLToPath(new URL("_headers", dir));
+        const current = readFileSync(headersPath, "utf8");
+        const out = current.replace(
+          /^\/\*\n((?:  [A-Za-z-]+: .*\n)*)/m,
+          (_m, block) => `/*\n${block}  Content-Security-Policy: ${csp}\n`,
+        );
+        writeFileSync(headersPath, out);
+        logger.info(`CSP escrita (${hashes.size} hashes de scripts inline)`);
+      },
+    },
+  };
+}
+
 // https://astro.build/config
 export default defineConfig({
   site: "https://onlinemboxviewer.com",
@@ -65,7 +141,7 @@ export default defineConfig({
   build: {
     inlineStylesheets: "always",
   },
-  integrations: [sitemap(), localizedSlugRedirects()],
+  integrations: [sitemap(), localizedSlugRedirects(), contentSecurityPolicy()],
   vite: {
     plugins: [tailwindcss()],
   },

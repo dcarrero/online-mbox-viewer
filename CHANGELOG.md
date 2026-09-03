@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.9
+
+- Add: a Content-Security-Policy, generated at build time from the SHA-256 hashes of the inline scripts actually present in the output, so it cannot drift from what is served. It closes off base-uri, form-action, object-src and framing, and pins script and connection origins.
+
 ## v0.6.8
 
 - Fix: on phones and portrait tablets the list and the reader stack, and tapping a message scrolled nowhere — it looked like nothing had happened. Tapping now brings the reader into view, on the devices below 1024px only, and honours prefers-reduced-motion.
