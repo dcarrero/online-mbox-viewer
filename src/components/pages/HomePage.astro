@@ -30,6 +30,7 @@ const runtime = {
   noSubject: c.noSubject,
   noSender: c.noSender,
   messages: c.messages,
+  messagesOne: c.messagesOne,
   dateUnknown: c.dateUnknown,
   showImages: c.showImages,
   imagesBlocked: c.imagesBlocked,
@@ -114,7 +115,7 @@ const schema = [
           <p class="mt-4 text-xs font-medium uppercase tracking-wider text-ink-500 dark:text-ink-400">
             {c.dropNote}
           </p>
-          <input id="mbox-file" type="file" accept=".mbox,.txt,application/mbox,message/rfc822" hidden />
+          <input id="mbox-file" type="file" accept=".mbox,.eml,.txt,application/mbox,message/rfc822" hidden />
         </div>
       </div>
     </div>

@@ -22,6 +22,7 @@ interface Strings {
   noSubject: string;
   noSender: string;
   messages: string; // {n}
+  messagesOne: string; // {n} == 1
   dateUnknown: string;
   showImages: string;
   imagesBlocked: string;
@@ -426,7 +427,11 @@ class Viewer {
   }
 
   private renderList() {
-    this.el.count.textContent = this.S.messages.replace("{n}", String(this.msgs.length));
+    const n = this.msgs.length;
+    this.el.count.textContent = (n === 1 ? this.S.messagesOne : this.S.messages).replace(
+      "{n}",
+      String(n),
+    );
     this.el.list.replaceChildren();
     const seq = ++this.renderSeq;
     // Primero lo que cabe en pantalla; el resto en trozos, cediendo el hilo.
@@ -660,6 +665,15 @@ function init() {
       input?.click();
     }
   });
+
+  // Sin esto, soltar el fichero un poco fuera del recuadro dispara el
+  // comportamiento por defecto del navegador: abre o descarga el .mbox y
+  // abandona la página.
+  ["dragover", "drop"].forEach((ev) =>
+    document.addEventListener(ev, (e) => {
+      if (!dropzone?.contains(e.target as Node)) e.preventDefault();
+    }),
+  );
 
   const stop = (e: Event) => {
     e.preventDefault();

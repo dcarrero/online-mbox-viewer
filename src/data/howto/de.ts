@@ -16,7 +16,7 @@ export const de: HowToContent = {
   exportIntro: "Die meisten E-Mail-Apps können nach .mbox exportieren. Die häufigsten Quellen sind:",
   exporters: [
     { name: "Google Takeout (Gmail)", how: "Gehen Sie zu takeout.google.com, wählen Sie Mail und laden Sie herunter. Gmail exportiert Ihre Nachrichten als eine einzige .mbox-Datei." },
-    { name: "Apple Mail", how: "Wählen Sie ein Postfach und dann Postfach ▸ Postfach exportieren… Apple Mail schreibt ein .mbox-Paket in den von Ihnen gewählten Ordner." },
+    { name: "Apple Mail", how: "Wählen Sie ein Postfach und dann Postfach ▸ Postfach exportieren… Apple Mail schreibt ein .mbox-Paket in den von Ihnen gewählten Ordner. Dieses Paket ist ein Ordner: Öffnen Sie es (Rechtsklick ▸ Paketinhalt zeigen) und verwenden Sie die darin enthaltene Datei mbox." },
     { name: "Mozilla Thunderbird", how: "Installieren Sie das Add-on ImportExportTools NG, klicken Sie mit der rechten Maustaste auf einen Ordner und wählen Sie Ordner exportieren, um eine .mbox-Datei zu exportieren." },
   ],
   whatHeading: "Was Sie hier tun können",

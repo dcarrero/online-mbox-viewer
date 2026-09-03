@@ -16,7 +16,7 @@ export const ja: HowToContent = {
   exportIntro: "ほとんどのメールアプリは .mbox にエクスポートできます。最も一般的な取得元は次のとおりです：",
   exporters: [
     { name: "Google Takeout（Gmail）", how: "takeout.google.com にアクセスし、メールを選択してダウンロードします。Gmail はメッセージを 1 つの .mbox ファイルとしてエクスポートします。" },
-    { name: "Apple Mail", how: "メールボックスを選択し、メールボックス ▸ メールボックスを書き出す… を選びます。Apple Mail は選択したフォルダに .mbox パッケージを書き出します。" },
+    { name: "Apple Mail", how: "メールボックスを選択し、メールボックス ▸ メールボックスを書き出す… を選びます。Apple Mail は選択したフォルダに .mbox パッケージを書き出します。 このパッケージはフォルダです。右クリック ▸ パッケージの内容を表示 で開き、中の mbox ファイルを使ってください。" },
     { name: "Mozilla Thunderbird", how: "ImportExportTools NG アドオンをインストールし、フォルダを右クリックして「フォルダをエクスポート」を選ぶと、.mbox ファイルがエクスポートされます。" },
   ],
   whatHeading: "ここでできること",

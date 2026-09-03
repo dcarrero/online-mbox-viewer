@@ -26,6 +26,7 @@ export interface ViewerCopy {
   noSubject: string;
   noSender: string;
   messages: string;
+  messagesOne: string;
   dateUnknown: string;
   showImages: string;
   imagesBlocked: string;
@@ -49,7 +50,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Open another file",
       desktopTitle: "Bigger files or more features?",
       desktopBody:
-        "This web viewer is for a quick look at small archives. For files of any size, search, labels and EML support, get the native desktop app for Mac or Windows.",
+        "This web viewer is for a quick look at small archives. For files of any size, full-text search, folders and export, get the native desktop app for Mac or Windows.",
       metaTitle: "Free Online MBOX Viewer — open MBOX files in your browser",
       metaDescription: `Open and read MBOX files online, free and private. Everything runs in your browser — nothing is uploaded. Up to ${max} MB. For larger files, get Mbox Viewer for Mac or Windows.`,
       loading: "Loading message…",
@@ -60,6 +61,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(no subject)",
       noSender: "(unknown sender)",
       messages: "{n} messages",
+      messagesOne: "{n} message",
       dateUnknown: "Unknown date",
       showImages: "Show images",
       imagesBlocked: "Remote images blocked for your privacy",
@@ -81,7 +83,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Abrir otro fichero",
       desktopTitle: "¿Ficheros grandes o más funciones?",
       desktopBody:
-        "Este visor web es para echar un vistazo rápido a archivos pequeños. Para ficheros de cualquier tamaño, búsqueda, etiquetas y soporte EML, descarga la app nativa de escritorio para Mac o Windows.",
+        "Este visor web es para echar un vistazo rápido a archivos pequeños. Para ficheros de cualquier tamaño, búsqueda de texto completo, carpetas y exportación, descarga la app nativa de escritorio para Mac o Windows.",
       metaTitle: "Visor de MBOX online gratis — abre ficheros MBOX en tu navegador",
       metaDescription: `Abre y lee ficheros MBOX online, gratis y privado. Todo se procesa en tu navegador — no se sube nada. Hasta ${max} MB. Para ficheros más grandes, descarga Mbox Viewer para Mac o Windows.`,
       loading: "Cargando mensaje…",
@@ -92,6 +94,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(sin asunto)",
       noSender: "(remitente desconocido)",
       messages: "{n} mensajes",
+      messagesOne: "{n} mensaje",
       dateUnknown: "Fecha desconocida",
       showImages: "Mostrar imágenes",
       imagesBlocked: "Imágenes remotas bloqueadas por privacidad",
@@ -113,7 +116,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Andere Datei öffnen",
       desktopTitle: "Größere Dateien oder mehr Funktionen?",
       desktopBody:
-        "Dieser Web-Viewer ist für einen schnellen Blick auf kleine Archive gedacht. Für Dateien beliebiger Größe, Suche, Labels und EML-Unterstützung hol dir die native Desktop-App für Mac oder Windows.",
+        "Dieser Web-Viewer ist für einen schnellen Blick auf kleine Archive gedacht. Für Dateien beliebiger Größe, Volltextsuche, Ordner und Export hol dir die native Desktop-App für Mac oder Windows.",
       metaTitle: "Kostenloser Online-MBOX-Viewer — MBOX-Dateien im Browser öffnen",
       metaDescription: `Öffne und lies MBOX-Dateien online, kostenlos und privat. Alles läuft in deinem Browser — nichts wird hochgeladen. Bis zu ${max} MB. Für größere Dateien hol dir Mbox Viewer für Mac oder Windows.`,
       loading: "Nachricht wird geladen…",
@@ -124,6 +127,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(kein Betreff)",
       noSender: "(unbekannter Absender)",
       messages: "{n} Nachrichten",
+      messagesOne: "{n} Nachricht",
       dateUnknown: "Unbekanntes Datum",
       showImages: "Bilder anzeigen",
       imagesBlocked: "Externe Bilder zu deinem Schutz blockiert",
@@ -145,7 +149,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Ouvrir un autre fichier",
       desktopTitle: "Fichiers plus volumineux ou plus de fonctionnalités ?",
       desktopBody:
-        "Cette visionneuse web sert à consulter rapidement de petites archives. Pour des fichiers de toute taille, la recherche, les libellés et la prise en charge EML, téléchargez l'application de bureau native pour Mac ou Windows.",
+        "Cette visionneuse web sert à consulter rapidement de petites archives. Pour des fichiers de toute taille, la recherche en texte intégral, les dossiers et l'export, téléchargez l'application de bureau native pour Mac ou Windows.",
       metaTitle: "Visionneuse MBOX en ligne gratuite — ouvrez vos fichiers MBOX dans le navigateur",
       metaDescription: `Ouvrez et lisez vos fichiers MBOX en ligne, gratuitement et en privé. Tout s'exécute dans votre navigateur — rien n'est téléversé. Jusqu'à ${max} Mo. Pour les fichiers plus volumineux, téléchargez Mbox Viewer pour Mac ou Windows.`,
       loading: "Chargement du message…",
@@ -156,6 +160,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(sans objet)",
       noSender: "(expéditeur inconnu)",
       messages: "{n} messages",
+      messagesOne: "{n} message",
       dateUnknown: "Date inconnue",
       showImages: "Afficher les images",
       imagesBlocked: "Images distantes bloquées pour votre confidentialité",
@@ -177,7 +182,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Abrir outro arquivo",
       desktopTitle: "Arquivos maiores ou mais recursos?",
       desktopBody:
-        "Este visualizador web é para dar uma olhada rápida em arquivos pequenos. Para arquivos de qualquer tamanho, busca, marcadores e suporte a EML, baixe o app nativo de desktop para Mac ou Windows.",
+        "Este visualizador web é para dar uma olhada rápida em arquivos pequenos. Para arquivos de qualquer tamanho, busca em texto completo, pastas e exportação, baixe o app nativo de desktop para Mac ou Windows.",
       metaTitle: "Visualizador de MBOX online grátis — abra arquivos MBOX no navegador",
       metaDescription: `Abra e leia arquivos MBOX online, grátis e com privacidade. Tudo roda no seu navegador — nada é enviado. Até ${max} MB. Para arquivos maiores, baixe o Mbox Viewer para Mac ou Windows.`,
       loading: "Carregando mensagem…",
@@ -188,6 +193,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(sem assunto)",
       noSender: "(remetente desconhecido)",
       messages: "{n} mensagens",
+      messagesOne: "{n} mensagem",
       dateUnknown: "Data desconhecida",
       showImages: "Mostrar imagens",
       imagesBlocked: "Imagens remotas bloqueadas para sua privacidade",
@@ -209,7 +215,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "別のファイルを開く",
       desktopTitle: "大きなファイルやより多くの機能が必要ですか？",
       desktopBody:
-        "このウェブビューアは小さなアーカイブをすばやく確認するためのものです。あらゆるサイズのファイル、検索、ラベル、EML対応には、Mac・Windows 向けネイティブのデスクトップアプリをご利用ください。",
+        "このウェブビューアは小さなアーカイブをすばやく確認するためのものです。あらゆるサイズのファイル、全文検索、フォルダ、エクスポートには、Mac・Windows 向けネイティブのデスクトップアプリをご利用ください。",
       metaTitle: "無料オンラインMBOXビューア — ブラウザでMBOXファイルを開く",
       metaDescription: `MBOXファイルをオンラインで無料かつプライベートに開いて読めます。すべてブラウザ内で動作し、何もアップロードされません。最大${max}MBまで。大きなファイルにはMac・Windows 版Mbox Viewerをご利用ください。`,
       loading: "メッセージを読み込み中…",
@@ -220,6 +226,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(件名なし)",
       noSender: "(送信者不明)",
       messages: "{n}件のメッセージ",
+      messagesOne: "{n}件のメッセージ",
       dateUnknown: "日付不明",
       showImages: "画像を表示",
       imagesBlocked: "プライバシー保護のためリモート画像をブロックしました",
@@ -241,7 +248,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Apri un altro file",
       desktopTitle: "File più grandi o più funzioni?",
       desktopBody:
-        "Questo visualizzatore web serve a dare un'occhiata veloce a piccoli archivi. Per file di qualsiasi dimensione, ricerca, etichette e supporto EML, scarica l'app desktop nativa per Mac o Windows.",
+        "Questo visualizzatore web serve a dare un'occhiata veloce a piccoli archivi. Per file di qualsiasi dimensione, ricerca full-text, cartelle ed esportazione, scarica l'app desktop nativa per Mac o Windows.",
       metaTitle: "Visualizzatore MBOX online gratuito — apri i file MBOX nel browser",
       metaDescription: `Apri e leggi i file MBOX online, gratis e in privato. Tutto funziona nel tuo browser — niente viene caricato. Fino a ${max} MB. Per file più grandi, scarica Mbox Viewer per Mac o Windows.`,
       loading: "Caricamento del messaggio…",
@@ -252,6 +259,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(nessun oggetto)",
       noSender: "(mittente sconosciuto)",
       messages: "{n} messaggi",
+      messagesOne: "{n} messaggio",
       dateUnknown: "Data sconosciuta",
       showImages: "Mostra immagini",
       imagesBlocked: "Immagini remote bloccate per la tua privacy",
@@ -273,7 +281,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Ander bestand openen",
       desktopTitle: "Grotere bestanden of meer functies?",
       desktopBody:
-        "Deze webviewer is bedoeld om snel kleine archieven te bekijken. Voor bestanden van elke grootte, zoeken, labels en EML-ondersteuning download je de native desktop-app voor Mac of Windows.",
+        "Deze webviewer is bedoeld om snel kleine archieven te bekijken. Voor bestanden van elke grootte, zoeken op volledige tekst, mappen en exporteren download je de native desktop-app voor Mac of Windows.",
       metaTitle: "Gratis online MBOX-viewer — open MBOX-bestanden in je browser",
       metaDescription: `Open en lees MBOX-bestanden online, gratis en privé. Alles draait in je browser — er wordt niets geüpload. Tot ${max} MB. Voor grotere bestanden download je Mbox Viewer voor Mac of Windows.`,
       loading: "Bericht laden…",
@@ -284,6 +292,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(geen onderwerp)",
       noSender: "(onbekende afzender)",
       messages: "{n} berichten",
+      messagesOne: "{n} bericht",
       dateUnknown: "Onbekende datum",
       showImages: "Afbeeldingen tonen",
       imagesBlocked: "Externe afbeeldingen geblokkeerd voor je privacy",
@@ -305,7 +314,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "다른 파일 열기",
       desktopTitle: "더 큰 파일이나 더 많은 기능이 필요하세요?",
       desktopBody:
-        "이 웹 뷰어는 작은 아카이브를 빠르게 살펴보기 위한 것입니다. 모든 크기의 파일, 검색, 라벨, EML 지원이 필요하면 Mac·Windows용 네이티브 데스크톱 앱을 받으세요.",
+        "이 웹 뷰어는 작은 아카이브를 빠르게 살펴보기 위한 것입니다. 모든 크기의 파일, 전문 검색, 폴더, 내보내기가 필요하면 Mac·Windows용 네이티브 데스크톱 앱을 받으세요.",
       metaTitle: "무료 온라인 MBOX 뷰어 — 브라우저에서 MBOX 파일 열기",
       metaDescription: `MBOX 파일을 온라인에서 무료로 비공개로 열고 읽으세요. 모든 작업이 브라우저에서 실행되며 아무것도 업로드되지 않습니다. 최대 ${max}MB. 더 큰 파일은 Mac·Windows용 Mbox Viewer를 받으세요.`,
       loading: "메시지 불러오는 중…",
@@ -316,6 +325,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(제목 없음)",
       noSender: "(보낸 사람 불명)",
       messages: "메시지 {n}개",
+      messagesOne: "메시지 {n}개",
       dateUnknown: "날짜 알 수 없음",
       showImages: "이미지 표시",
       imagesBlocked: "개인정보 보호를 위해 원격 이미지를 차단했습니다",
@@ -337,7 +347,7 @@ function build(max: number): Record<string, ViewerCopy> {
       openAnother: "Otwórz inny plik",
       desktopTitle: "Większe pliki lub więcej funkcji?",
       desktopBody:
-        "Ta przeglądarka internetowa służy do szybkiego podglądu małych archiwów. Aby obsłużyć pliki dowolnego rozmiaru, wyszukiwanie, etykiety i format EML, pobierz natywną aplikację desktopową na Maca lub Windows.",
+        "Ta przeglądarka internetowa służy do szybkiego podglądu małych archiwów. Aby obsłużyć pliki dowolnego rozmiaru, wyszukiwanie pełnotekstowe, foldery i eksport, pobierz natywną aplikację desktopową na Maca lub Windows.",
       metaTitle: "Darmowa przeglądarka MBOX online — otwórz pliki MBOX w przeglądarce",
       metaDescription: `Otwieraj i czytaj pliki MBOX online, za darmo i prywatnie. Wszystko działa w Twojej przeglądarce — nic nie jest wysyłane. Do ${max} MB. W przypadku większych plików pobierz Mbox Viewer na Maca lub Windows.`,
       loading: "Wczytywanie wiadomości…",
@@ -348,6 +358,7 @@ function build(max: number): Record<string, ViewerCopy> {
       noSubject: "(brak tematu)",
       noSender: "(nieznany nadawca)",
       messages: "Wiadomości: {n}",
+      messagesOne: "Wiadomości: {n}",
       dateUnknown: "Nieznana data",
       showImages: "Pokaż obrazy",
       imagesBlocked: "Zdalne obrazy zablokowane dla Twojej prywatności",

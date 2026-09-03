@@ -16,7 +16,7 @@ export const it: HowToContent = {
   exportIntro: "La maggior parte delle app di posta può esportare in .mbox. Le fonti più comuni sono:",
   exporters: [
     { name: "Google Takeout (Gmail)", how: "Vai su takeout.google.com, seleziona Posta e scarica. Gmail esporta i tuoi messaggi come un singolo file .mbox." },
-    { name: "Apple Mail", how: "Seleziona una casella, poi Casella ▸ Esporta casella… Apple Mail scrive un pacchetto .mbox nella cartella che scegli." },
+    { name: "Apple Mail", how: "Seleziona una casella, poi Casella ▸ Esporta casella… Apple Mail scrive un pacchetto .mbox nella cartella che scegli. Quel pacchetto è una cartella: aprilo (clic destro ▸ Mostra contenuto pacchetto) e usa il file mbox al suo interno." },
     { name: "Mozilla Thunderbird", how: "Installa il componente aggiuntivo ImportExportTools NG, fai clic con il tasto destro su una cartella e scegli Esporta cartella per esportare un file .mbox." },
   ],
   whatHeading: "Cosa puoi fare qui",

@@ -16,7 +16,7 @@ export const ko: HowToContent = {
   exportIntro: "대부분의 이메일 앱은 .mbox로 내보낼 수 있습니다. 가장 일반적인 출처는 다음과 같습니다:",
   exporters: [
     { name: "Google Takeout (Gmail)", how: "takeout.google.com으로 이동해 메일을 선택하고 다운로드하세요. Gmail은 메시지를 단일 .mbox 파일로 내보냅니다." },
-    { name: "Apple Mail", how: "메일박스를 선택한 다음 메일박스 ▸ 메일박스 내보내기…를 선택하세요. Apple Mail이 선택한 폴더에 .mbox 패키지를 씁니다." },
+    { name: "Apple Mail", how: "메일박스를 선택한 다음 메일박스 ▸ 메일박스 내보내기…를 선택하세요. Apple Mail이 선택한 폴더에 .mbox 패키지를 씁니다. 이 패키지는 폴더입니다. 마우스 오른쪽 버튼 ▸ 패키지 내용 보기로 열어 안에 있는 mbox 파일을 사용하세요." },
     { name: "Mozilla Thunderbird", how: "ImportExportTools NG 부가 기능을 설치하고, 폴더를 마우스 오른쪽 버튼으로 클릭한 뒤 폴더 내보내기를 선택해 .mbox 파일을 내보내세요." },
   ],
   whatHeading: "여기서 할 수 있는 것",

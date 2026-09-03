@@ -16,7 +16,7 @@ export const nl: HowToContent = {
   exportIntro: "De meeste e-mailapps kunnen naar .mbox exporteren. De meest voorkomende bronnen zijn:",
   exporters: [
     { name: "Google Takeout (Gmail)", how: "Ga naar takeout.google.com, selecteer Mail en download. Gmail exporteert je berichten als één .mbox-bestand." },
-    { name: "Apple Mail", how: "Selecteer een mailbox en kies dan Mailbox ▸ Exporteer mailbox… Apple Mail schrijft een .mbox-pakket naar de map die je kiest." },
+    { name: "Apple Mail", how: "Selecteer een mailbox en kies dan Mailbox ▸ Exporteer mailbox… Apple Mail schrijft een .mbox-pakket naar de map die je kiest. Dat pakket is een map: open het (rechtermuisknop ▸ Toon pakketinhoud) en gebruik het bestand mbox dat erin zit." },
     { name: "Mozilla Thunderbird", how: "Installeer de ImportExportTools NG-add-on, klik met de rechtermuisknop op een map en kies Map exporteren om een .mbox-bestand te exporteren." },
   ],
   whatHeading: "Wat je hier kunt doen",

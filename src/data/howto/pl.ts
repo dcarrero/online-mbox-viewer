@@ -16,7 +16,7 @@ export const pl: HowToContent = {
   exportIntro: "Większość programów pocztowych potrafi eksportować do formatu .mbox. Najczęstsze źródła to:",
   exporters: [
     { name: "Google Takeout (Gmail)", how: "Przejdź na takeout.google.com, wybierz Poczta i pobierz. Gmail eksportuje Twoje wiadomości jako pojedynczy plik .mbox." },
-    { name: "Apple Mail", how: "Wybierz skrzynkę pocztową, następnie Skrzynka ▸ Eksportuj skrzynkę… Apple Mail zapisuje pakiet .mbox w wybranym przez Ciebie folderze." },
+    { name: "Apple Mail", how: "Wybierz skrzynkę pocztową, następnie Skrzynka ▸ Eksportuj skrzynkę… Apple Mail zapisuje pakiet .mbox w wybranym przez Ciebie folderze. Ten pakiet to folder: otwórz go (prawy przycisk ▸ Pokaż zawartość pakietu) i użyj znajdującego się w nim pliku mbox." },
     { name: "Mozilla Thunderbird", how: "Zainstaluj dodatek ImportExportTools NG, kliknij folder prawym przyciskiem myszy i wybierz Eksportuj folder, aby wyeksportować plik .mbox." },
   ],
   whatHeading: "Co możesz tutaj zrobić",

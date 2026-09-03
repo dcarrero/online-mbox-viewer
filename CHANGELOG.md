@@ -4,6 +4,14 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.7
+
+- Fix: the file picker did not offer .eml files, although the FAQ says the viewer opens them. They appeared greyed out in the browser's file dialog.
+- Fix: dropping a file slightly outside the drop area made the browser open it and navigate away from the page, losing whatever was on screen.
+- Fix: a single message read "1 messages". Languages with a distinct singular now have one.
+- Fix: the desktop app pitch listed labels and EML support as reasons to leave the web viewer, which has had both for a while — the FAQ and the comparison table said so on the same site. It now names what is actually exclusive: any file size, full-text search, folders and export.
+- Add: the Apple Mail export step now warns that the exported .mbox is a package, i.e. a folder, and points at the mbox file inside it. Dragging the folder does nothing.
+
 ## v0.6.6
 
 - Change: opening a file no longer freezes the page. The message list is built in batches — the first 80 rows render immediately, the rest fill in across frames — and a single delegated listener replaces one per message. Measured on a 6,000-message archive: first rows on screen at 99 ms instead of 3.3 s, full list at 570 ms, and the main thread never blocks (984 frames during the load, previously none).
