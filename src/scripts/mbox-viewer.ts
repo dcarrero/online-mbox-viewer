@@ -131,6 +131,26 @@ function endOfHeaders(bytes: Uint8Array, start: number, end: number): number {
   return end;
 }
 
+/**
+ * ¿El bloque parece un mensaje RFC 822? Un fichero sin ninguna línea "From " se
+ * trata como un único .eml; sin esta comprobación, un PDF o un ZIP soltado por
+ * error se mostraba como "1 mensaje" de bytes basura en lugar de dar error.
+ */
+function looksLikeRfc822(bytes: Uint8Array, start: number, end: number): boolean {
+  // Basta con que la primera línea no vacía tenga forma "Nombre-Cabecera:".
+  let i = start;
+  while (i < end && (bytes[i] === 0x0a || bytes[i] === 0x0d)) i++;
+  const limit = Math.min(end, i + 998); // línea máxima de RFC 5322
+  let name = 0;
+  for (; i < limit; i++) {
+    const b = bytes[i];
+    if (b === 0x3a /* : */) return name > 0;
+    if (b < 0x21 || b > 0x7e) return false; // field-name: US-ASCII imprimible
+    name++;
+  }
+  return false;
+}
+
 function splitMbox(bytes: Uint8Array, S: Strings): MsgIndex[] {
   const n = bytes.length;
   // Offsets de cada línea "From " al inicio de línea.
@@ -142,6 +162,7 @@ function splitMbox(bytes: Uint8Array, S: Strings): MsgIndex[] {
 
   const bounds: { from: number; to: number }[] = [];
   if (starts.length === 0) {
+    if (!looksLikeRfc822(bytes, 0, n)) return []; // no es un .mbox ni un .eml
     bounds.push({ from: 0, to: n }); // probablemente un único .eml
   } else {
     for (let i = 0; i < starts.length; i++) {
@@ -336,7 +357,6 @@ class Viewer {
       );
       return;
     }
-    this.el.filename.textContent = name;
     try {
       const buf = await file.arrayBuffer();
       this.bytes = new Uint8Array(buf);
@@ -346,9 +366,11 @@ class Viewer {
       return;
     }
     if (this.msgs.length === 0) {
-      this.showError(this.S.empty);
+      // Vacío de verdad y no parseable son errores distintos para quien lo abre.
+      this.showError(this.bytes.length === 0 ? this.S.empty : this.S.error);
       return;
     }
+    this.el.filename.textContent = name;
     this.el.intro.hidden = true;
     this.el.app.hidden = false;
     this.renderList();

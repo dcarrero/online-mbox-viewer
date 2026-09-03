@@ -4,6 +4,12 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.6.3
+
+- Fix: the error message lived inside the intro block, which is hidden once a file opens. Opening a second file that was too large or unreadable showed nothing at all, leaving the previous message on screen as if nothing had happened. The error now sits outside the intro and carries role="alert" so screen readers announce it.
+- Fix: a file with no "From " lines was accepted as a single .eml, so a PDF or a ZIP dropped by mistake rendered as "1 message" of garbled bytes. The fallback now checks the block actually starts with an RFC 822 header, and an unreadable file says so.
+- Fix: the filename in the app bar was set before parsing, so a failed load relabelled the bar with a file that had not opened.
+
 ## v0.6.2
 
 - Change: the desktop app moved from mboxviewer.net to mboxviewerpro.com. Every link, the support address and the footer label now point at the new domain, across the site, the legal pages in all 10 languages, llms.txt and the READMEs.

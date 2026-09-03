@@ -115,14 +115,21 @@ const schema = [
           </p>
           <input id="mbox-file" type="file" accept=".mbox,.txt,application/mbox,message/rfc822" hidden />
         </div>
-        <p
-          id="mbox-error"
-          class="mt-4 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
-          hidden
-        >
-        </p>
       </div>
     </div>
+
+    <!--
+      Fuera de #mbox-intro a propósito: el intro se oculta al abrir un fichero,
+      así que un error aquí dentro era invisible al intentar abrir un segundo.
+      role="alert" para que los lectores de pantalla lo anuncien al aparecer.
+    -->
+    <p
+      id="mbox-error"
+      role="alert"
+      class="mt-6 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 dark:border-red-900 dark:bg-red-950/50 dark:text-red-300"
+      hidden
+    >
+    </p>
 
     <!-- App -->
     <div id="mbox-app" class="mt-8" hidden>
