@@ -97,7 +97,10 @@ function contentSecurityPolicy() {
           "form-action 'none'",
           "frame-ancestors 'none'",
           "object-src 'none'",
-          `script-src 'self' https://www.googletagmanager.com ${[...hashes].sort().join(" ")}`,
+          // Cloudflare Pages inyecta el beacon de Web Analytics EN EL EDGE, así
+          // que no aparece en dist/ y no se ve al probar en local: la primera
+          // CSP lo bloqueó en producción sin que nada lo delatara aquí.
+          `script-src 'self' https://www.googletagmanager.com https://static.cloudflareinsights.com ${[...hashes].sort().join(" ")}`,
           // Las hojas van inlinadas (build.inlineStylesheets), y el srcdoc del
           // visor lleva su propio <style>.
           "style-src 'self' 'unsafe-inline'",
@@ -109,7 +112,7 @@ function contentSecurityPolicy() {
           "img-src 'self' data: https:",
           "font-src 'self' data:",
           "media-src 'self' data:",
-          "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com",
+          "connect-src 'self' https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://cloudflareinsights.com",
           "frame-src 'self'",
         ].join("; ");
 

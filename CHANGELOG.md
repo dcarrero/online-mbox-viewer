@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.7.7
+
+- Fix: the CSP blocked Cloudflare Web Analytics in production. Pages injects its beacon at the edge, so it never appears in the built output and local testing could not see it — the policy has allowed the beacon's origin since it was written, but only for hosts visible in dist/. Verified against the live site.
+
 ## v0.7.6
 
 - Fix: long messages scrolled twice — once inside the message frame and once in the page. The reader panel had no height, so the frame fell back to its minimum and the panel grew with the content. On desktop the panel now matches the message list at 70vh and the frame fills it; on smaller screens the frame keeps its own height.
