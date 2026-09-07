@@ -16,7 +16,7 @@ export const en: FaqContent = {
     },
     {
       q: "What is the maximum file size?",
-      a: "The online viewer handles files up to 25 MB so it stays fast in the browser. For larger archives — full Gmail Takeout exports, for example — use the desktop app, Mbox Viewer for Mac and Windows, which streams files of any size.",
+      a: "The online viewer handles files up to 50 MB so it stays fast in the browser. For larger archives — full Gmail Takeout exports, for example — use the desktop app, Mbox Viewer for Mac and Windows, which streams files of any size.",
     },
     {
       q: "Which email apps export .mbox files?",

@@ -16,7 +16,7 @@ export const nl: FaqContent = {
     },
     {
       q: "Wat is de maximale bestandsgrootte?",
-      a: "De online viewer verwerkt bestanden tot 25 MB zodat hij snel blijft in de browser. Voor grotere archieven — volledige Google Takeout-exports bijvoorbeeld — gebruik je de desktop-app, Mbox Viewer voor Mac en Windows, die bestanden van elke grootte streamt.",
+      a: "De online viewer verwerkt bestanden tot 50 MB zodat hij snel blijft in de browser. Voor grotere archieven — volledige Google Takeout-exports bijvoorbeeld — gebruik je de desktop-app, Mbox Viewer voor Mac en Windows, die bestanden van elke grootte streamt.",
     },
     {
       q: "Welke e-mailapps exporteren .mbox-bestanden?",

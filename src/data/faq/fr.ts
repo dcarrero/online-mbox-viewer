@@ -16,7 +16,7 @@ export const fr: FaqContent = {
     },
     {
       q: "Quelle est la taille maximale du fichier ?",
-      a: "La visionneuse en ligne gère les fichiers jusqu'à 25 Mo afin de rester rapide dans le navigateur. Pour les archives plus volumineuses — les exports complets de Google Takeout, par exemple — utilisez l'application de bureau, Mbox Viewer pour Mac et Windows, qui traite en flux les fichiers de n'importe quelle taille.",
+      a: "La visionneuse en ligne gère les fichiers jusqu'à 50 Mo afin de rester rapide dans le navigateur. Pour les archives plus volumineuses — les exports complets de Google Takeout, par exemple — utilisez l'application de bureau, Mbox Viewer pour Mac et Windows, qui traite en flux les fichiers de n'importe quelle taille.",
     },
     {
       q: "Quelles applications de messagerie exportent des fichiers .mbox ?",

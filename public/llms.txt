@@ -5,7 +5,7 @@
 
 ## What it is
 - A static website (Astro) that reads MBOX/EML files 100% client-side.
-- File size limit in the browser: 25 MB. For larger archives, the native
+- File size limit in the browser: 50 MB. For larger archives, the native
   desktop app "Mbox Viewer" for Mac and Windows is recommended.
 - Privacy by design: HTML is sanitized, remote images blocked by default,
   nothing leaves the device.

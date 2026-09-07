@@ -11,7 +11,7 @@ export const de: CompareContent = {
   rows: [
     { feature: "Preis", online: "Kostenlos", desktop: "Kostenlose Testversion · Einmalkauf" },
     { feature: "Installation", online: "Keine — läuft im Browser", desktop: "Mac App Store · Microsoft Store" },
-    { feature: "Maximale Dateigröße", online: "Bis zu 25 MB", desktop: "Beliebige Größe (streamt riesige Dateien)" },
+    { feature: "Maximale Dateigröße", online: "Bis zu 50 MB", desktop: "Beliebige Größe (streamt riesige Dateien)" },
     { feature: "Datenschutz", online: "100 % lokal, nichts hochgeladen", desktop: "100 % lokal, vollständig offline" },
     { feature: "Volltextsuche", online: "—", desktop: "Ja" },
     { feature: "Ordner & Gmail-Labels", online: "Nach Label filtern", desktop: "Vollständiger Ordnerbaum & Labels" },
@@ -20,5 +20,5 @@ export const de: CompareContent = {
     { feature: "Plattformen", online: "Jeder moderne Browser", desktop: "macOS · Windows" },
   ],
   closing:
-    "Faustregel: Wenn Ihre Datei unter 25 MB liegt und Sie sie nur lesen möchten, reicht der Online-Viewer völlig aus. Für einen vollständigen Gmail Takeout, zum Archivieren oder Suchen holen Sie sich die Desktop-App.",
+    "Faustregel: Wenn Ihre Datei unter 50 MB liegt und Sie sie nur lesen möchten, reicht der Online-Viewer völlig aus. Für einen vollständigen Gmail Takeout, zum Archivieren oder Suchen holen Sie sich die Desktop-App.",
 };

@@ -11,7 +11,7 @@ export const it: CompareContent = {
   rows: [
     { feature: "Prezzo", online: "Gratuito", desktop: "Prova gratuita · acquisto una tantum" },
     { feature: "Installazione", online: "Nessuna — funziona nel browser", desktop: "Mac App Store · Microsoft Store" },
-    { feature: "Dimensione massima file", online: "Fino a 25 MB", desktop: "Qualsiasi dimensione (streaming di file enormi)" },
+    { feature: "Dimensione massima file", online: "Fino a 50 MB", desktop: "Qualsiasi dimensione (streaming di file enormi)" },
     { feature: "Privacy", online: "100% locale, nulla caricato", desktop: "100% locale, completamente offline" },
     { feature: "Ricerca full-text", online: "—", desktop: "Sì" },
     { feature: "Cartelle ed etichette Gmail", online: "Filtra per etichetta", desktop: "Albero completo delle cartelle ed etichette" },
@@ -20,5 +20,5 @@ export const it: CompareContent = {
     { feature: "Piattaforme", online: "Qualsiasi browser moderno", desktop: "macOS · Windows" },
   ],
   closing:
-    "Regola pratica: se il tuo file è inferiore a 25 MB e devi solo leggerlo, il visualizzatore online è tutto ciò di cui hai bisogno. Per un Google Takeout completo di Gmail, per l'archiviazione o la ricerca, scegli l'app desktop.",
+    "Regola pratica: se il tuo file è inferiore a 50 MB e devi solo leggerlo, il visualizzatore online è tutto ciò di cui hai bisogno. Per un Google Takeout completo di Gmail, per l'archiviazione o la ricerca, scegli l'app desktop.",
 };

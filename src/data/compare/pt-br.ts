@@ -11,7 +11,7 @@ export const ptbr: CompareContent = {
   rows: [
     { feature: "Preço", online: "Grátis", desktop: "Teste grátis · compra única" },
     { feature: "Instalação", online: "Nenhuma — funciona no navegador", desktop: "Mac App Store · Microsoft Store" },
-    { feature: "Tamanho máximo", online: "Até 25 MB", desktop: "Qualquer tamanho (processa arquivos enormes)" },
+    { feature: "Tamanho máximo", online: "Até 50 MB", desktop: "Qualquer tamanho (processa arquivos enormes)" },
     { feature: "Privacidade", online: "100% local, nada é enviado", desktop: "100% local, totalmente offline" },
     { feature: "Busca de texto completo", online: "—", desktop: "Sim" },
     { feature: "Pastas e marcadores do Gmail", online: "Filtro por marcador", desktop: "Árvore de pastas e marcadores completa" },
@@ -20,5 +20,5 @@ export const ptbr: CompareContent = {
     { feature: "Plataformas", online: "Qualquer navegador moderno", desktop: "macOS · Windows" },
   ],
   closing:
-    "Regra prática: se seu arquivo tem menos de 25 MB e você só precisa lê-lo, o visualizador online é tudo o que você precisa. Para um Google Takeout completo, arquivamento ou busca, baixe o app de desktop.",
+    "Regra prática: se seu arquivo tem menos de 50 MB e você só precisa lê-lo, o visualizador online é tudo o que você precisa. Para um Google Takeout completo, arquivamento ou busca, baixe o app de desktop.",
 };

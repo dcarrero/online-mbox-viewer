@@ -11,7 +11,7 @@ export const pl: CompareContent = {
   rows: [
     { feature: "Cena", online: "Darmowa", desktop: "Darmowy okres próbny · jednorazowy zakup" },
     { feature: "Instalacja", online: "Brak — działa w przeglądarce", desktop: "Mac App Store · Microsoft Store" },
-    { feature: "Maksymalny rozmiar pliku", online: "Do 25 MB", desktop: "Dowolny rozmiar (strumieniuje ogromne pliki)" },
+    { feature: "Maksymalny rozmiar pliku", online: "Do 50 MB", desktop: "Dowolny rozmiar (strumieniuje ogromne pliki)" },
     { feature: "Prywatność", online: "100% lokalnie, nic nie jest przesyłane", desktop: "100% lokalnie, w pełni offline" },
     { feature: "Wyszukiwanie pełnotekstowe", online: "—", desktop: "Tak" },
     { feature: "Foldery i etykiety Gmaila", online: "Filtrowanie według etykiety", desktop: "Pełne drzewo folderów i etykiety" },
@@ -20,5 +20,5 @@ export const pl: CompareContent = {
     { feature: "Platformy", online: "Dowolna nowoczesna przeglądarka", desktop: "macOS · Windows" },
   ],
   closing:
-    "Praktyczna zasada: jeśli Twój plik ma mniej niż 25 MB i chcesz go tylko przeczytać, przeglądarka online to wszystko, czego potrzebujesz. W przypadku pełnego eksportu z Google Takeout, archiwizacji lub wyszukiwania wybierz aplikację desktopową.",
+    "Praktyczna zasada: jeśli Twój plik ma mniej niż 50 MB i chcesz go tylko przeczytać, przeglądarka online to wszystko, czego potrzebujesz. W przypadku pełnego eksportu z Google Takeout, archiwizacji lub wyszukiwania wybierz aplikację desktopową.",
 };

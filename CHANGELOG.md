@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.8.0
+
+- Change: the browser viewer now accepts files up to 50 MB, was 25 MB. The cap is one constant (`SITE.webViewerMaxMB`), but the copy quoting it was written by hand in ten languages across the READMEs, llms.txt, the FAQ, the comparison table, the how-to and the legal pages — all updated. Only the viewer's own strings interpolate the number.
+- Note: 50 MB is where the current viewer still behaves, not where it stops working. Two things set the ceiling and neither changed here — the message list renders one DOM node per message with no virtualisation (~315 messages per MB, so roughly 15,000 nodes at the new cap), and `splitMbox` indexes on the main thread. Going meaningfully higher needs a virtualised list and a worker first.
+
 ## v0.7.9
 
 - Fix: nothing had deployed since v0.7.1. Moving sharp to devDependencies changed package.json without regenerating pnpm-lock.yaml, and Cloudflare Pages installs with a frozen lockfile, so every build failed with ERR_PNPM_OUTDATED_LOCKFILE while the live site kept serving v0.7.1 — including the CSP that blocks "Show images", fixed in v0.7.3 but never shipped.

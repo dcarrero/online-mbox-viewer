@@ -29,7 +29,7 @@ Online Mbox Viewer slaat dat allemaal over: sleep het bestand op de pagina en le
 
 ## Ook: Mbox Viewer voor Mac en Windows
 
-De online viewer is afgestemd op bestanden tot **25 MB**. Voor volledige Gmail Takeout-exports, zoeken op volledige tekst, mappen en exporteren is er een native desktop-app — **[Mbox Viewer](https://mboxviewerpro.com)** voor Mac en Windows.
+De online viewer is afgestemd op bestanden tot **50 MB**. Voor volledige Gmail Takeout-exports, zoeken op volledige tekst, mappen en exporteren is er een native desktop-app — **[Mbox Viewer](https://mboxviewerpro.com)** voor Mac en Windows.
 
 ## Gerelateerde projecten
 

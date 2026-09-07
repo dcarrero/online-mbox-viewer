@@ -21,7 +21,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "Nothing leaves your device", body: "There is no upload and no server. The whole viewer runs in your browser, so your email stays private." },
     ],
     desktopPoints: [
-      "Open MBOX and EML archives of any size — no 25 MB limit.",
+      "Open MBOX and EML archives of any size — no 50 MB limit.",
       "Full-text search, folders and Gmail labels.",
       "Works fully offline on your Mac and on Windows.",
     ],
@@ -40,7 +40,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "Nada sale de tu dispositivo", body: "No hay subida ni servidor. Todo el visor funciona en tu navegador, así que tu correo sigue siendo privado." },
     ],
     desktopPoints: [
-      "Abre archivos MBOX y EML de cualquier tamaño — sin límite de 25 MB.",
+      "Abre archivos MBOX y EML de cualquier tamaño — sin límite de 50 MB.",
       "Búsqueda de texto completo, carpetas y etiquetas de Gmail.",
       "Funciona totalmente sin conexión en Mac y en Windows.",
     ],
@@ -78,7 +78,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "Rien ne quitte votre appareil", body: "Aucun téléversement, aucun serveur. Toute la visionneuse s'exécute dans votre navigateur, vos e-mails restent privés." },
     ],
     desktopPoints: [
-      "Ouvrez des archives MBOX et EML de toute taille — sans limite de 25 Mo.",
+      "Ouvrez des archives MBOX et EML de toute taille — sans limite de 50 Mo.",
       "Recherche en texte intégral, dossiers et libellés Gmail.",
       "Fonctionne entièrement hors ligne sur Mac et sur Windows.",
     ],
@@ -97,7 +97,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "Nada sai do seu dispositivo", body: "Não há envio nem servidor. Todo o visualizador roda no seu navegador, então seu e-mail continua privado." },
     ],
     desktopPoints: [
-      "Abra arquivos MBOX e EML de qualquer tamanho — sem limite de 25 MB.",
+      "Abra arquivos MBOX e EML de qualquer tamanho — sem limite de 50 MB.",
       "Busca em texto completo, pastas e marcadores do Gmail.",
       "Funciona totalmente offline no Mac e no Windows.",
     ],
@@ -116,7 +116,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "デバイスから何も出ません", body: "アップロードもサーバーもありません。ビューア全体がブラウザ内で動作するため、メールはプライベートに保たれます。" },
     ],
     desktopPoints: [
-      "あらゆるサイズの MBOX・EML アーカイブを開けます — 25MB の制限なし。",
+      "あらゆるサイズの MBOX・EML アーカイブを開けます — 50MB の制限なし。",
       "全文検索、フォルダ、Gmail ラベルに対応。",
       "Mac と Windows で完全オフライン動作。",
     ],
@@ -135,7 +135,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "Niente lascia il tuo dispositivo", body: "Nessun caricamento, nessun server. L'intero visualizzatore funziona nel tuo browser, quindi le tue e-mail restano private." },
     ],
     desktopPoints: [
-      "Apri archivi MBOX ed EML di qualsiasi dimensione — nessun limite di 25 MB.",
+      "Apri archivi MBOX ed EML di qualsiasi dimensione — nessun limite di 50 MB.",
       "Ricerca full-text, cartelle ed etichette di Gmail.",
       "Funziona completamente offline su Mac e su Windows.",
     ],
@@ -154,7 +154,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "Niets verlaat je apparaat", body: "Geen upload, geen server. De hele viewer draait in je browser, dus je e-mail blijft privé." },
     ],
     desktopPoints: [
-      "Open MBOX- en EML-archieven van elke grootte — geen limiet van 25 MB.",
+      "Open MBOX- en EML-archieven van elke grootte — geen limiet van 50 MB.",
       "Volledige tekstzoek, mappen en Gmail-labels.",
       "Werkt volledig offline op je Mac en op Windows.",
     ],
@@ -173,7 +173,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "기기를 벗어나지 않습니다", body: "업로드도 서버도 없습니다. 뷰어 전체가 브라우저에서 실행되므로 이메일은 비공개로 유지됩니다." },
     ],
     desktopPoints: [
-      "어떤 크기의 MBOX 및 EML 아카이브도 열기 — 25MB 제한 없음.",
+      "어떤 크기의 MBOX 및 EML 아카이브도 열기 — 50MB 제한 없음.",
       "전문 검색, 폴더, Gmail 라벨.",
       "Mac과 Windows에서 완전 오프라인으로 작동합니다.",
     ],
@@ -192,7 +192,7 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
       { title: "Nic nie opuszcza urządzenia", body: "Brak wysyłania i serwera. Cała przeglądarka działa w Twojej przeglądarce, więc e-maile pozostają prywatne." },
     ],
     desktopPoints: [
-      "Otwieraj archiwa MBOX i EML dowolnej wielkości — bez limitu 25 MB.",
+      "Otwieraj archiwa MBOX i EML dowolnej wielkości — bez limitu 50 MB.",
       "Wyszukiwanie pełnotekstowe, foldery i etykiety Gmaila.",
       "Działa całkowicie offline na Macu i w systemie Windows.",
     ],

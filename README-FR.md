@@ -29,7 +29,7 @@ Online Mbox Viewer évite tout cela : déposez le fichier sur la page et lisez-l
 
 ## Également : Mbox Viewer pour Mac et Windows
 
-La visionneuse en ligne est optimisée pour les fichiers jusqu'à **25 Mo**. Pour les exports complets de Gmail Takeout, la recherche en texte intégral, les dossiers et l'export, il existe une application de bureau native — **[Mbox Viewer](https://mboxviewerpro.com)** pour Mac et Windows.
+La visionneuse en ligne est optimisée pour les fichiers jusqu'à **50 Mo**. Pour les exports complets de Gmail Takeout, la recherche en texte intégral, les dossiers et l'export, il existe une application de bureau native — **[Mbox Viewer](https://mboxviewerpro.com)** pour Mac et Windows.
 
 ## Projets connexes
 

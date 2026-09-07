@@ -29,7 +29,7 @@ Online Mbox Viewer はそのすべてを省きます。ファイルをページ�
 
 ## さらに：Mbox Viewer（Mac・Windows 版）
 
-オンラインビューアは **25 MB** までのファイル向けに最適化されています。Gmail Takeout エクスポート全体、全文検索、フォルダ、エクスポートには、ネイティブのデスクトップアプリ **[Mbox Viewer](https://mboxviewerpro.com)**（Mac・Windows 版）があります。
+オンラインビューアは **50 MB** までのファイル向けに最適化されています。Gmail Takeout エクスポート全体、全文検索、フォルダ、エクスポートには、ネイティブのデスクトップアプリ **[Mbox Viewer](https://mboxviewerpro.com)**（Mac・Windows 版）があります。
 
 ## 関連プロジェクト
 

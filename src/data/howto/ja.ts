@@ -28,5 +28,5 @@ export const ja: HowToContent = {
   ],
   desktopHeading: "非常に大きなアーカイブを開く",
   desktopBody:
-    "オンラインビューアは最大 25 MB のファイルに最適化されています。Gmail の Google Takeout 全体は数ギガバイトに及ぶこともあります。そうしたファイルには、あらゆるサイズのアーカイブをストリーミング処理し、検索とエクスポートを備えた Mac・Windows 向けのネイティブデスクトップアプリ Mbox Viewerをご利用ください。",
+    "オンラインビューアは最大 50 MB のファイルに最適化されています。Gmail の Google Takeout 全体は数ギガバイトに及ぶこともあります。そうしたファイルには、あらゆるサイズのアーカイブをストリーミング処理し、検索とエクスポートを備えた Mac・Windows 向けのネイティブデスクトップアプリ Mbox Viewerをご利用ください。",
 };

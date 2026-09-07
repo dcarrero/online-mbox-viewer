@@ -11,7 +11,7 @@ export const nl: CompareContent = {
   rows: [
     { feature: "Prijs", online: "Gratis", desktop: "Gratis proefversie · eenmalige aankoop" },
     { feature: "Installatie", online: "Niets — draait in de browser", desktop: "Mac App Store · Microsoft Store" },
-    { feature: "Max. bestandsgrootte", online: "Tot 25 MB", desktop: "Elke grootte (streamt enorme bestanden)" },
+    { feature: "Max. bestandsgrootte", online: "Tot 50 MB", desktop: "Elke grootte (streamt enorme bestanden)" },
     { feature: "Privacy", online: "100% lokaal, niets geüpload", desktop: "100% lokaal, volledig offline" },
     { feature: "Volledige tekst zoeken", online: "—", desktop: "Ja" },
     { feature: "Mappen & Gmail-labels", online: "Filteren op label", desktop: "Volledige mappenstructuur & labels" },
@@ -20,5 +20,5 @@ export const nl: CompareContent = {
     { feature: "Platformen", online: "Elke moderne browser", desktop: "macOS · Windows" },
   ],
   closing:
-    "Vuistregel: als je bestand kleiner is dan 25 MB en je het alleen wilt lezen, is de online viewer alles wat je nodig hebt. Voor een volledige Google Takeout, archivering of zoeken kies je de desktop-app.",
+    "Vuistregel: als je bestand kleiner is dan 50 MB en je het alleen wilt lezen, is de online viewer alles wat je nodig hebt. Voor een volledige Google Takeout, archivering of zoeken kies je de desktop-app.",
 };

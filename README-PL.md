@@ -29,7 +29,7 @@ Online Mbox Viewer pomija to wszystko: upuść plik na stronie i czytaj. Większ
 
 ## A także: Mbox Viewer na Maca i Windows
 
-Przeglądarka online jest zoptymalizowana pod pliki do **25 MB**. Dla pełnych eksportów Gmail Takeout, wyszukiwania pełnotekstowego, folderów i eksportu istnieje natywna aplikacja desktopowa — **[Mbox Viewer](https://mboxviewerpro.com)** na Maca i Windows.
+Przeglądarka online jest zoptymalizowana pod pliki do **50 MB**. Dla pełnych eksportów Gmail Takeout, wyszukiwania pełnotekstowego, folderów i eksportu istnieje natywna aplikacja desktopowa — **[Mbox Viewer](https://mboxviewerpro.com)** na Maca i Windows.
 
 ## Powiązane projekty
 

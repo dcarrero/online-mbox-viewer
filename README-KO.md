@@ -29,7 +29,7 @@ Online Mbox Viewer는 이 모든 과정을 건너뜁니다. 파일을 페이지�
 
 ## 그리고: Mac·Windows용 Mbox Viewer
 
-온라인 뷰어는 **25 MB**까지의 파일에 최적화되어 있습니다. 전체 Gmail Takeout 내보내기, 전문 검색, 폴더 및 내보내기 기능이 필요하다면, 네이티브 데스크톱 앱인 **[Mbox Viewer](https://mboxviewerpro.com)**(Mac·Windows용)이 있습니다.
+온라인 뷰어는 **50 MB**까지의 파일에 최적화되어 있습니다. 전체 Gmail Takeout 내보내기, 전문 검색, 폴더 및 내보내기 기능이 필요하다면, 네이티브 데스크톱 앱인 **[Mbox Viewer](https://mboxviewerpro.com)**(Mac·Windows용)이 있습니다.
 
 ## 관련 프로젝트
 

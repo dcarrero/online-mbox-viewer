@@ -16,7 +16,7 @@ export const ptbr: FaqContent = {
     },
     {
       q: "Qual é o tamanho máximo de arquivo?",
-      a: "O visualizador online lida com arquivos de até 25 MB para manter a velocidade no navegador. Para arquivos maiores — exportações completas do Google Takeout, por exemplo — use o app de desktop, Mbox Viewer para Mac e Windows, que processa arquivos de qualquer tamanho.",
+      a: "O visualizador online lida com arquivos de até 50 MB para manter a velocidade no navegador. Para arquivos maiores — exportações completas do Google Takeout, por exemplo — use o app de desktop, Mbox Viewer para Mac e Windows, que processa arquivos de qualquer tamanho.",
     },
     {
       q: "Quais aplicativos de e-mail exportam arquivos .mbox?",
