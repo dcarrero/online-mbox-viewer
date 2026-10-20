@@ -12,7 +12,7 @@ export const SITE = {
   url: "https://onlinemboxviewer.com",
 
   /** Versión del sitio web. Se muestra en el pie. */
-  version: "0.8.0",
+  version: "0.8.1",
   repoUrl: "https://github.com/dcarrero/online-mbox-viewer",
 
   // Visor web (100% en el navegador, nada se sube): límite de tamaño por fichero.
@@ -27,6 +27,15 @@ export const SITE = {
   windowsAvailable: true,
   minMacOS: "macOS 14 Sonoma",
   minWindows: "Windows 10+",
+
+  // Arca Mail Backup: app hermana (copia de seguridad de cuentas de correo a mbox).
+  arcaName: "Arca Mail Backup",
+  arcaDomain: "arcamailbackup.com",
+  arcaUrl: "https://arcamailbackup.com",
+  arcaAppStoreUrl: "https://apps.apple.com/app/arca-mail-backup/id6819603030",
+  arcaMicrosoftStoreUrl: "https://apps.microsoft.com/detail/9NKQ1TKCLPNM",
+  arcaMinMacOS: "macOS 14",
+  arcaMinWindows: "Windows 10 1809+",
 
   // Empresa / autor
   author: "David Carrero Fernández-Baillo",

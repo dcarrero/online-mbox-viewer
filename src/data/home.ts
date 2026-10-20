@@ -10,6 +10,10 @@ export interface HomeCopy {
   linkCompareDesc: string;
   linkFaq: string;
   linkFaqDesc: string;
+  /** Arca Mail Backup: app hermana de copia de seguridad (arcamailbackup.com). */
+  arcaTitle: string;
+  arcaBody: string;
+  arcaPoints: string[];
 }
 
 const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
@@ -31,6 +35,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "When the browser is enough — and when it isn't.",
     linkFaq: "Frequently asked questions",
     linkFaqDesc: "Is it safe? Is anything uploaded? Size limits?",
+    arcaTitle: "Back up your mail as mbox, automatically",
+    arcaBody: "Arca Mail Backup, from the team behind Mbox Viewer, copies your mail accounts to storage you own as plain mbox files. No server of ours in between.",
+    arcaPoints: [
+      "IMAP, Gmail and Outlook accounts, saved to your disk, NAS or S3 bucket.",
+      "Standard mbox files you can open right here, or in any mail app.",
+      "Free for one account, on your Mac and on Windows.",
+    ],
   },
   es: {
     stepsTitle: "Cómo funciona — y por qué es privado",
@@ -50,6 +61,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "Cuándo basta el navegador — y cuándo no.",
     linkFaq: "Preguntas frecuentes",
     linkFaqDesc: "¿Es seguro? ¿Se sube algo? ¿Límite de tamaño?",
+    arcaTitle: "Haz copia de tu correo en mbox, sin pensar en ello",
+    arcaBody: "Arca Mail Backup, del mismo equipo que Mbox Viewer, copia tus cuentas de correo a un almacenamiento tuyo como ficheros mbox estándar. Sin servidores nuestros por medio.",
+    arcaPoints: [
+      "Cuentas IMAP, Gmail y Outlook, guardadas en tu disco, NAS o bucket S3.",
+      "Ficheros mbox estándar que puedes abrir aquí mismo o en cualquier app de correo.",
+      "Gratis para una cuenta, en Mac y en Windows.",
+    ],
   },
   de: {
     stepsTitle: "So funktioniert's — und warum es privat ist",
@@ -69,6 +87,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "Wann der Browser reicht — und wann nicht.",
     linkFaq: "Häufige Fragen",
     linkFaqDesc: "Ist es sicher? Wird etwas hochgeladen? Größenlimit?",
+    arcaTitle: "Sichern Sie Ihre E-Mails automatisch als mbox",
+    arcaBody: "Arca Mail Backup vom Team hinter Mbox Viewer kopiert Ihre E-Mail-Konten als normale mbox-Dateien auf Speicher, der Ihnen gehört. Kein Server von uns dazwischen.",
+    arcaPoints: [
+      "IMAP-, Gmail- und Outlook-Konten, gespeichert auf Ihrer Festplatte, Ihrem NAS oder S3-Bucket.",
+      "Standard-mbox-Dateien, die Sie direkt hier oder in jedem Mailprogramm öffnen können.",
+      "Kostenlos für ein Konto, auf dem Mac und unter Windows.",
+    ],
   },
   fr: {
     stepsTitle: "Comment ça marche — et pourquoi c'est privé",
@@ -88,6 +113,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "Quand le navigateur suffit — et quand non.",
     linkFaq: "Questions fréquentes",
     linkFaqDesc: "Est-ce sûr ? Quelque chose est-il téléversé ? Limite de taille ?",
+    arcaTitle: "Sauvegardez vos e-mails en mbox, automatiquement",
+    arcaBody: "Arca Mail Backup, de l’équipe de Mbox Viewer, copie vos comptes de messagerie sur un stockage qui vous appartient, sous forme de fichiers mbox standard. Aucun serveur à nous entre les deux.",
+    arcaPoints: [
+      "Comptes IMAP, Gmail et Outlook, enregistrés sur votre disque, votre NAS ou un bucket S3.",
+      "Des fichiers mbox standard à ouvrir ici même ou dans n’importe quelle messagerie.",
+      "Gratuit pour un compte, sur Mac et sur Windows.",
+    ],
   },
   "pt-br": {
     stepsTitle: "Como funciona — e por que é privado",
@@ -107,6 +139,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "Quando o navegador basta — e quando não.",
     linkFaq: "Perguntas frequentes",
     linkFaqDesc: "É seguro? Algo é enviado? Limite de tamanho?",
+    arcaTitle: "Faça backup do seu e-mail em mbox, automaticamente",
+    arcaBody: "O Arca Mail Backup, da mesma equipe do Mbox Viewer, copia suas contas de e-mail para um armazenamento seu, como arquivos mbox padrão. Nenhum servidor nosso no meio.",
+    arcaPoints: [
+      "Contas IMAP, Gmail e Outlook, salvas no seu disco, NAS ou bucket S3.",
+      "Arquivos mbox padrão que você abre aqui mesmo ou em qualquer app de e-mail.",
+      "Grátis para uma conta, no Mac e no Windows.",
+    ],
   },
   ja: {
     stepsTitle: "使い方 — そしてなぜプライベートなのか",
@@ -126,6 +165,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "ブラウザで十分なとき — そうでないとき。",
     linkFaq: "よくある質問",
     linkFaqDesc: "安全？ 何かアップロードされる？ サイズ制限は？",
+    arcaTitle: "メールを mbox で自動バックアップ",
+    arcaBody: "Mbox Viewer と同じチームが作る Arca Mail Backup は、メールアカウントを標準的な mbox ファイルとして、あなた自身のストレージにコピーします。間に当社のサーバーは入りません。",
+    arcaPoints: [
+      "IMAP・Gmail・Outlook アカウントを、ディスク・NAS・S3 バケットに保存。",
+      "標準の mbox ファイルなので、ここでも、どのメールアプリでも開けます。",
+      "1 アカウントまで無料。Mac と Windows に対応。",
+    ],
   },
   it: {
     stepsTitle: "Come funziona — e perché è privato",
@@ -145,6 +191,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "Quando il browser basta — e quando no.",
     linkFaq: "Domande frequenti",
     linkFaqDesc: "È sicuro? Viene caricato qualcosa? Limite di dimensione?",
+    arcaTitle: "Fai il backup della tua posta in mbox, in automatico",
+    arcaBody: "Arca Mail Backup, dello stesso team di Mbox Viewer, copia i tuoi account di posta su uno spazio di archiviazione tuo, come file mbox standard. Nessun nostro server in mezzo.",
+    arcaPoints: [
+      "Account IMAP, Gmail e Outlook, salvati sul tuo disco, NAS o bucket S3.",
+      "File mbox standard da aprire proprio qui o in qualsiasi app di posta.",
+      "Gratis per un account, su Mac e su Windows.",
+    ],
   },
   nl: {
     stepsTitle: "Hoe het werkt — en waarom het privé is",
@@ -164,6 +217,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "Wanneer de browser volstaat — en wanneer niet.",
     linkFaq: "Veelgestelde vragen",
     linkFaqDesc: "Is het veilig? Wordt er iets geüpload? Groottelimiet?",
+    arcaTitle: "Maak automatisch een back-up van je mail als mbox",
+    arcaBody: "Arca Mail Backup, van het team achter Mbox Viewer, kopieert je mailaccounts als gewone mbox-bestanden naar opslag die van jou is. Geen server van ons ertussen.",
+    arcaPoints: [
+      "IMAP-, Gmail- en Outlook-accounts, opgeslagen op je schijf, NAS of S3-bucket.",
+      "Standaard mbox-bestanden die je hier of in elke mailapp opent.",
+      "Gratis voor één account, op Mac en Windows.",
+    ],
   },
   ko: {
     stepsTitle: "작동 방식 — 그리고 왜 비공개인지",
@@ -183,6 +243,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "브라우저로 충분할 때 — 그렇지 않을 때.",
     linkFaq: "자주 묻는 질문",
     linkFaqDesc: "안전한가요? 업로드되나요? 크기 제한은?",
+    arcaTitle: "메일을 mbox로 자동 백업하세요",
+    arcaBody: "Mbox Viewer 팀이 만든 Arca Mail Backup은 메일 계정을 표준 mbox 파일로 내 저장소에 복사합니다. 중간에 저희 서버를 거치지 않습니다.",
+    arcaPoints: [
+      "IMAP, Gmail, Outlook 계정을 디스크, NAS 또는 S3 버킷에 저장합니다.",
+      "표준 mbox 파일이라 여기서 바로, 또는 어떤 메일 앱에서도 열 수 있습니다.",
+      "계정 1개는 무료이며 Mac과 Windows에서 사용할 수 있습니다.",
+    ],
   },
   pl: {
     stepsTitle: "Jak to działa — i dlaczego jest prywatne",
@@ -202,6 +269,13 @@ const DATA: Partial<Record<Locale, HomeCopy>> & { en: HomeCopy } = {
     linkCompareDesc: "Kiedy przeglądarka wystarczy — a kiedy nie.",
     linkFaq: "Najczęstsze pytania",
     linkFaqDesc: "Czy to bezpieczne? Czy coś jest wysyłane? Limit rozmiaru?",
+    arcaTitle: "Automatyczna kopia poczty w formacie mbox",
+    arcaBody: "Arca Mail Backup, od zespołu Mbox Viewer, kopiuje Twoje konta pocztowe jako standardowe pliki mbox do magazynu, który należy do Ciebie. Bez naszych serwerów po drodze.",
+    arcaPoints: [
+      "Konta IMAP, Gmail i Outlook zapisywane na dysku, NAS lub w zasobniku S3.",
+      "Standardowe pliki mbox, które otworzysz tutaj lub w dowolnym programie pocztowym.",
+      "Bezpłatnie dla jednego konta, na Macu i w Windows.",
+    ],
   },
 };
 

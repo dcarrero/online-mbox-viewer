@@ -15,10 +15,12 @@ interface Props {
    *    sola tienda elegía plataforma por el usuario.
    */
   store?: "apple" | "microsoft" | "web";
+  /** De qué app son las tiendas: Mbox Viewer (por defecto) o Arca Mail Backup. */
+  product?: "mboxviewer" | "arca";
   class?: string;
 }
 
-const { label, variant = "dark", store = "apple", class: className = "" } = Astro.props;
+const { label, variant = "dark", store = "apple", product = "mboxviewer", class: className = "" } = Astro.props;
 const tr = useTranslations((Astro.currentLocale as Locale) || DEFAULT_LOCALE);
 const cls = variant === "brand" ? "btn-brand" : variant === "ghost" ? "btn-ghost" : "btn-primary";
 
@@ -33,7 +35,18 @@ const TARGET = {
   web: { href: SITE.desktopUrl, analytics: "desktopsite", icon: null, fallback: SITE.desktopName },
 } as const;
 
-const t = TARGET[store];
+const ARCA_TARGET = {
+  apple: { href: SITE.arcaAppStoreUrl, analytics: "arca-appstore", icon: "apple", fallback: "Mac App Store" },
+  microsoft: {
+    href: SITE.arcaMicrosoftStoreUrl,
+    analytics: "arca-microsoftstore",
+    icon: "windows",
+    fallback: "Microsoft Store",
+  },
+  web: { href: SITE.arcaUrl, analytics: "arcasite", icon: null, fallback: SITE.arcaName },
+} as const;
+
+const t = (product === "arca" ? ARCA_TARGET : TARGET)[store];
 ---
 
 <a

@@ -289,6 +289,61 @@ const schema = [
     </div>
   </section>
 
+  <!-- Bloque de publicidad: Arca Mail Backup. Misma estructura que el de la app de
+       escritorio, pero en superficie clara: dos losas oscuras seguidas se leerían como
+       una sola y competirían; la del visor de escritorio sigue siendo la principal. -->
+  <section class="container-page pb-12">
+    <div class="rounded-3xl border border-ink-200 bg-white px-6 py-12 sm:px-12 dark:border-ink-800 dark:bg-ink-900">
+      <div class="max-w-2xl">
+        <span class="pill border-ink-200 bg-ink-50 text-ink-600 dark:border-ink-700 dark:bg-ink-950 dark:text-ink-300">
+          <Icon name="apple" class="h-4 w-4 shrink-0" />
+          <Icon name="windows" class="h-4 w-4 shrink-0" />
+          {SITE.arcaName} · {SITE.arcaMinMacOS} · {SITE.arcaMinWindows}
+        </span>
+        <h2 class="mt-5 text-2xl font-bold tracking-tight text-ink-900 sm:text-3xl dark:text-white">{h.arcaTitle}</h2>
+        <p class="mt-4 text-ink-600 dark:text-ink-300">{h.arcaBody}</p>
+        <ul class="mt-5 flex flex-col gap-2 text-sm text-ink-600 dark:text-ink-300">
+          {
+            h.arcaPoints.map((p) => (
+              <li class="flex items-start gap-2">
+                <Icon name="check" class="mt-0.5 h-4 w-4 shrink-0 text-brand-600 dark:text-brand-400" />
+                <span>{p}</span>
+              </li>
+            ))
+          }
+        </ul>
+        <div class="mt-7 flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:items-center">
+          <DesktopButton
+            label={t("cta.appstore_short")}
+            variant="brand"
+            store="apple"
+            product="arca"
+            class="w-full justify-center !px-5 !py-3 sm:w-auto"
+          />
+          <DesktopButton
+            label={t("cta.microsoftstore_short")}
+            variant="ghost"
+            store="microsoft"
+            product="arca"
+            class="w-full justify-center !px-5 !py-3 sm:w-auto"
+          />
+        </div>
+        <p class="mt-5 text-xs">
+          <a
+            href={SITE.arcaUrl}
+            target="_blank"
+            rel="noopener"
+            data-analytics="arcasite"
+            class="inline-flex items-center gap-1 text-ink-500 underline-offset-2 transition-colors duration-200 ease-out hover:text-ink-800 hover:underline dark:text-ink-400 dark:hover:text-ink-200"
+          >
+            {SITE.arcaName} · {SITE.arcaDomain}
+            <Icon name="external" class="h-3 w-3 opacity-70" />
+          <span class="sr-only"> ({t("common.opens_new_tab")})</span></a>
+        </p>
+      </div>
+    </div>
+  </section>
+
   <!--
     Enlaces a páginas SEO. Era el segundo grid de 3 tarjetas con icono encima; ahora es
     un índice: filas a filete, título y descripción en la misma línea base, flecha a la

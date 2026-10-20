@@ -4,6 +4,10 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.8.1
+
+- Add an Arca Mail Backup promo box to the home page, with Mac App Store and Microsoft Store links, in all 10 languages
+
 ## v0.8.0
 
 - Change: the browser viewer now accepts files up to 50 MB, was 25 MB. The cap is one constant (`SITE.webViewerMaxMB`), but the copy quoting it was written by hand in ten languages across the READMEs, llms.txt, the FAQ, the comparison table, the how-to and the legal pages — all updated. Only the viewer's own strings interpolate the number.
