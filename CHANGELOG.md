@@ -4,6 +4,11 @@ All notable changes to Online Mbox Viewer are documented in this file.
 
 The format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## v0.8.2
+
+- Polish the Arca Mail Backup copy in all 10 languages (German now uses du, like the rest of the home page)
+- Fix the German home page still saying 25 MB instead of 50 MB
+
 ## v0.8.1
 
 - Add an Arca Mail Backup promo box to the home page, with Mac App Store and Microsoft Store links, in all 10 languages
